@@ -13,7 +13,7 @@ layout: default
     <li>Ingresos hospitalarios: <b>{{ last_day.ingresos_hospitalarios }}</b>. Un <b>{{ last_day.perc_ingresos_confirmados}} %</b> de los confirmados han requerido ingreso hospitalario.</li>
     <li>Ingresos en UCI: <b>{{ last_day.ingresos_uci }}</b>. Un <b>{{ last_day.perc_uci_confirmados }} %</b> de los confirmados han sido ingresados en UCI.</li>
     <li>Fallecimientos: <b>{{ last_day.fallecimientos }}</b>. Un <b>{{ last_day.perc_fallecimiento_confirmados }} %</b> de los confirmados han fallecido.</li>
-    <li>Casos de personal sanitario: <b>{{ last_day.casos_personal_sanitario }}</b>. Un <b>{{ last_day.perc_altas_confirmados }} %</b> de los confirmados pertenecen a personal sanitario .</li>
+    <li>Casos de personal sanitario: <b>{{ last_day.casos_personal_sanitario }}</b>. Un <b>{{ last_day.perc_sanitarios_confirmados }} %</b> de los confirmados pertenecen a personal sanitario .</li>
     <li>Altas totales: <b>{{ last_day.altas }}</b>. Un <b>{{ last_day.perc_altas_confirmados }} %</b> de casos confirmados se han dado de alta 💪.</li>
   </ul>
 </div>
