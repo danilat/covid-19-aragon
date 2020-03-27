@@ -2,11 +2,47 @@
 <html lang="es">
   <head>
     <title>{{site.title}}</title>
+
+    <link rel="stylesheet" href="https://www.danilat.com/css/main.css">
+    <link rel="shortcut icon" href="https://www.danilat.com/img/favicon.png" type="image/x-icon">
+    <style>
+      .content {
+        background-color:#fff;
+        padding: 2% ;
+        color:#2C3034;
+      }
+      table {
+        font-size: 0.7em;
+        width: 100%;
+      }
+      td {
+        text-align: center;
+        border: 1px solid #2C3034;
+      }
+      th {
+        background: #2C3034;
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
-    <h1>{{site.title}}</h1>
-    <div class="content">
-      {{ content }}
+    <div class="container">
+      <header class="header">
+        <span>
+          {{site.title}}
+        </span>
+      </header>
+      <div class="content">
+        {{ content }}
+      </div>
+      <div class="clearfix"></div>
+      <footer class="site-footer">
+        <span class="logo">
+           <a href="https://www.danilat.com/">
+               <img src="https://www.danilat.com/img/logo-footer.png" alt="Logotipo de Danilat">
+             </a>
+        </span>
+    </footer>
     </div>
   </body>
 </html>
