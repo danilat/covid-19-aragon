@@ -24,7 +24,7 @@ rows_to_add = csv.collect do |row|
   perc_sanitarios_confirmados = (casos_personal_sanitario/casos_confirmados*100).round(2)
   perc_altas_confirmados = (altas/casos_confirmados*100).round(2)
 
-  confirmados_vigentes = (casos_confirmados - fallecimientos - altas).to_i
+  confirmados_activos = (casos_confirmados - fallecimientos - altas).to_i
 
   row << ["perc_ingresos_confirmados", perc_ingresos_confirmados]
   row << ["perc_uci_confirmados", perc_uci_confirmados]
@@ -33,7 +33,7 @@ rows_to_add = csv.collect do |row|
   row << ["perc_altas_confirmados", perc_altas_confirmados]
   row << ["total_aragoneses", total_aragoneses]
   row << ["perc_aragoneses_confirmados", perc_aragoneses_confirmados]
-  row << ["confirmados_vigentes", confirmados_vigentes]
+  row << ["confirmados_activos", confirmados_activos]
   row
 end
 headers = rows_to_add.first.headers

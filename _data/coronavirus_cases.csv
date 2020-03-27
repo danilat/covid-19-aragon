@@ -1,4 +1,4 @@
-fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos_personal_sanitario,altas,observaciones,perc_ingresos_confirmados,perc_uci_confirmados,perc_fallecimiento_confirmados,perc_sanitarios_confirmados,perc_altas_confirmados,total_aragoneses,perc_aragoneses_confirmados,confirmados_vigentes
+fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos_personal_sanitario,altas,observaciones,perc_ingresos_confirmados,perc_uci_confirmados,perc_fallecimiento_confirmados,perc_sanitarios_confirmados,perc_altas_confirmados,total_aragoneses,perc_aragoneses_confirmados,confirmados_activos
 04/03/2020,1,,,,,,Fuente Aragon Hoy,0.0,0.0,0.0,0.0,0.0,1319291,0.0,1
 06/03/2020,9,,,,,,Fuente Aragon Hoy,0.0,0.0,0.0,0.0,0.0,1319291,0.0,9
 07/03/2020,14,,,,,,Fuente Aragon Hoy,0.0,0.0,0.0,0.0,0.0,1319291,0.0,14

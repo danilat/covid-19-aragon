@@ -8,7 +8,7 @@ layout: default
 <h2>Últimos datos {{ last_day.fecha }}</h2>
 <div>
   <ul>
-    <li>Total de habitantes en Aragón <b>{{ last_day.total_aragoneses}}</b>.</li>
+    <li>Total de habitantes en Aragón <b>{{ last_day.total_aragoneses}}</b>. Hay <b>{{ last_day.confirmados_activos}}</b> casos activos.</li>
     <li>Casos confirmados: <b>{{ last_day.casos_confirmados }}</b>. Un <b>{{ last_day.perc_aragoneses_confirmados }} %</b> de aragoneses han sido casos confirmados.</li>
     <li>Ingresos hospitalarios: <b>{{ last_day.ingresos_hospitalarios }}</b>. Un <b>{{ last_day.perc_ingresos_confirmados}} %</b> de los confirmados han requerido ingreso hospitalario.</li>
     <li>Ingresos en UCI: <b>{{ last_day.ingresos_uci }}</b>. Un <b>{{ last_day.perc_uci_confirmados }} %</b> de los confirmados han sido ingresados en UCI.</li>
@@ -31,12 +31,12 @@ layout: default
           {% endfor%}
           ],
 				datasets: [{
-					label: 'Casos vigentes',
+					label: 'Casos activos',
 					backgroundColor: "red",
 					borderColor: "red",
 					data: [
             {% for case in site.data.coronavirus_cases %}
-						  {{ case.confirmados_vigentes }},
+						  {{ case.confirmados_activos }},
             {% endfor%}
 					],
 					fill: false,
@@ -102,7 +102,7 @@ layout: default
     <th>% personal sanitario</th>
     <th>Altas</th>
     <th>% altas</th>
-    <th>Casos vigentes</th>
+    <th>Casos activos</th>
   </tr>
   {% for case in site.data.coronavirus_cases %}
   <tr>
@@ -119,7 +119,7 @@ layout: default
     <td>{{ case.perc_sanitarios_confirmados}} %</td>
     <td>{{ case.altas }}</td>
     <td>{{ case.perc_altas_confirmados}} %</td>
-    <td>{{ case.confirmados_vigentes }}</td>
+    <td>{{ case.confirmados_activos }}</td>
   </tr>
   {% endfor %}
 </table>
