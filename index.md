@@ -38,6 +38,7 @@ layout: default
     <th>% personal sanitario</th>
     <th>Altas</th>
     <th>% altas</th>
+    <th>Casos vigentes</th>
   </tr>
   {% for case in site.data.coronavirus_cases %}
   <tr>
@@ -54,6 +55,7 @@ layout: default
     <td>{{ case.perc_sanitarios_confirmados}} %</td>
     <td>{{ case.altas }}</td>
     <td>{{ case.perc_altas_confirmados}} %</td>
+    <td>{{ case.confirmados_vigentes }}</td>
   </tr>
   {% endfor %}
 </table>
