@@ -21,8 +21,72 @@ layout: default
 
 <span>Datos obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualizados el {{ last_day.fecha }}.</span>
 
+<script>
+		var config = {
+			type: 'line',
+			data: {
+				labels: [
+          {% for case in site.data.coronavirus_cases %}
+            "{{ case.fecha }}",
+          {% endfor%}
+          ],
+				datasets: [{
+					label: 'Casos vigentes',
+					backgroundColor: "red",
+					borderColor: "red",
+					data: [
+            {% for case in site.data.coronavirus_cases %}
+						  {{ case.confirmados_vigentes }},
+            {% endfor%}
+					],
+					fill: false,
+				},]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Evolución del COVID-19 en Aragón'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Fecha'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Casos'
+						}
+					}]
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+		};
+</script>
+<h2>La curva en Aragón</h2>
+<div style="width:100%;">
+		<canvas id="canvas"></canvas>
+</div>
+
 {% assign initial_day = site.data.coronavirus_cases | last %}
-<h2>Progresión desde el {{ initial_day.fecha }}:</h2>
+<h2>Progresión desde el {{ initial_day.fecha }}</h2>
 <table>
   <tr>
     <th>fecha</th>
