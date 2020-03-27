@@ -38,7 +38,7 @@ rows_to_add = csv.collect do |row|
 end
 headers = rows_to_add.first.headers
 CSV.open("_data/coronavirus_cases.csv", "w", write_headers: true, headers: headers) do |cleaned_csv|
-  rows_to_add.reverse.each do |row|
+  rows_to_add.each do |row|
     cleaned_csv << row
   end
 end
