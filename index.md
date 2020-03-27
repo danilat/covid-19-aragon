@@ -4,7 +4,7 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: default
 ---
-{% assign last_day = site.data.coronavirus_cases | first %}
+{% assign last_day = site.data.coronavirus_cases | last %}
 <h2>Últimos datos {{ last_day.fecha }}</h2>
 <div>
   <ul>
@@ -85,7 +85,7 @@ layout: default
 		<canvas id="canvas"></canvas>
 </div>
 
-{% assign initial_day = site.data.coronavirus_cases | last %}
+{% assign initial_day = site.data.coronavirus_cases | first %}
 <h2>Progresión desde el {{ initial_day.fecha }}</h2>
 <table>
   <tr>
