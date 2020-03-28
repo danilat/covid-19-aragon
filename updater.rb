@@ -1,44 +1,100 @@
 require "net/http"
 require "uri"
 require "csv"
+require "dry-struct"
 
 uri = URI.parse("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv")
 response = Net::HTTP.get_response(uri)
 content = response.body
+TOTAL_ARAGONESES = total_aragoneses = 1319291 #https://opendata.aragon.es/apps/aragopedia/datos/#
 
-total_aragoneses = 1319291 #https://opendata.aragon.es/apps/aragopedia/datos/#
+class Numeric
+  def percent_of(divisor)
+    (self.to_f / divisor.to_f * 100.0).round(2)
+  end
+end
+
+module Types
+  include Dry.Types()
+end
+class SourceRow < Dry::Struct
+  transform_types do |type|
+    if type.default?
+      type.constructor do |value|
+        value.nil? ? Dry::Types::Undefined : value
+      end
+    else
+      type
+    end
+  end
+
+  attribute :fecha, Types::Strict::String
+  attribute :casos_confirmados, Types::Coercible::Integer
+  attribute :ingresos_hospitalarios, Types::Coercible::Integer.default(0)
+  attribute :ingresos_uci, Types::Coercible::Integer.default(0)
+  attribute :fallecimientos, Types::Coercible::Integer.default(0)
+  attribute :casos_personal_sanitario, Types::Coercible::Integer.default(0)
+  attribute :altas, Types::Coercible::Integer.default(0)
+
+  def confirmados_activos
+    casos_confirmados - fallecimientos - altas
+  end
+  def porcentaje_ingresos_confirmados 
+    ingresos_hospitalarios.percent_of(casos_confirmados)
+  end
+  def porcentaje_uci_confirmados 
+    ingresos_uci.percent_of(casos_confirmados)
+  end
+  def porcentaje_fallecimiento_confirmados
+    fallecimientos.percent_of(casos_confirmados)
+  end
+  def porcentaje_sanitarios_confirmados
+    casos_personal_sanitario.percent_of(casos_confirmados)
+  end
+  def porcentaje_altas_confirmados
+    altas.percent_of(casos_confirmados)
+  end
+
+  def to_h
+    hash = super.to_h
+    hash[:confirmados_activos] = confirmados_activos
+    hash[:porcentaje_ingresos_confirmados] = porcentaje_ingresos_confirmados
+    hash[:porcentaje_uci_confirmados] = porcentaje_uci_confirmados
+    hash[:porcentaje_fallecimiento_confirmados] = porcentaje_fallecimiento_confirmados
+    hash[:porcentaje_sanitarios_confirmados] = porcentaje_sanitarios_confirmados
+    hash[:porcentaje_altas_confirmados] = porcentaje_altas_confirmados
+    hash
+  end
+end
+
+class TargetRow < SourceRow
+  attribute :total_aragoneses, Types::Coercible::Integer
+  
+  def porcentaje_aragoneses_confirmados
+    casos_confirmados.percent_of(total_aragoneses)
+  end
+
+  def to_h
+    hash = super.to_h
+    hash[:porcentaje_aragoneses_confirmados] = porcentaje_aragoneses_confirmados
+    hash
+  end
+end
 
 csv = CSV.new(response.body, headers: true, col_sep: ";", liberal_parsing: true)
-rows_to_add = csv.collect do |row|
-  casos_confirmados = row["casos_confirmados"].to_f
-  ingresos_hospitalarios = row["ingresos_hospitalarios"].to_f
-  ingresos_uci = row["ingresos_uci"].to_f
-  fallecimientos = row["fallecimientos"].to_f
-  casos_personal_sanitario = row["casos_personal_sanitario"].to_f
-  altas = row["altas"].to_f
+source_rows = csv.collect do |row|
+  data = row.to_h.transform_keys!(&:to_sym)
+  SourceRow.new(data) if data[:casos_confirmados]
+end.compact
 
-  perc_aragoneses_confirmados = (casos_confirmados/total_aragoneses*100).round(2)
-  perc_ingresos_confirmados = (ingresos_hospitalarios/casos_confirmados*100).round(2)
-  perc_uci_confirmados = (ingresos_uci/casos_confirmados*100).round(2)
-  perc_fallecimiento_confirmados = (fallecimientos/casos_confirmados*100).round(2)
-  perc_sanitarios_confirmados = (casos_personal_sanitario/casos_confirmados*100).round(2)
-  perc_altas_confirmados = (altas/casos_confirmados*100).round(2)
-
-  confirmados_activos = (casos_confirmados - fallecimientos - altas).to_i
-
-  row << ["perc_ingresos_confirmados", perc_ingresos_confirmados]
-  row << ["perc_uci_confirmados", perc_uci_confirmados]
-  row << ["perc_fallecimiento_confirmados", perc_fallecimiento_confirmados]
-  row << ["perc_sanitarios_confirmados", perc_sanitarios_confirmados]
-  row << ["perc_altas_confirmados", perc_altas_confirmados]
-  row << ["total_aragoneses", total_aragoneses]
-  row << ["perc_aragoneses_confirmados", perc_aragoneses_confirmados]
-  row << ["confirmados_activos", confirmados_activos]
-  row
+target_rows = source_rows.collect do |source_row|
+  args = source_row.to_h.merge(total_aragoneses: TOTAL_ARAGONESES)
+  TargetRow.new(args)
 end
-headers = rows_to_add.first.headers
-CSV.open("_data/coronavirus_cases.csv", "w", write_headers: true, headers: headers) do |cleaned_csv|
-  rows_to_add.each do |row|
-    cleaned_csv << row
+
+headers = target_rows.first.to_h.keys
+CSV.open("_data/coronavirus_cases.csv", "w", write_headers: true, headers: headers) do |targert_csv|
+  target_rows.each do |target_row|
+    targert_csv << target_row.to_h
   end
 end
