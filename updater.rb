@@ -3,11 +3,6 @@ require "uri"
 require "csv"
 require "dry-struct"
 
-uri = URI.parse("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv")
-response = Net::HTTP.get_response(uri)
-content = response.body
-TOTAL_ARAGONESES = total_aragoneses = 1319291 #https://opendata.aragon.es/apps/aragopedia/datos/#
-
 class Numeric
   def percent_of(divisor)
     (self.to_f / divisor.to_f * 100.0).round(2)
@@ -81,12 +76,17 @@ class TargetRow < SourceRow
   end
 end
 
+uri = URI.parse("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv")
+response = Net::HTTP.get_response(uri)
+content = response.body
+
 csv = CSV.new(response.body, headers: true, col_sep: ";", liberal_parsing: true)
 source_rows = csv.collect do |row|
   data = row.to_h.transform_keys!(&:to_sym)
   SourceRow.new(data) if data[:casos_confirmados]
 end.compact
 
+TOTAL_ARAGONESES = total_aragoneses = 1319291 #https://opendata.aragon.es/apps/aragopedia/datos/#
 target_rows = source_rows.collect do |source_row|
   args = source_row.to_h.merge(total_aragoneses: TOTAL_ARAGONESES)
   TargetRow.new(args)
