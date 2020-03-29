@@ -12,9 +12,9 @@ layout: default
     <li>Casos confirmados: <b>{{ last_day.casos_confirmados }}</b>. Un <b>{{ last_day.porcentaje_aragoneses_confirmados }} %</b> de aragoneses han sido casos confirmados.</li>
     <li>Ingresos hospitalarios: <b>{{ last_day.ingresos_hospitalarios }}</b>. Un <b>{{ last_day.porcentaje_ingresos_confirmados}} %</b> de los confirmados han requerido ingreso hospitalario.</li>
     <li>Ingresos en UCI: <b>{{ last_day.ingresos_uci }}</b>. Un <b>{{ last_day.porcentaje_uci_confirmados }} %</b> de los confirmados han sido ingresados en UCI.</li>
-    <li>Fallecimientos: <b>{{ last_day.fallecimientos }}</b>. Un <b>{{ last_day.porcentaje_fallecimiento_confirmados }} %</b> de los confirmados han fallecido.</li>
+    <li>Fallecimientos: <b>{{ last_day.fallecimientos }}</b>, hoy <b>{{ last_day.fallecimientos_dia }}</b>. Un <b>{{ last_day.porcentaje_fallecimiento_confirmados }} %</b> de los confirmados han fallecido.</li>
     <li>Casos de personal sanitario: <b>{{ last_day.casos_personal_sanitario }}</b>. Un <b>{{ last_day.porcentaje_sanitarios_confirmados }} %</b> de los confirmados pertenecen a personal sanitario .</li>
-    <li>Altas totales: <b>{{ last_day.altas }}</b>. Un <b>{{ last_day.porcentaje_altas_confirmados }} %</b> de casos confirmados se han dado de alta 💪.</li>
+    <li>Altas totales: <b>{{ last_day.altas }}</b>, hoy <b>{{last_day.altas_dia}}</b>.  Un <b>{{ last_day.porcentaje_altas_confirmados }} %</b> de casos confirmados se han dado de alta 💪.</li>
   </ul>
 </div>
 
@@ -40,7 +40,28 @@ layout: default
             {% endfor%}
 					],
 					fill: false,
-				},]
+				},{
+					label: 'Fallecimientos',
+					backgroundColor: "black",
+					borderColor: "black",
+					data: [
+            {% for case in site.data.coronavirus_cases %}
+						  {{ case.fallecimientos_dia }},
+            {% endfor%}
+					],
+					fill: false,
+				},
+				{
+					label: 'Altas',
+					backgroundColor: "green",
+					borderColor: "green",
+					data: [
+            {% for case in site.data.coronavirus_cases %}
+						  {{ case.altas_dia }},
+            {% endfor%}
+					],
+					fill: false,
+				}]
 			},
 			options: {
 				responsive: true,
@@ -90,36 +111,40 @@ layout: default
 <table>
   <tr>
     <th>fecha</th>
+    <th>Casos activos</th>
     <th>Casos confirmados</th>
     <th>% confirmados</th>
     <th>Ingresos hospitalarios</th>
     <th>% ingresos</th>
     <th>Ingresos UCI</th>
     <th>% en UCI</th>
+    <th>Fallecimientos día</th>
     <th>Fallecimientos</th>
     <th>% fallecimientos</th>
     <th>Personal sanitario</th>
     <th>% personal sanitario</th>
+    <th>Alta día</th>
     <th>Altas</th>
     <th>% altas</th>
-    <th>Casos activos</th>
   </tr>
   {% for case in site.data.coronavirus_cases %}
   <tr>
     <td>{{ case.fecha }}</td>
+    <td>{{ case.confirmados_activos }}</td>
     <td>{{ case.casos_confirmados }}</td>
     <td>{{ case.porcentaje_aragoneses_confirmados}} %</td>
     <td>{{ case.ingresos_hospitalarios }}</td>
     <td>{{ case.porcentaje_ingresos_confirmados}} %</td>
     <td>{{ case.ingresos_uci }}</td>
     <td>{{ case.porcentaje_uci_confirmados}} %</td>
+    <td>{{ case.fallecimientos_dia }}</td>
     <td>{{ case.fallecimientos }}</td>
     <td>{{ case.porcentaje_fallecimiento_confirmados}} %</td>
     <td>{{ case.casos_personal_sanitario }}</td>
     <td>{{ case.porcentaje_sanitarios_confirmados}} %</td>
+    <td>{{ case.altas_dia }}</td>
     <td>{{ case.altas }}</td>
     <td>{{ case.porcentaje_altas_confirmados}} %</td>
-    <td>{{ case.confirmados_activos }}</td>
   </tr>
   {% endfor %}
 </table>
