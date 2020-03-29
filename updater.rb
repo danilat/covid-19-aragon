@@ -64,6 +64,8 @@ end
 
 class TargetRow < SourceRow
   attribute :total_aragoneses, Types::Coercible::Integer
+  attribute :fallecimientos_dia, Types::Coercible::Integer
+  attribute :altas_dia, Types::Coercible::Integer
   
   def porcentaje_aragoneses_confirmados
     casos_confirmados.percent_of(total_aragoneses)
@@ -86,12 +88,22 @@ source_rows = csv.collect do |row|
   SourceRow.new(data) if data[:casos_confirmados]
 end.compact
 
-TOTAL_ARAGONESES = total_aragoneses = 1319291 #https://opendata.aragon.es/apps/aragopedia/datos/#
-target_rows = source_rows.collect do |source_row|
-  args = source_row.to_h.merge(total_aragoneses: TOTAL_ARAGONESES)
-  TargetRow.new(args)
+def difference_by_day(source_row, previous_source_row, attribute)
+  difference = source_row.send(attribute) - previous_source_row&.send(attribute) if previous_source_row
+  difference = 0 unless difference&.positive?
+  difference
 end
 
+TOTAL_ARAGONESES = total_aragoneses = 1319291 #https://opendata.aragon.es/apps/aragopedia/datos/#
+previous_source_row = nil
+target_rows = source_rows.collect do |source_row|
+  fallecimientos_dia = difference_by_day(source_row, previous_source_row, :fallecimientos)
+  altas_dia = difference_by_day(source_row, previous_source_row, :altas)
+  args = source_row.to_h.merge(total_aragoneses: TOTAL_ARAGONESES, fallecimientos_dia: fallecimientos_dia, altas_dia: altas_dia)
+  previous_source_row = source_row
+  TargetRow.new(args)
+end
+puts target_rows.first.to_h.keys
 headers = target_rows.first.to_h.keys
 CSV.open("_data/coronavirus_cases.csv", "w", write_headers: true, headers: headers) do |targert_csv|
   target_rows.each do |target_row|
