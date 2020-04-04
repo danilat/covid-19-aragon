@@ -63,30 +63,35 @@ class SourceRow < Dry::Struct
 end
 
 class TargetRow < SourceRow
-  attribute :total_aragoneses, Types::Coercible::Integer
+  attribute :total_personas, Types::Coercible::Integer
   attribute :fallecimientos_dia, Types::Coercible::Integer
   attribute :altas_dia, Types::Coercible::Integer
   
-  def porcentaje_aragoneses_confirmados
-    casos_confirmados.percent_of(total_aragoneses)
+  def porcentaje_personas_confirmadas
+    casos_confirmados.percent_of(total_personas)
   end
 
   def to_h
     hash = super.to_h
-    hash[:porcentaje_aragoneses_confirmados] = porcentaje_aragoneses_confirmados
+    hash[:porcentaje_personas_confirmadas] = porcentaje_personas_confirmadas
     hash
   end
 end
 
-uri = URI.parse("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv")
-response = Net::HTTP.get_response(uri)
-content = response.body
+#https://opendata.aragon.es/apps/aragopedia/datos/#
+TOTAL_OF_PEOPLE = {
+  huesca: 220461,
+  teruel: 134137,
+  zaragoza: 964693,
+  aragon: 1319291
+}.freeze
 
-csv = CSV.new(response.body, headers: true, col_sep: ";", liberal_parsing: true)
-source_rows = csv.collect do |row|
-  data = row.to_h.transform_keys!(&:to_sym)
-  SourceRow.new(data) if data[:casos_confirmados]
-end.compact
+def read_csv(uri)
+  uri = URI.parse(uri)
+  response = Net::HTTP.get_response(uri)
+  content = response.body
+  CSV.new(response.body, headers: true, col_sep: ";", liberal_parsing: true)
+end
 
 def difference_by_day(source_row, previous_source_row, attribute)
   difference = source_row.send(attribute) - previous_source_row&.send(attribute) if previous_source_row
@@ -94,19 +99,48 @@ def difference_by_day(source_row, previous_source_row, attribute)
   difference
 end
 
-TOTAL_ARAGONESES = total_aragoneses = 1319291 #https://opendata.aragon.es/apps/aragopedia/datos/#
-previous_source_row = nil
-target_rows = source_rows.collect do |source_row|
-  fallecimientos_dia = difference_by_day(source_row, previous_source_row, :fallecimientos)
-  altas_dia = difference_by_day(source_row, previous_source_row, :altas)
-  args = source_row.to_h.merge(total_aragoneses: TOTAL_ARAGONESES, fallecimientos_dia: fallecimientos_dia, altas_dia: altas_dia)
-  previous_source_row = source_row
-  TargetRow.new(args)
-end
-puts target_rows.first.to_h.keys
-headers = target_rows.first.to_h.keys
-CSV.open("_data/coronavirus_cases.csv", "w", write_headers: true, headers: headers) do |targert_csv|
-  target_rows.each do |target_row|
-    targert_csv << target_row.to_h
+def sources_to_targets(source_rows, from)
+  previous_source_row = nil
+  target_rows = source_rows.collect do |source_row|
+    fallecimientos_dia = difference_by_day(source_row, previous_source_row, :fallecimientos)
+    altas_dia = difference_by_day(source_row, previous_source_row, :altas)
+    args = source_row.to_h.merge(total_personas: TOTAL_OF_PEOPLE[from], fallecimientos_dia: fallecimientos_dia, altas_dia: altas_dia)
+    previous_source_row = source_row
+    TargetRow.new(args)
   end
 end
+
+def write_csv(target_rows, path)
+  headers = target_rows.first.to_h.keys
+  CSV.open(path, "w", write_headers: true, headers: headers) do |targert_csv|
+    target_rows.each do |target_row|
+      targert_csv << target_row.to_h
+    end
+  end
+end
+
+csv = read_csv("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv")
+source_rows = csv.collect do |row|
+  data = row.to_h.transform_keys!(&:to_sym)
+  SourceRow.new(data) if data[:casos_confirmados]
+end.compact
+target_rows = sources_to_targets(source_rows, :aragon)
+write_csv(target_rows, "_data/coronavirus_cases.csv")
+
+csv = read_csv("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv")
+sources_by_province = {}
+csv.group_by do |row|
+  row["provincia"].downcase.to_sym
+end.each do |province, rows|
+  sources_by_province[province.to_sym] = rows.collect do |row|
+    data = row.to_h.transform_keys!(&:to_sym)
+    SourceRow.new(data)
+  end
+end
+
+sources_by_province.each do |province, source_rows|
+  target_rows = sources_to_targets(source_rows, province)
+  write_csv(target_rows, "_data/coronavirus_cases_#{province}.csv")
+end
+
+
