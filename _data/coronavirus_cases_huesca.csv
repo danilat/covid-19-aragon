@@ -1,0 +1,8 @@
+fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos_personal_sanitario,altas,total_personas,fallecimientos_dia,altas_dia,confirmados_activos,porcentaje_ingresos_confirmados,porcentaje_uci_confirmados,porcentaje_fallecimiento_confirmados,porcentaje_sanitarios_confirmados,porcentaje_altas_confirmados,porcentaje_personas_confirmadas
+2020-03-29,201,103,13,11,16,14,220461,0,0,176,51.24,6.47,5.47,7.96,6.97,0.09
+2020-03-30,215,120,13,11,16,19,220461,0,5,185,55.81,6.05,5.12,7.44,8.84,0.1
+2020-03-31,244,129,13,14,19,23,220461,3,4,207,52.87,5.33,5.74,7.79,9.43,0.11
+2020-04-01,317,136,14,16,50,28,220461,2,5,273,42.9,4.42,5.05,15.77,8.83,0.14
+2020-04-02,349,146,20,18,35,35,220461,2,7,296,41.83,5.73,5.16,10.03,10.03,0.16
+2020-04-03,368,175,21,24,38,43,220461,6,8,301,47.55,5.71,6.52,10.33,11.68,0.17
+2020-04-04,393,175,22,30,40,44,220461,6,1,319,44.53,5.6,7.63,10.18,11.2,0.18
