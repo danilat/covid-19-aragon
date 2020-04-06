@@ -1,0 +1,3 @@
+fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos_personal_sanitario,altas,total_personas,fallecimientos_dia,altas_dia,confirmados_activos,porcentaje_ingresos_confirmados,porcentaje_uci_confirmados,porcentaje_fallecimiento_confirmados,porcentaje_sanitarios_confirmados,porcentaje_altas_confirmados,porcentaje_personas_confirmadas
+2020-04-05,56,15,2,2,0,6,0,0,0,48,26.79,3.57,3.57,0.0,10.71,Infinity
+2020-04-06,30,10,1,1,0,7,0,0,1,22,33.33,3.33,3.33,0.0,23.33,Infinity
