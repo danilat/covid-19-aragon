@@ -100,8 +100,8 @@ layout: default
 </div>
 
 {% assign initial_day = site.data.coronavirus_cases | first %}
-<h2>Progresión desde el {{ initial_day.fecha }}</h2>
-<table>
+<h2>Progresión desde el {{ initial_day.fecha }} en Aragón</h2>
+<table id ="aragon">
   <tr>
     <th>Fecha</th>
     <th>Casos activos diarios</th>
@@ -112,6 +112,81 @@ layout: default
     <th>Fallecimientos totales</th>
   </tr>
   {% for case in site.data.coronavirus_cases %}
+  <tr>
+    <td>{{ case.fecha }}</td>
+    <td>{{ case.confirmados_activos }}</td>
+    <td>{{ case.casos_confirmados }}</td>
+    <td>{{ case.altas_dia }}</td>
+    <td>{{ case.altas }}</td>
+    <td>{{ case.fallecimientos_dia }}</td>
+    <td>{{ case.fallecimientos }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% assign initial_day = site.data.coronavirus_cases_huesca | first %}
+<h2>Progresión desde el {{ initial_day.fecha }} en Huesca</h2>
+<table id ="huesca">
+  <tr>
+    <th>Fecha</th>
+    <th>Casos activos diarios</th>
+    <th>Casos activos totales</th>
+    <th>Altas diarias</th>
+    <th>Altas totales</th>
+    <th>Fallecimientos diarios</th>
+    <th>Fallecimientos totales</th>
+  </tr>
+  {% for case in site.data.coronavirus_cases_huesca %}
+  <tr>
+    <td>{{ case.fecha }}</td>
+    <td>{{ case.confirmados_activos }}</td>
+    <td>{{ case.casos_confirmados }}</td>
+    <td>{{ case.altas_dia }}</td>
+    <td>{{ case.altas }}</td>
+    <td>{{ case.fallecimientos_dia }}</td>
+    <td>{{ case.fallecimientos }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% assign initial_day = site.data.coronavirus_cases_teruel | first %}
+<h2>Progresión desde el {{ initial_day.fecha }} en Teruel</h2>
+<table id ="teruel">
+  <tr>
+    <th>Fecha</th>
+    <th>Casos activos diarios</th>
+    <th>Casos activos totales</th>
+    <th>Altas diarias</th>
+    <th>Altas totales</th>
+    <th>Fallecimientos diarios</th>
+    <th>Fallecimientos totales</th>
+  </tr>
+  {% for case in site.data.coronavirus_cases_teruel %}
+  <tr>
+    <td>{{ case.fecha }}</td>
+    <td>{{ case.confirmados_activos }}</td>
+    <td>{{ case.casos_confirmados }}</td>
+    <td>{{ case.altas_dia }}</td>
+    <td>{{ case.altas }}</td>
+    <td>{{ case.fallecimientos_dia }}</td>
+    <td>{{ case.fallecimientos }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% assign initial_day = site.data.coronavirus_cases_zaragoza | first %}
+<h2>Progresión desde el {{ initial_day.fecha }} en Zaragoza</h2>
+<table id ="zaragoza">
+  <tr>
+    <th>Fecha</th>
+    <th>Casos activos diarios</th>
+    <th>Casos activos totales</th>
+    <th>Altas diarias</th>
+    <th>Altas totales</th>
+    <th>Fallecimientos diarios</th>
+    <th>Fallecimientos totales</th>
+  </tr>
+  {% for case in site.data.coronavirus_cases_zaragoza %}
   <tr>
     <td>{{ case.fecha }}</td>
     <td>{{ case.confirmados_activos }}</td>
