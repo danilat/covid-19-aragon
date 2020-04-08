@@ -106,41 +106,23 @@ layout: default
 <h2>Progresión desde el {{ initial_day.fecha }}</h2>
 <table>
   <tr>
-    <th>fecha</th>
-    <th>Casos activos</th>
-    <th>Casos confirmados</th>
-    <th>% confirmados</th>
-    <th>Ingresos hospitalarios</th>
-    <th>% ingresos</th>
-    <th>Ingresos UCI</th>
-    <th>% en UCI</th>
-    <th>Fallecimientos día</th>
-    <th>Fallecimientos</th>
-    <th>% fallecimientos</th>
-    <th>Personal sanitario</th>
-    <th>% personal sanitario</th>
-    <th>Alta día</th>
-    <th>Altas</th>
-    <th>% altas</th>
+    <th>Fecha</th>
+    <th>Casos activos diarios</th>
+    <th>Casos activos totales</th>
+    <th>Altas diarias</th>
+    <th>Altas totales</th>
+    <th>Fallecimientos diarios</th>
+    <th>Fallecimientos totales</th>
   </tr>
   {% for case in site.data.coronavirus_cases %}
   <tr>
     <td>{{ case.fecha }}</td>
     <td>{{ case.confirmados_activos }}</td>
     <td>{{ case.casos_confirmados }}</td>
-    <td>{{ case.porcentaje_personas_confirmadas}} %</td>
-    <td>{{ case.ingresos_hospitalarios }}</td>
-    <td>{{ case.porcentaje_ingresos_confirmados}} %</td>
-    <td>{{ case.ingresos_uci }}</td>
-    <td>{{ case.porcentaje_uci_confirmados}} %</td>
-    <td>{{ case.fallecimientos_dia }}</td>
-    <td>{{ case.fallecimientos }}</td>
-    <td>{{ case.porcentaje_fallecimiento_confirmados}} %</td>
-    <td>{{ case.casos_personal_sanitario }}</td>
-    <td>{{ case.porcentaje_sanitarios_confirmados}} %</td>
     <td>{{ case.altas_dia }}</td>
     <td>{{ case.altas }}</td>
-    <td>{{ case.porcentaje_altas_confirmados}} %</td>
+    <td>{{ case.fallecimientos_dia }}</td>
+    <td>{{ case.fallecimientos }}</td>
   </tr>
   {% endfor %}
 </table>
