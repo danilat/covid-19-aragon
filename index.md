@@ -89,18 +89,15 @@ layout: default
 <h2>Últimos datos {{ last_day.fecha }}</h2>
 <div>
   <ul>
-    <li>Total de habitantes en Aragón <b>{{ last_day.total_personas}}</b>. Hay <b>{{ last_day.confirmados_activos}}</b> casos activos.</li>
-    <li>Casos confirmados: <b>{{ last_day.casos_confirmados }}</b>. Un <b>{{ last_day.porcentaje_personas_confirmadas }} %</b> de aragoneses han sido casos confirmados.</li>
+    <li>Casos confirmados: <b>{{ last_day.casos_confirmados }}</b>, hoy <b>{{ last_day.confirmados_activos}}</b>. Un <b>{{ last_day.porcentaje_personas_confirmadas }} %</b> de aragoneses han sido casos confirmados.</li>
+    <li>Altas totales: <b>{{ last_day.altas }}</b>, hoy <b>{{last_day.altas_dia}}</b>.  Un <b>{{ last_day.porcentaje_altas_confirmados }} %</b> de casos confirmados se han dado de alta 💪.</li>
+    <li>Fallecimientos: <b>{{ last_day.fallecimientos }}</b>, hoy <b>{{ last_day.fallecimientos_dia }}</b>. Un <b>{{ last_day.porcentaje_fallecimiento_confirmados }} %</b> de los confirmados han fallecido.</li>
     <li>Ingresos hospitalarios: <b>{{ last_day.ingresos_hospitalarios }}</b>. Un <b>{{ last_day.porcentaje_ingresos_confirmados}} %</b> de los confirmados han requerido ingreso hospitalario.</li>
     <li>Ingresos en UCI: <b>{{ last_day.ingresos_uci }}</b>. Un <b>{{ last_day.porcentaje_uci_confirmados }} %</b> de los confirmados han sido ingresados en UCI.</li>
-    <li>Fallecimientos: <b>{{ last_day.fallecimientos }}</b>, hoy <b>{{ last_day.fallecimientos_dia }}</b>. Un <b>{{ last_day.porcentaje_fallecimiento_confirmados }} %</b> de los confirmados han fallecido.</li>
-    <li>Casos de personal sanitario: <b>{{ last_day.casos_personal_sanitario }}</b>. Un <b>{{ last_day.porcentaje_sanitarios_confirmados }} %</b> de los confirmados pertenecen a personal sanitario .</li>
-    <li>Altas totales: <b>{{ last_day.altas }}</b>, hoy <b>{{last_day.altas_dia}}</b>.  Un <b>{{ last_day.porcentaje_altas_confirmados }} %</b> de casos confirmados se han dado de alta 💪.</li>
+    <li>Casos de personal sanitario: <b>{{ last_day.casos_personal_sanitario }}</b>. Un <b>{{ last_day.porcentaje_sanitarios_confirmados }} %</b> de los confirmados pertenecen a personal sanitario .</li> 
+    <li>Total de habitantes en Aragón <b>{{ last_day.total_personas}}</b>. </li>
   </ul>
 </div>
-
-
-<span>Datos obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualizados el {{ last_day.fecha }}.</span>
 
 {% assign initial_day = site.data.coronavirus_cases | first %}
 <h2>Progresión desde el {{ initial_day.fecha }}</h2>
@@ -126,3 +123,6 @@ layout: default
   </tr>
   {% endfor %}
 </table>
+
+
+<span>Datos obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualizados el {{ last_day.fecha }}.</span>
