@@ -6,21 +6,23 @@ function getChartConfigFor(args){
     data: {
       labels: args.dates,
       datasets: [{
-        label: "FALLECIMIENTOS",
+        label: "  FALLECIMIENTOS",
         backgroundColor: color("#444444").alpha(0.9).rgbString(),
         borderColor: "#444444",
         data: args.deceases,
+        pointBackgroundColor: "#444444",
       },{
-        label: "ALTAS",
+        label: "  ALTAS",
         backgroundColor: color("#01afaf").alpha(0.6).rgbString(),
         borderColor: "#01afaf",
         data: args.recovered,
+        pointBackgroundColor: "#01afaf",
         },{
-        label: "CASOS ACTIVOS",
+        label: "  CASOS ACTIVOS",
         backgroundColor: color("#f7849f").alpha(0.35).rgbString(),
         borderColor: "#f7849f",
         data: args.actives,
-        
+        pointBackgroundColor: "#f7849f",
       }]
     },
     options: {
@@ -28,24 +30,33 @@ function getChartConfigFor(args){
       tooltips: {
         mode: "index",
         intersect: false,
+        bodySpacing: 15,
+        reverse: true,
+        cornerRadius: 0,
+        titleFontSize: 17,
+        titleAlign: "center",
+        titleMarginBottom: 15
       },
-      hover: {
-        mode: "nearest",
-        intersect: true
+      legend: {
+        reverse: true
       },
       scales: {
         xAxes: [{
           display: true,
           scaleLabel: {
             display: true,
-            labelString: "FECHA"
+            labelString: "FECHA",
+            fontStyle: "bold",
+            padding: {top: 30}
           }
         }],
         yAxes: [{
           display: true,
           scaleLabel: {
             display: true,
-          labelString: "CASOS ACTIVOS"
+            labelString: "CASOS ACTIVOS",
+            fontStyle: "bold",
+            padding: {bottom: 30}
           }
         }]
       }
