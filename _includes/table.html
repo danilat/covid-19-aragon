@@ -2,22 +2,18 @@
   <tr>
     <th>Fecha</th>
     <th>Casos activos diarios</th>
-    <th>Casos activos totales</th>
+    <th>Nuevos casos diarios</th>
     <th>Altas diarias</th>
-    <th>Altas totales</th>
     <th>Fallecimientos diarios</th>
-    <th>Fallecimientos totales</th>
   </tr>
   {% assign cases = include.coronavirus_cases | reverse %}
   {% for case in cases %}
   <tr>
     <td>{{ case.fecha }}</td>
     <td>{% include tendency.html difference=case.diferencia_confirmados_activos increase_is_positive=false %} <div class="diary">{{ case.confirmados_activos }}</div></td>
-    <td>{{ case.casos_confirmados }}</td>
+    <td>99</td>
     <td>{% include tendency.html difference=case.diferencia_altas_dia increase_is_positive=true%} <div class="diary">{{ case.altas_dia }}</div></td>
-    <td>{{ case.altas }}</td>
     <td>{% include tendency.html difference=case.diferencia_fallecimientos_dia %} <div class="diary">{{ case.fallecimientos_dia }}</div></td>
-    <td>{{ case.fallecimientos }}</td>
   </tr>
   {% endfor %}
 </table>
