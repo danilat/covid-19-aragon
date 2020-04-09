@@ -25,7 +25,7 @@ function getChartConfigFor(args){
       responsive: true,
       title: {
         display: true,
-        text: "Evolución del COVID-19 en Aragón"
+        text: "Evolución del COVID-19 en " + args.nombre
       },
       tooltips: {
         mode: "index",
