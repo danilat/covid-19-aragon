@@ -1,12 +1,22 @@
 {% assign difference = include.difference | plus: 0 %}
-{%if difference > 0 ) %}
-{% assign direction = "up" %}
-{% elsif 0 > difference %}
-{% assign direction = "down" %}
-{% else %}
-{% assign direction = "right" %}
+{%if difference != 0 %}
+  {%if difference > 0 %}
+    {% assign direction = "up" %}
+    {%if include.increase_is_positive %}
+      {% assign class_name = "positive"%}
+    {% else %}
+      {% assign class_name = "negative"%}
+    {% endif %}
+  {% elsif 0 > difference %}
+    {% assign direction = "down" %}
+    {%if include.increase_is_positive %}
+      {% assign class_name = "negative"%}
+      {% else %}
+      {% assign class_name = "positive"%}
+    {% endif %}
+  {% endif %}
+  <span class="{{class_name}}">
+  <i class="fa fa-angle-{{direction}}"></i>
+  ({{ include.difference }})
+  </span>
 {% endif %}
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<i class="fa fa-angle-double-{{direction}}"></i>
-<span class="">({{ include.difference }})</span>
