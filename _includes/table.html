@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Casos activos diarios</th>
+    <th>Casos activos totales</th>
+    <th>Altas diarias</th>
+    <th>Altas totales</th>
+    <th>Fallecimientos diarios</th>
+    <th>Fallecimientos totales</th>
+  </tr>
+  {% for case in include.coronavirus_cases %}
+  <tr>
+    <td>{{ case.fecha }}</td>
+    <td>{{ case.confirmados_activos }}</td>
+    <td>{{ case.casos_confirmados }}</td>
+    <td>{{ case.altas_dia }}</td>
+    <td>{{ case.altas }}</td>
+    <td>{{ case.fallecimientos_dia }}</td>
+    <td>{{ case.fallecimientos }}</td>
+  </tr>
+  {% endfor %}
+</table>
