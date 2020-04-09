@@ -59,3 +59,17 @@ function draw(canvasId, config){
   var ctx = document.getElementById(canvasId).getContext("2d");
   window[canvasId] = new Chart(ctx, config);
 }
+
+function loadAnalytics(){
+  console.log("loadAnalytics is pending")
+}
+
+if(Cookies.get('cookiesAllowed')){
+  loadAnalytics();
+} else {
+  document.getElementById("cookie-law").style.display = '';
+  document.getElementById("accept-cookie-law").onclick = function(){
+    loadAnalytics();
+    Cookies.set('cookiesAllowed', true);
+  }
+}
