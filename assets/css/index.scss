@@ -1,6 +1,8 @@
 ---
 ---
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
 /** COLORES **/
 $verde:#01afaf;
 $verdeClaro: #3bd2d278;
@@ -9,14 +11,16 @@ $negro:#1c1c1c;
 $gris:#919191;
 $grisClaro:#bcbcbc;
 
-@import 'https://fonts.googleapis.com/css?family=Montserrat';
-@import 'https://fonts.googleapis.com/css?family=Lato';
+
+/** FUENTES **/
+$fuente_titulos:'Montserrat', sans-serif;
+$fuente_textos: 'Lato', sans-serif;
 
 
 body{
     margin:0;
     padding:0;
-    font-family: 'Lato', 'Open Sans';
+    font-family: $fuente_textos;
     color:$negro;
     line-height: 1.7em;
     font-size: 1.21rem;
@@ -40,7 +44,7 @@ h2{
     margin: 80px 0 40px 0;
     color:$verde;
     font-size: 2.3rem;
-    font-family: 'Montserrat';
+    font-family: $fuente_titulos;
 }
 #chartAragon{
     width: 100%;
