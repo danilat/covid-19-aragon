@@ -4,82 +4,29 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: default
 ---
+<script type="text/javascript" src="/assets/js/index.js"></script>
 <script>
-  var color = Chart.helpers.color;
-  var config = {
-    type: 'line',
-    data: {
-      labels: [
-        {% for case in site.data.coronavirus_cases %}
-          "{{ case.fecha }}",
-        {% endfor%}
-      ],
-      datasets: [{
-        label: 'Casos activos',
-        backgroundColor: color("red").alpha(0.1).rgbString(),
-        borderColor: "red",
-        data: [
-          {% for case in site.data.coronavirus_cases %}
-            {{ case.confirmados_activos }},
-          {% endfor%}
-        ],
-      },{
-        label: 'Fallecimientos',
-        backgroundColor: color("black").alpha(0.8).rgbString(),
-        borderColor: "black",
-        data: [
-          {% for case in site.data.coronavirus_cases %}
-            {{ case.fallecimientos_dia }},
-          {% endfor%}
-        ],
-      },{
-        label: 'Altas',
-        backgroundColor: color("green").alpha(0.8).rgbString(),
-        borderColor: "green",
-        data: [
-          {% for case in site.data.coronavirus_cases %}
-            {{ case.altas_dia }},
-          {% endfor%}
-        ],
-      }]
-    },
-    options: {
-      responsive: true,
-      title: {
-        display: true,
-        text: 'Evolución del COVID-19 en Aragón'
-      },
-      tooltips: {
-        mode: 'index',
-        intersect: false,
-      },
-      hover: {
-        mode: 'nearest',
-        intersect: true
-      },
-      scales: {
-        xAxes: [{
-          display: true,
-          scaleLabel: {
-            display: true,
-            labelString: 'Fecha'
-          }
-        }],
-        yAxes: [{
-          display: true,
-          scaleLabel: {
-            display: true,
-          labelString: 'Casos'
-          }
-        }]
-      }
-    }
-  };
+  var fechas = [
+    {% for case in site.data.coronavirus_cases %}"{{ case.fecha }}",{% endfor%}
+  ]
+  var casos_activos = [
+    {% for case in site.data.coronavirus_cases %}{{ case.confirmados_activos }},{% endfor%}
+  ]
+  var fallecimientos_dia = [
+    {% for case in site.data.coronavirus_cases %}{{ case.fallecimientos_dia }},{% endfor%}
+  ]
+  var altas_dia = [
+    {% for case in site.data.coronavirus_cases %}{{ case.altas_dia }},{% endfor%}
+  ]
 
   window.onload = function() {
-    var ctx = document.getElementById('canvas').getContext('2d');
-    window.myLine = new Chart(ctx, config);
-  };
+    draw("canvas", getChartConfig({
+      fechas: fechas, 
+      casos_activos: casos_activos,
+      fallecimientos_dia: fallecimientos_dia, 
+      altas_dia: altas_dia})
+    );
+  }
 </script>
 <div style="width:100%;">
 		<canvas id="canvas"></canvas>
