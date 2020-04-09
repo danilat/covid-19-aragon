@@ -12,33 +12,33 @@ layout: default
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="/assets/js/index.js"></script>
     <script>
-      var aragon = {nombre: "Aragón", fechas: [], casosActivos: [], fallecimientosDia: [], altasDia: []}
+      var aragon = {name: "Aragón", dates: [], actives: [], deceases: [], recovered: []}
       {% for case in site.data.coronavirus_cases %}
-        aragon.fechas.push("{{ case.fecha }}")
-        aragon.casosActivos.push({{ case.confirmados_activos }})
-        aragon.fallecimientosDia.push({{ case.fallecimientos_dia }})
-        aragon.altasDia.push({{ case.altas_dia }})
+        aragon.dates.push("{{ case.fecha }}")
+        aragon.actives.push({{ case.confirmados_activos }})
+        aragon.deceases.push({{ case.fallecimientos_dia }})
+        aragon.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var huesca = {nombre: "Huesca", fechas: [], casosActivos: [], fallecimientosDia: [], altasDia: []}
+      var huesca = {name: "Huesca", dates: [], actives: [], deceases: [], recovered: []}
       {% for case in site.data.coronavirus_cases_huesca %}
-        huesca.fechas.push("{{ case.fecha }}")
-        huesca.casosActivos.push({{ case.confirmados_activos }})
-        huesca.fallecimientosDia.push({{ case.fallecimientos_dia }})
-        huesca.altasDia.push({{ case.altas_dia }})
+        huesca.dates.push("{{ case.fecha }}")
+        huesca.actives.push({{ case.confirmados_activos }})
+        huesca.deceases.push({{ case.fallecimientos_dia }})
+        huesca.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var teruel = {nombre: "Teruel", fechas: [], casosActivos: [], fallecimientosDia: [], altasDia: []}
+      var teruel = {name: "Teruel", dates: [], actives: [], deceases: [], recovered: []}
       {% for case in site.data.coronavirus_cases_teruel %}
-        teruel.fechas.push("{{ case.fecha }}")
-        teruel.casosActivos.push({{ case.confirmados_activos }})
-        teruel.fallecimientosDia.push({{ case.fallecimientos_dia }})
-        teruel.altasDia.push({{ case.altas_dia }})
+        teruel.dates.push("{{ case.fecha }}")
+        teruel.actives.push({{ case.confirmados_activos }})
+        teruel.deceases.push({{ case.fallecimientos_dia }})
+        teruel.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var zaragoza = {nombre: "Zaragoza", fechas: [], casosActivos: [], fallecimientosDia: [], altasDia: []}
+      var zaragoza = {name: "Zaragoza", dates: [], actives: [], deceases: [], recovered: []}
       {% for case in site.data.coronavirus_cases_zaragoza %}
-        zaragoza.fechas.push("{{ case.fecha }}")
-        zaragoza.casosActivos.push({{ case.confirmados_activos }})
-        zaragoza.fallecimientosDia.push({{ case.fallecimientos_dia }})
-        zaragoza.altasDia.push({{ case.altas_dia }})
+        zaragoza.dates.push("{{ case.fecha }}")
+        zaragoza.actives.push({{ case.confirmados_activos }})
+        zaragoza.deceases.push({{ case.fallecimientos_dia }})
+        zaragoza.recovered.push({{ case.altas_dia }})
       {% endfor%}
       window.onload = function() {
         draw("chartAragon", getChartConfigFor(aragon));

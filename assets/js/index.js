@@ -3,29 +3,29 @@ function getChartConfigFor(args){
   return config = {
     type: "line",
     data: {
-      labels: args.fechas,
+      labels: args.dates,
       datasets: [{
         label: "Casos activos",
         backgroundColor: color("red").alpha(0.1).rgbString(),
         borderColor: "red",
-        data: args.casosActivos,
+        data: args.actives,
       },{
         label: "Fallecimientos",
         backgroundColor: color("black").alpha(0.8).rgbString(),
         borderColor: "black",
-        data: args.fallecimientosDia,
+        data: args.deceases,
       },{
         label: "Altas",
         backgroundColor: color("green").alpha(0.8).rgbString(),
         borderColor: "green",
-        data: args.altasDia,
+        data: args.recovered,
       }]
     },
     options: {
       responsive: true,
       title: {
         display: true,
-        text: "Evolución del COVID-19 en " + args.nombre
+        text: "Evolución del COVID-19 en " + args.name
       },
       tooltips: {
         mode: "index",
