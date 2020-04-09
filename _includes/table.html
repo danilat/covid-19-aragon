@@ -12,11 +12,11 @@
   {% for case in cases %}
   <tr>
     <td>{{ case.fecha }}</td>
-    <td>{{ case.confirmados_activos }} {% include tendency.html difference=case.diferencia_confirmados_activos increase_is_positive=false %}</td>
+    <td>{% include tendency.html difference=case.diferencia_confirmados_activos increase_is_positive=false %} <div class="diary">{{ case.confirmados_activos }}</div></td>
     <td>{{ case.casos_confirmados }}</td>
-    <td>{{ case.altas_dia }} {% include tendency.html difference=case.diferencia_altas_dia increase_is_positive=true%}</td>
+    <td>{% include tendency.html difference=case.diferencia_altas_dia increase_is_positive=true%} <div class="diary">{{ case.altas_dia }}</div></td>
     <td>{{ case.altas }}</td>
-    <td>{{ case.fallecimientos_dia }} {% include tendency.html difference=case.diferencia_fallecimientos_dia %}</td>
+    <td>{% include tendency.html difference=case.diferencia_fallecimientos_dia %} <div class="diary">{{ case.fallecimientos_dia }}</div></td>
     <td>{{ case.fallecimientos }}</td>
   </tr>
   {% endfor %}

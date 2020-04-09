@@ -1,22 +1,26 @@
+<div class="tendency">
 {% assign difference = include.difference | plus: 0 %}
 {%if difference != 0 %}
   {%if difference > 0 %}
     {% assign direction = "up" %}
     {%if include.increase_is_positive %}
-      {% assign class_name = "positive"%}
+      {% assign meaning = "positive"%}
     {% else %}
-      {% assign class_name = "negative"%}
+      {% assign meaning = "negative"%}
     {% endif %}
   {% elsif 0 > difference %}
     {% assign direction = "down" %}
     {%if include.increase_is_positive %}
-      {% assign class_name = "negative"%}
-      {% else %}
-      {% assign class_name = "positive"%}
+      {% assign meaning = "negative"%}
+    {% else %}
+      {% assign meaning = "positive"%}
     {% endif %}
   {% endif %}
-  <span class="{{class_name}}">
-  <i class="fa fa-angle-{{direction}}"></i>
-  ({{ include.difference }})
+  <span class="{{meaning}}">
+  <img src="/assets/img/down-arrow-{{meaning}}.svg" class="arrow {{direction}}">
+  {{ include.difference }}
   </span>
+  {% else %}
+  &nbsp;
 {% endif %}
+</div>

@@ -6,10 +6,12 @@
 /** COLORES **/
 $verde:#01afaf;
 $verdeClaro: #3bd2d278;
+$verdeOscuro: #08a4a4;
 $blanco:#FFFFFF;
 $negro:#1c1c1c;
 $gris:#919191;
 $grisClaro:#bcbcbc;
+$rojo:#ff3867;
 
 
 /** FUENTES **/
@@ -71,7 +73,27 @@ td{
     border-bottom: $grisClaro 1px solid;
     text-align: right;
     padding-right: 10px;
+    width: 14%;
 }
 .nota.fuente{
     margin-top: 80px;
+}
+.negative{ color: $rojo;}
+.positive{ color: $verdeOscuro;}
+.negative, .positive{
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+.arrow{
+    width:10px;
+}
+.tendency{
+    width:45px;
+}
+.diary, .tendency{
+    display: block;
+    float: right;
+}
+.arrow.up{
+    transform: rotate(180deg);
 }
