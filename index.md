@@ -33,6 +33,15 @@ layout: default
         );
       }
     </script>
+    <meta property="og:title" content="{{site.title}}" />
+    <meta property="og:description" content="{{site.description}}" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="{{site.title}}" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="{{site.description}}" />
+    <meta name="twitter:title" content="{{site.title}}" />
+    <meta name="twitter:image" content="" />
   </head>
   <body>
     <div class="container">
