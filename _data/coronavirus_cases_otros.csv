@@ -1,6 +1,6 @@
 fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos_personal_sanitario,altas,total_personas,fallecimientos_dia,altas_dia,confirmados_activos,porcentaje_ingresos_confirmados,porcentaje_uci_confirmados,porcentaje_fallecimiento_confirmados,porcentaje_sanitarios_confirmados,porcentaje_altas_confirmados,porcentaje_personas_confirmadas
-2020-04-05,56,15,2,2,0,6,0,0,0,48,26.79,3.57,3.57,0.0,10.71,Infinity
-2020-04-06,30,10,1,1,0,7,0,0,1,22,33.33,3.33,3.33,0.0,23.33,Infinity
-2020-04-07,35,11,1,1,0,7,0,0,0,27,31.43,2.86,2.86,0.0,20.0,Infinity
-2020-04-08,36,11,1,1,0,8,0,0,1,27,30.56,2.78,2.78,0.0,22.22,Infinity
-2020-04-09,37,11,1,1,0,9,0,0,1,27,29.73,2.7,2.7,0.0,24.32,Infinity
+05/04/2020,56,15,2,2,0,6,0,0,0,48,26.79,3.57,3.57,0.0,10.71,Infinity
+06/04/2020,30,10,1,1,0,7,0,0,1,22,33.33,3.33,3.33,0.0,23.33,Infinity
+07/04/2020,35,11,1,1,0,7,0,0,0,27,31.43,2.86,2.86,0.0,20.0,Infinity
+08/04/2020,36,11,1,1,0,8,0,0,1,27,30.56,2.78,2.78,0.0,22.22,Infinity
+09/04/2020,37,11,1,1,0,9,0,0,1,27,29.73,2.7,2.7,0.0,24.32,Infinity

@@ -106,6 +106,7 @@ def sources_to_targets(source_rows, from)
     altas_dia = difference_by_day(source_row, previous_source_row, :altas)
     args = source_row.to_h.merge(total_personas: TOTAL_OF_PEOPLE[from] || 0, fallecimientos_dia: fallecimientos_dia, altas_dia: altas_dia)
     previous_source_row = source_row
+    args[:fecha] = Date.parse(args[:fecha]).strftime("%d/%m/%Y") 
     TargetRow.new(args)
   end
 end
