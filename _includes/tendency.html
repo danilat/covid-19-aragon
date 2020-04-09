@@ -1,0 +1,12 @@
+{% assign difference = include.difference | plus: 0 %}
+{%if difference > 0 ) %}
+{% assign direction = "up" %}
+{% elsif 0 > difference %}
+{% assign direction = "down" %}
+{% else %}
+{% assign direction = "right" %}
+{% endif %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<i class="fa fa-angle-double-{{direction}}"></i>
+<span class="">({{ include.difference }})</span>
