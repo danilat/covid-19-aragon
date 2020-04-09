@@ -5,28 +5,25 @@ function getChartConfigFor(args){
     data: {
       labels: args.dates,
       datasets: [{
-        label: "Casos activos",
-        backgroundColor: color("red").alpha(0.1).rgbString(),
-        borderColor: "red",
-        data: args.actives,
-      },{
-        label: "Fallecimientos",
-        backgroundColor: color("black").alpha(0.8).rgbString(),
-        borderColor: "black",
+        label: "FALLECIMIENTOS",
+        backgroundColor: color("#444444").alpha(0.9).rgbString(),
+        borderColor: "#444444",
         data: args.deceases,
       },{
-        label: "Altas",
-        backgroundColor: color("green").alpha(0.8).rgbString(),
-        borderColor: "green",
+        label: "ALTAS",
+        backgroundColor: color("#01afaf").alpha(0.6).rgbString(),
+        borderColor: "#01afaf",
         data: args.recovered,
+        },{
+        label: "CASOS ACTIVOS",
+        backgroundColor: color("#f7849f").alpha(0.35).rgbString(),
+        borderColor: "#f7849f",
+        data: args.actives,
+        
       }]
     },
     options: {
       responsive: true,
-      title: {
-        display: true,
-        text: "Evolución del COVID-19 en " + args.name
-      },
       tooltips: {
         mode: "index",
         intersect: false,
@@ -40,14 +37,14 @@ function getChartConfigFor(args){
           display: true,
           scaleLabel: {
             display: true,
-            labelString: "Fecha"
+            labelString: "FECHA"
           }
         }],
         yAxes: [{
           display: true,
           scaleLabel: {
             display: true,
-          labelString: "Casos activos"
+          labelString: "CASOS ACTIVOS"
           }
         }]
       }
