@@ -1,3 +1,4 @@
+Chart.defaults.global.defaultFontFamily = "Lato, Open Sans";
 function getChartConfigFor(args){
   var color = Chart.helpers.color;
   return config = {
