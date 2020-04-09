@@ -1,4 +1,4 @@
-function getChartConfig(args){
+function getChartConfigFor(args){
   var color = Chart.helpers.color;
   return config = {
     type: "line",
@@ -8,17 +8,17 @@ function getChartConfig(args){
         label: "Casos activos",
         backgroundColor: color("red").alpha(0.1).rgbString(),
         borderColor: "red",
-        data: args.casos_activos,
+        data: args.casosActivos,
       },{
         label: "Fallecimientos",
         backgroundColor: color("black").alpha(0.8).rgbString(),
         borderColor: "black",
-        data: args.fallecimientos_dia,
+        data: args.fallecimientosDia,
       },{
         label: "Altas",
         backgroundColor: color("green").alpha(0.8).rgbString(),
         borderColor: "green",
-        data: args.altas_dia,
+        data: args.altasDia,
       }]
     },
     options: {
