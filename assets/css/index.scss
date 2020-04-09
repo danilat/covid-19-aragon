@@ -1,0 +1,71 @@
+---
+---
+
+/** COLORES **/
+$verde:#01afaf;
+$verdeClaro: #3bd2d278;
+$blanco:#FFFFFF;
+$negro:#1c1c1c;
+$gris:#919191;
+$grisClaro:#bcbcbc;
+
+
+
+body{
+    margin:0;
+    padding:0;
+    font-family: Lato, Open Sans;
+    color:$negro;
+    line-height: 1.7em;
+    font-size: 1.21rem;
+}
+a{
+    color: $verde;
+    font-weight: 800;
+}
+.content{
+    padding: 0 10% 0 10%;
+}
+.logo{
+    width: 140px;
+    margin: 33px 0 0 35px;
+}
+.barSup{
+    height: 17px;
+    background-color: $verdeClaro;
+}
+h2{
+    margin: 80px 0 40px 0;
+    color:$verde;
+    font-size: 2.3rem;
+    font-family: Montserrat;
+}
+#chartAragon{
+    width: 100%;
+}
+footer{
+    height: 17px;
+    margin-top: 20px;
+    background-color: $verdeClaro;
+}
+table{
+    width:100%;
+    margin-top: 40px;
+}
+th{
+    text-transform: uppercase;
+    font-size: 0.8em;
+    text-align: center;
+    background-color: $verde;
+    color:$blanco;
+    padding: 1.1%;
+    line-height: 1.2em;
+}
+td{
+    border-bottom: $grisClaro 1px solid;
+    text-align: right;
+    padding-right: 10px;
+}
+.nota.fuente{
+    margin-top: 80px;
+}
