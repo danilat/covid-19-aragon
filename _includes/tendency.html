@@ -3,6 +3,7 @@
 {%if difference != 0 %}
   {%if difference > 0 %}
     {% assign direction = "up" %}
+    {% assign alt_direction = "Aumenta el número de personas" %}
     {%if include.increase_is_positive %}
       {% assign meaning = "positive"%}
     {% else %}
@@ -10,6 +11,7 @@
     {% endif %}
   {% elsif 0 > difference %}
     {% assign direction = "down" %}
+    {% assign alt_direction = "Disminuye el número de personas" %}
     {%if include.increase_is_positive %}
       {% assign meaning = "negative"%}
     {% else %}
@@ -17,8 +19,8 @@
     {% endif %}
   {% endif %}
   <span class="{{meaning}}">
-  <img src="/assets/img/down-arrow-{{meaning}}.svg" class="arrow {{direction}}">
-  {{ include.difference }}
+  <img src="/assets/img/down-arrow-{{meaning}}.svg" class="arrow {{direction}}" alt="{{alt_direction}}">
+  {{ include.difference || abs }}
   </span>
   {% else %}
   &nbsp;
