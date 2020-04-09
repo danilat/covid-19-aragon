@@ -63,12 +63,14 @@ class SourceRow < Dry::Struct
 end
 
 class TargetRow < SourceRow
+  attribute :confirmados_dia, Types::Coercible::Integer
   attribute :total_personas, Types::Coercible::Integer
   attribute :fallecimientos_dia, Types::Coercible::Integer
   attribute :altas_dia, Types::Coercible::Integer
   attribute :diferencia_confirmados_activos, Types::Coercible::Integer
-  attribute :diferencia_fallecimientos_dia, Types::Coercible::Integer.default(0)
-  attribute :diferencia_altas_dia, Types::Coercible::Integer.default(0)
+  attribute :diferencia_confirmados_dia, Types::Coercible::Integer
+  attribute :diferencia_fallecimientos_dia, Types::Coercible::Integer
+  attribute :diferencia_altas_dia, Types::Coercible::Integer
   
   def porcentaje_personas_confirmadas
     casos_confirmados.percent_of(total_personas)
@@ -96,12 +98,9 @@ def read_csv(uri)
   CSV.new(response.body, headers: true, col_sep: ";", liberal_parsing: true)
 end
 
-def difference_by_day(source_row, previous_target_row, attribute)
-  if previous_target_row
-    source_row.send(attribute) - previous_target_row&.send(attribute) 
-  else
-    0
-  end
+def difference_by_day(args, previous_target_row, attribute)
+  return args[attribute] unless previous_target_row
+  args[attribute] - previous_target_row.send(attribute)
 end
 
 def sources_to_targets(source_rows, from)
@@ -109,11 +108,13 @@ def sources_to_targets(source_rows, from)
   target_rows = source_rows.collect do |source_row|
     args = source_row.to_h
     args[:total_personas] = TOTAL_OF_PEOPLE[from] || 0
-    args[:diferencia_confirmados_activos] = difference_by_day(source_row, previous_target_row, :confirmados_activos)
-    args[:fallecimientos_dia] = difference_by_day(source_row, previous_target_row, :fallecimientos)
-    args[:diferencia_fallecimientos_dia] = (args[:fallecimientos_dia] - previous_target_row.fallecimientos_dia) if previous_target_row
-    args[:altas_dia] = difference_by_day(source_row, previous_target_row, :altas)
-    args[:diferencia_altas_dia] = (args[:altas_dia] - previous_target_row.altas_dia) if previous_target_row
+    args[:diferencia_confirmados_activos] = difference_by_day(args, previous_target_row, :confirmados_activos)
+    args[:confirmados_dia] = difference_by_day(args, previous_target_row, :casos_confirmados)
+    args[:diferencia_confirmados_dia] = difference_by_day(args, previous_target_row, :confirmados_dia)
+    args[:fallecimientos_dia] = difference_by_day(args, previous_target_row, :fallecimientos)
+    args[:diferencia_fallecimientos_dia] = difference_by_day(args, previous_target_row, :fallecimientos_dia)
+    args[:altas_dia] = difference_by_day(args, previous_target_row, :altas)
+    args[:diferencia_altas_dia] = difference_by_day(args, previous_target_row, :altas_dia)
     args[:fecha] = Date.parse(args[:fecha]).strftime("%d/%m/%Y")
     target_row = TargetRow.new(args)
     previous_target_row = target_row

@@ -2,7 +2,7 @@
   <tr>
     <th>Fecha</th>
     <th>Casos activos diarios</th>
-    <th>Nuevos casos diarios</th>
+    <th>Casos nuevos diarios</th>
     <th>Altas diarias</th>
     <th>Fallecimientos diarios</th>
   </tr>
@@ -10,8 +10,8 @@
   {% for case in cases %}
   <tr>
     <td>{{ case.fecha }}</td>
-    <td>{% include tendency.html difference=case.diferencia_confirmados_activos increase_is_positive=false %} <div class="diary">{{ case.confirmados_activos }}</div></td>
-    <td>99</td>
+    <td>{% include tendency.html difference=case.diferencia_confirmados_activos %} <div class="diary">{{ case.confirmados_activos }}</div></td>
+    <td>{% include tendency.html difference=case.diferencia_confirmados_dia %} <div class="diary">{{ case.confirmados_dia }}</td>
     <td>{% include tendency.html difference=case.diferencia_altas_dia increase_is_positive=true%} <div class="diary">{{ case.altas_dia }}</div></td>
     <td>{% include tendency.html difference=case.diferencia_fallecimientos_dia %} <div class="diary">{{ case.fallecimientos_dia }}</div></td>
   </tr>
