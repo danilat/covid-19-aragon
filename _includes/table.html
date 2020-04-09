@@ -8,7 +8,8 @@
     <th>Fallecimientos diarios</th>
     <th>Fallecimientos totales</th>
   </tr>
-  {% for case in include.coronavirus_cases %}
+  {% assign cases = include.coronavirus_cases | | reverse %}
+  {% for case in cases %}
   <tr>
     <td>{{ case.fecha }}</td>
     <td>{{ case.confirmados_activos }}</td>
