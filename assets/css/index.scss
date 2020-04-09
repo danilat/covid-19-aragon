@@ -9,12 +9,14 @@ $negro:#1c1c1c;
 $gris:#919191;
 $grisClaro:#bcbcbc;
 
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import 'https://fonts.googleapis.com/css?family=Lato';
 
 
 body{
     margin:0;
     padding:0;
-    font-family: Lato, Open Sans;
+    font-family: 'Lato', 'Open Sans';
     color:$negro;
     line-height: 1.7em;
     font-size: 1.21rem;
@@ -38,7 +40,7 @@ h2{
     margin: 80px 0 40px 0;
     color:$verde;
     font-size: 2.3rem;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
 }
 #chartAragon{
     width: 100%;
