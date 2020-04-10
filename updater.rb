@@ -103,19 +103,23 @@ def difference_by_day(args, previous_target_row, attribute)
   args[attribute] - previous_target_row.send(attribute)
 end
 
+def populate_args_with_daily_and_diffs(args, previous_target_row)
+  args[:diferencia_confirmados_activos] = difference_by_day(args, previous_target_row, :confirmados_activos)
+  args[:confirmados_dia] = difference_by_day(args, previous_target_row, :casos_confirmados)
+  args[:diferencia_confirmados_dia] = difference_by_day(args, previous_target_row, :confirmados_dia)
+  args[:fallecimientos_dia] = difference_by_day(args, previous_target_row, :fallecimientos)
+  args[:diferencia_fallecimientos_dia] = difference_by_day(args, previous_target_row, :fallecimientos_dia)
+  args[:altas_dia] = difference_by_day(args, previous_target_row, :altas)
+  args[:diferencia_altas_dia] = difference_by_day(args, previous_target_row, :altas_dia)
+end
+
 def sources_to_targets(source_rows, from)
   previous_target_row = nil
   target_rows = source_rows.collect do |source_row|
     args = source_row.to_h
     args[:total_personas] = TOTAL_OF_PEOPLE[from] || 0
-    args[:diferencia_confirmados_activos] = difference_by_day(args, previous_target_row, :confirmados_activos)
-    args[:confirmados_dia] = difference_by_day(args, previous_target_row, :casos_confirmados)
-    args[:diferencia_confirmados_dia] = difference_by_day(args, previous_target_row, :confirmados_dia)
-    args[:fallecimientos_dia] = difference_by_day(args, previous_target_row, :fallecimientos)
-    args[:diferencia_fallecimientos_dia] = difference_by_day(args, previous_target_row, :fallecimientos_dia)
-    args[:altas_dia] = difference_by_day(args, previous_target_row, :altas)
-    args[:diferencia_altas_dia] = difference_by_day(args, previous_target_row, :altas_dia)
     args[:fecha] = Date.parse(args[:fecha]).strftime("%d/%m/%Y")
+    populate_args_with_daily_and_diffs(args, previous_target_row)
     target_row = TargetRow.new(args)
     previous_target_row = target_row
     target_row
@@ -150,8 +154,30 @@ end.each do |province, rows|
   end
 end
 
+UNKNOWN = -1
+def ignore_first_row(rows)
+  first_target_row = rows[0]
+  args = first_target_row.to_h
+  args[:diferencia_confirmados_activos] = 0
+  args[:confirmados_dia] = UNKNOWN
+  args[:diferencia_confirmados_dia] = 0
+  args[:fallecimientos_dia] = UNKNOWN
+  args[:diferencia_fallecimientos_dia] = 0
+  args[:altas_dia] = UNKNOWN
+  args[:diferencia_altas_dia] = 0
+  rows[0] = TargetRow.new(args)
+  second_target_row = rows[1]
+  args = second_target_row.to_h
+  args[:diferencia_confirmados_dia] = 0
+  args[:diferencia_fallecimientos_dia] = 0
+  args[:diferencia_altas_dia] = 0
+  rows[1] = TargetRow.new(args)
+  rows
+end
+
 sources_by_province.each do |province, source_rows|
   target_rows = sources_to_targets(source_rows, province)
+  ignore_first_row(target_rows)
   write_csv(target_rows, "_data/coronavirus_cases_#{province}.csv")
 end
 
