@@ -10,6 +10,7 @@ layout: default
         {% assign last_day_zaragoza = site.data.coronavirus_cases_zaragoza | last %}
         {% assign initial_day_teruel = site.data.coronavirus_cases_teruel | first %}
         {% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
+        {% assign last_day_otros = site.data.coronavirus_cases_otros | last %}
   
         <h2>Última actualización {{ last_day_aragon.fecha }}</h2>
         {% include dashboardToday.html %}
