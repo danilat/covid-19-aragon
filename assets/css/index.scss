@@ -6,6 +6,7 @@
 /** COLORES **/
 $verde:#01afaf;
 $verdeClaro: #3bd2d278;
+$verdeExtraClaro:#95efef73;
 $verdeOscuro: #08a4a4;
 $blanco:#FFFFFF;
 $negro:#1c1c1c;
@@ -166,6 +167,14 @@ td{
 .dashboard.today #icoFallecimientos{
     width: 26%;
 }
+#cookie-law{
+    background-color: $verdeExtraClaro;
+}
+#cookie-law .content{
+    width: 90%;
+    margin: auto 5%;
+    padding: 1% 0 3% 0;
+}
 
 @media (max-width: 1050px){
     body{
@@ -187,11 +196,13 @@ td{
         margin: auto 37%;
         width: 40%!important; 
     }
+    .dashboard .detalle {
+        width: 100%;
+    }
     .nota.fuente{
         font-size: 0.7rem;
     }
     #cookie-law{
         font-size: 0.8rem;
-        padding: 5%;
     }
 }
