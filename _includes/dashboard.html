@@ -24,6 +24,7 @@
     </div>
   </div>
   <div class="card ingresos">
+    {% include illustrations/ico_ingresos.svg %}
      <h3>Ingresos hospitalarios</h3>
      <div class="detalle">
       <span class="number">{% include formatNumber.html number=include.last_day.ingresos_hospitalarios decimals=0 %}</span><br>
@@ -31,6 +32,7 @@
     </div>
   </div>
   <div class="card uci">
+    {% include illustrations/ico_uci.svg %}
     <h3>Ingresos en UCI</h3>
     <div class="detalle">
       <span class="number">{% include formatNumber.html number=include.last_day.ingresos_uci decimals=0 %}</span><br>
@@ -38,6 +40,7 @@
     </div>
   </div>
   <div class="card sanitarios">
+    {% include illustrations/ico_sanitarios.svg %}
     <h3>Casos de personal sanitario</h3>
     <div class="detalle">
       <span class="number">{% include formatNumber.html number=include.last_day.casos_personal_sanitario decimals=0 %}</span><br>
