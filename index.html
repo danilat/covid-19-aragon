@@ -1,10 +1,6 @@
 ---
 layout: default
 ---
-
-
-
-
       <div class="content">
         <h2>Evolución del COVID-19 en Aragón</h2>
         <div class="chart-container">
@@ -12,64 +8,37 @@ layout: default
         </div>
         {% assign last_day = site.data.coronavirus_cases | last %}
         <h2>Datos acumulados {{ last_day.fecha }}</h2>
-        <div class="dashboard">
-            <div class="card confirmados">
-              <h3>Casos confirmados</h3>
-              <span class="number">{{ last_day.casos_confirmados }}</span><br>
-              De {{ last_day.total_personas}} de aragoneses, un <b>{{ last_day.porcentaje_personas_confirmadas }} %</b> han sido casos confirmados
-            </div>
-
-            <div class="card altas">
-              <h3>Altas</h3>
-              <span class="number">{{ last_day.altas }}</span><br>
-              Un <b>{{ last_day.porcentaje_altas_confirmados }} %</b> de casos confirmados se han dado de alta 
-           </div>
-            <div class="card fallecimientos">
-              <h3>Fallecimientos</h3>
-              <span class="number">{{ last_day.fallecimientos }}</span><br>
-              Un <b>{{ last_day.porcentaje_fallecimiento_confirmados }} %</b> de los confirmados han fallecido
-            </div>
-            <div class="card ingresos">
-               <h3>Ingresos hospitalarios</h3>
-               <span class="number">{{ last_day.ingresos_hospitalarios }}</span><br>
-               Un <b>{{ last_day.porcentaje_ingresos_confirmados}} %</b> de los confirmados han requerido ingreso hospitalario
-            </div>
-            <div class="card uci">
-              <h3>Ingresos en UCI</h3>
-              <span class="number">{{ last_day.ingresos_uci }}</span><br>
-              Un <b>{{ last_day.porcentaje_uci_confirmados }} %</b> de los confirmados han sido ingresados en UCI
-            </div>
-            <div class="card sanitarios">
-              <h3>Casos de personal sanitario</h3>
-              <span class="number">{{ last_day.casos_personal_sanitario }}</span><br>
-              Un <b>{{ last_day.porcentaje_sanitarios_confirmados }} %</b> de los confirmados pertenecen a personal sanitario
-            </div>
-        </div>
+        {% include dashboard.html last_day=last_day demonym="aragoneses" %}
       
-
         {% assign initial_day = site.data.coronavirus_cases | first %}
         <h2>Progresión desde el {{ initial_day.fecha }} en Aragón</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases %}
 
         {% assign initial_day = site.data.coronavirus_cases_huesca | first %}
+        {% assign last_day = site.data.coronavirus_cases_huesca | last %}
         <h2>Progresión desde el {{ initial_day.fecha }} en Huesca</h2>
         <div class="chart-container">
             <canvas id="chartHuesca"></canvas>
         </div>
+        {% include dashboard.html last_day=last_day demonym="oscenses" %}
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca %}
 
         {% assign initial_day = site.data.coronavirus_cases_teruel | first %}
+        {% assign last_day = site.data.coronavirus_cases_teruel | last %}
         <h2>Progresión desde el {{ initial_day.fecha }} en Teruel</h2>
         <div class="chart-container">
             <canvas id="chartTeruel"></canvas>
         </div>
+        {% include dashboard.html last_day=last_day demonym="turolenses" %}
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel %}
 
         {% assign initial_day = site.data.coronavirus_cases_zaragoza | first %}
+        {% assign last_day = site.data.coronavirus_cases_zaragoza | last %}
         <h2>Progresión desde el {{ initial_day.fecha }} en Zaragoza</h2>
         <div class="chart-container">
             <canvas id="chartZaragoza"></canvas>
         </div>
+        {% include dashboard.html last_day=last_day demonym="zaragozanos" %}
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza %}
 
         <div class="nota fuente">
