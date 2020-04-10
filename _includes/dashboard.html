@@ -1,33 +1,47 @@
 <div class="dashboard">
   <div class="card confirmados">
+    {% include illustrations/ico_confirmados2.svg %}
     <h3>Casos confirmados</h3>
-    <span class="number">{% include formatNumber.html number=include.last_day.casos_confirmados decimals=0%}</span><br>
-    
-    De {% include formatNumber.html number=include.last_day.total_personas decimals=0%} de {{ include.demonym }}, un <b>{% include formatNumber.html number=include.last_day.porcentaje_personas_confirmadas decimals=2%} %</b> han sido casos confirmados
+    <div class="detalle">
+      <span class="number">{% include formatNumber.html number=include.last_day.casos_confirmados decimals=0%}</span><br>
+      De {% include formatNumber.html number=include.last_day.total_personas decimals=0%} {{ include.demonym }}, un <b>{% include formatNumber.html number=include.last_day.porcentaje_personas_confirmadas decimals=2%}%</b> han sido casos confirmados
+    </div>
   </div>
   <div class="card altas">
+    {% include illustrations/ico_altas.svg %}
     <h3>Altas</h3>
-    <span class="number">{% include formatNumber.html number=include.last_day.altas decimals=0 %}</span><br>
-    Un <b>{% include formatNumber.html number=include.last_day.porcentaje_altas_confirmados %} %</b> de casos confirmados se han dado de alta 
- </div>
+    <div class="detalle">
+      <span class="number">{% include formatNumber.html number=include.last_day.altas decimals=0 %}</span><br>
+      Un <b>{% include formatNumber.html number=include.last_day.porcentaje_altas_confirmados %} %</b> de casos confirmados se han dado de alta
+    </div>
+  </div>
   <div class="card fallecimientos">
+    {% include illustrations/ico_fallecimientos.svg %}
     <h3>Fallecimientos</h3>
-    <span class="number">{% include formatNumber.html  number=include.last_day.fallecimientos decimals=0 %}</span><br>
-    Un <b>{% include formatNumber.html number=include.last_day.porcentaje_fallecimiento_confirmados %} %</b> de los confirmados han fallecido
+    <div class="detalle">
+      <span class="number">{% include formatNumber.html  number=include.last_day.fallecimientos decimals=0 %}</span><br>
+      Un <b>{% include formatNumber.html number=include.last_day.porcentaje_fallecimiento_confirmados %} %</b> de los confirmados han fallecido
+    </div>
   </div>
   <div class="card ingresos">
      <h3>Ingresos hospitalarios</h3>
-     <span class="number">{% include formatNumber.html number=include.last_day.ingresos_hospitalarios decimals=0 %}</span><br>
-     Un <b>{% include formatNumber.html number=include.last_day.porcentaje_ingresos_confirmados %} %</b> de los confirmados han requerido ingreso hospitalario
+     <div class="detalle">
+      <span class="number">{% include formatNumber.html number=include.last_day.ingresos_hospitalarios decimals=0 %}</span><br>
+      Un <b>{% include formatNumber.html number=include.last_day.porcentaje_ingresos_confirmados %} %</b> de los confirmados han requerido ingreso hospitalario
+    </div>
   </div>
   <div class="card uci">
     <h3>Ingresos en UCI</h3>
-    <span class="number">{% include formatNumber.html number=include.last_day.ingresos_uci decimals=0 %}</span><br>
-    Un <b>{% include formatNumber.html number=include.last_day.porcentaje_uci_confirmados %} %</b> de los confirmados han sido ingresados en UCI
+    <div class="detalle">
+      <span class="number">{% include formatNumber.html number=include.last_day.ingresos_uci decimals=0 %}</span><br>
+      Un <b>{% include formatNumber.html number=include.last_day.porcentaje_uci_confirmados %} %</b> de los confirmados han sido ingresados en UCI
+    </div>
   </div>
   <div class="card sanitarios">
     <h3>Casos de personal sanitario</h3>
-    <span class="number">{% include formatNumber.html number=include.last_day.casos_personal_sanitario decimals=0 %}</span><br>
-    Un <b>{% include formatNumber.html number=include.last_day.porcentaje_sanitarios_confirmados %} %</b> de los confirmados pertenecen a personal sanitario
+    <div class="detalle">
+      <span class="number">{% include formatNumber.html number=include.last_day.casos_personal_sanitario decimals=0 %}</span><br>
+      Un <b>{% include formatNumber.html number=include.last_day.porcentaje_sanitarios_confirmados %} %</b> de los confirmados pertenecen a personal sanitario
+    </div>
   </div>
 </div>

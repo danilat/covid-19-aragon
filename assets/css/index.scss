@@ -123,6 +123,29 @@ td{
 .number{
     font-size: 3rem;
 }
+.dashboard svg{
+    position: absolute;
+    overflow: overlay;
+}
+.dashboard #icoConfirmados{
+    width: 117px;
+    bottom: 25px;
+    right: 25px;
+}
+.dashboard #icoAltas{
+    width: 94px;
+    bottom: 25px;
+    right: 25px;
+}
+.dashboard #icoFallecimientos{
+    width: 94px;
+    bottom: 25px;
+    right: 25px;
+}
+.dashboard .detalle{
+    width: 60%;
+
+}
 .dashboard.today svg{
     position: absolute;
     overflow: overlay;
