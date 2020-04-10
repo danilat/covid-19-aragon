@@ -45,14 +45,16 @@ a{
 h2{
     margin: 80px 0 40px 0;
     color:$verde;
-    font-size: 2.3rem;
+    font-size: 2.6rem;
     font-family: $fuente_titulos;
+    font-weight: 500;
 }
 h3{
     color:$verde;
-    font-size: 1.3rem;
+    font-size: 1.9rem;
     font-family: $fuente_titulos;
     margin-top: 0;
+    line-height: 2.5rem;
 }
 #chartAragon{
     width: 100%;
@@ -116,8 +118,27 @@ td{
     border: 1px solid $verdeClaro;
     margin:10px;
     padding: 20px;
-    
+    position: relative;
 }
 .number{
     font-size: 3rem;
+}
+.dashboard.today svg{
+    position: absolute;
+    overflow: overlay;
+}
+.dashboard.today #icoConfirmados{
+    width: 117px;
+    bottom: 31px;
+    right: 48px;
+}
+.dashboard.today #icoAltas{
+    width: 94px;
+    bottom: 37px;
+    right: 40px;
+}
+.dashboard.today #icoFallecimientos{
+    width: 94px;
+    bottom: 37px;
+    right: 40px;
 }
