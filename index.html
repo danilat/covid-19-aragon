@@ -2,44 +2,57 @@
 layout: default
 ---
       <div class="content">
-        <h2>Evolución del COVID-19 en Aragón</h2>
+        {% assign last_day = site.data.coronavirus_cases | last %}
+        {% assign initial_day = site.data.coronavirus_cases | first %}
+        <h2>Evolución del COVID-19 en Aragón {{ last_day.fecha }}</h2>
         <div class="chart-container">
             <canvas id="chartAragon"></canvas>
         </div>
-        {% assign last_day = site.data.coronavirus_cases | last %}
-        <h2>Datos acumulados {{ last_day.fecha }}</h2>
+
+        <h2>Datos acumulados en Aragón</h2>
         {% include dashboard.html last_day=last_day demonym="aragoneses" %}
       
-        {% assign initial_day = site.data.coronavirus_cases | first %}
         <h2>Progresión desde el {{ initial_day.fecha }} en Aragón</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases %}
 
+        <h2>Evolución del COVID-19 en Huesca</h2>
         {% assign initial_day = site.data.coronavirus_cases_huesca | first %}
         {% assign last_day = site.data.coronavirus_cases_huesca | last %}
-        <h2>Progresión desde el {{ initial_day.fecha }} en Huesca</h2>
         <div class="chart-container">
             <canvas id="chartHuesca"></canvas>
         </div>
+
+        <h2>Datos acumulados en Huesca</h2>
         {% include dashboard.html last_day=last_day demonym="oscenses" %}
+
+        <h2>Progresión desde el {{ initial_day.fecha }} en Huesca</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca %}
-
-        {% assign initial_day = site.data.coronavirus_cases_teruel | first %}
-        {% assign last_day = site.data.coronavirus_cases_teruel | last %}
-        <h2>Progresión desde el {{ initial_day.fecha }} en Teruel</h2>
-        <div class="chart-container">
-            <canvas id="chartTeruel"></canvas>
-        </div>
-        {% include dashboard.html last_day=last_day demonym="turolenses" %}
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel %}
-
+        
+        <h2>Evolución del COVID-19 en Zaragoza</h2>
         {% assign initial_day = site.data.coronavirus_cases_zaragoza | first %}
         {% assign last_day = site.data.coronavirus_cases_zaragoza | last %}
-        <h2>Progresión desde el {{ initial_day.fecha }} en Zaragoza</h2>
         <div class="chart-container">
             <canvas id="chartZaragoza"></canvas>
         </div>
+
+        <h2>Datos acumulados en Zaragoza</h2>
         {% include dashboard.html last_day=last_day demonym="zaragozanos" %}
+
+        <h2>Progresión desde el {{ initial_day.fecha }} en Zaragoza</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza %}
+
+        <h2>Evolución del COVID-19 en Teruel</h2>
+        {% assign initial_day = site.data.coronavirus_cases_teruel | first %}
+        {% assign last_day = site.data.coronavirus_cases_teruel | last %}
+        <div class="chart-container">
+            <canvas id="chartTeruel"></canvas>
+        </div>
+
+        <h2>Datos acumulados en Teruel</h2>
+        {% include dashboard.html last_day=last_day demonym="turolenses" %}
+
+        <h2>Progresión desde el {{ initial_day.fecha }} en Teruel</h2>
+        {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel %}
 
         <div class="nota fuente">
           <span>Datos obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualizados el {{ last_day.fecha }}.</span>
