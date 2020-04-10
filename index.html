@@ -63,31 +63,35 @@ layout: default
 
 
     <script>
-      var aragon = {name: "Aragón", dates: [], actives: [], deceases: [], recovered: []}
+      var aragon = {name: "Aragón", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases %}
         aragon.dates.push("{{ case.fecha }}")
         aragon.actives.push({{ case.confirmados_activos }})
+        aragon.news.push({{ case.confirmados_dia }})
         aragon.deceases.push({{ case.fallecimientos_dia }})
         aragon.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var huesca = {name: "Huesca", dates: [], actives: [], deceases: [], recovered: []}
+      var huesca = {name: "Huesca", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases_huesca %}
         huesca.dates.push("{{ case.fecha }}")
         huesca.actives.push({{ case.confirmados_activos }})
+        huesca.news.push({{ case.confirmados_dia }})
         huesca.deceases.push({{ case.fallecimientos_dia }})
         huesca.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var teruel = {name: "Teruel", dates: [], actives: [], deceases: [], recovered: []}
+      var teruel = {name: "Teruel", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases_teruel %}
         teruel.dates.push("{{ case.fecha }}")
         teruel.actives.push({{ case.confirmados_activos }})
+        teruel.news.push({{ case.confirmados_dia }})
         teruel.deceases.push({{ case.fallecimientos_dia }})
         teruel.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var zaragoza = {name: "Zaragoza", dates: [], actives: [], deceases: [], recovered: []}
+      var zaragoza = {name: "Zaragoza", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases_zaragoza %}
         zaragoza.dates.push("{{ case.fecha }}")
         zaragoza.actives.push({{ case.confirmados_activos }})
+        zaragoza.news.push({{ case.confirmados_dia }})
         zaragoza.deceases.push({{ case.fallecimientos_dia }})
         zaragoza.recovered.push({{ case.altas_dia }})
       {% endfor%}

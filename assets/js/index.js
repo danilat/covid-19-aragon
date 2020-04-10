@@ -17,12 +17,18 @@ function getChartConfigFor(args){
         borderColor: "#01afaf",
         data: args.recovered,
         pointBackgroundColor: "#01afaf",
-        },{
-        label: "  CASOS ACTIVOS",
+      },{
+        label: "  CASOS NUEVOS",
         backgroundColor: color("#f7849f").alpha(0.35).rgbString(),
         borderColor: "#f7849f",
-        data: args.actives,
+        data: args.news,
         pointBackgroundColor: "#f7849f",
+      },{
+        label: "  CASOS ACTIVOS",
+        backgroundColor: color("#919191").alpha(0.35).rgbString(),
+        borderColor: "#919191",
+        data: args.actives,
+        pointBackgroundColor: "#919191",
       }]
     },
     options: {
@@ -54,7 +60,7 @@ function getChartConfigFor(args){
           display: true,
           scaleLabel: {
             display: true,
-            labelString: "CASOS ACTIVOS",
+            labelString: "PERSONAS",
             fontStyle: "bold",
             padding: {bottom: 30}
           }
