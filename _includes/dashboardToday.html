@@ -1,0 +1,23 @@
+<div class="dashboard">
+  <div class="card confirmados">
+    <h3>Nuevos casos confirmados</h3>
+    <span class="number">{% include formatNumber.html number=include.last_day.confirmados_dia decimals=0%}</span><br>
+    En Huesca <b>{% include formatNumber.html number=include.last_day.confirmados_dia decimals=0%}</b><br>
+    En Zaragoza <b>{% include formatNumber.html number=include.last_day.confirmados_dia decimals=0%}</b><br>
+    En Teruel <b>{% include formatNumber.html number=include.last_day.confirmados_dia decimals=0%}</b>
+  </div>
+  <div class="card altas">
+    <h3>Nuevas altas</h3>
+    <span class="number">{% include formatNumber.html number=include.last_day.altas_dia decimals=0 %}</span><br>
+    En Huesca <b>{% include formatNumber.html number=include.last_day.altas_dia decimals=0 %}</b><br>
+    En Zaragoza <b>{% include formatNumber.html number=include.last_day.altas_dia decimals=0 %}</b><br>
+    En Teruel <b>{% include formatNumber.html number=include.last_day.altas_dia decimals=0 %}</b>
+ </div>
+  <div class="card fallecimientos">
+    <h3>Nuevos fallecimientos</h3>
+    <span class="number">{% include formatNumber.html  number=include.last_day.fallecimientos_dia decimals=0 %}</span><br>
+    En Huesca <b>{% include formatNumber.html  number=include.last_day.fallecimientos_dia decimals=0 %}</b><br>
+    En Zaragoza <b>{% include formatNumber.html  number=include.last_day.fallecimientos_dia decimals=0 %}</b><br>
+    En Teruel <b>{% include formatNumber.html  number=include.last_day.fallecimientos_dia decimals=0 %}</b>
+  </div>
+</div>

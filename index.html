@@ -4,6 +4,10 @@ layout: default
       <div class="content">
         {% assign last_day = site.data.coronavirus_cases | last %}
         {% assign initial_day = site.data.coronavirus_cases | first %}
+  
+        <h2>Última actualización {{ last_day.fecha }}</h2>
+        {% include dashboardToday.html last_day=last_day demonym="aragoneses" %}
+
         <h2>Evolución del COVID-19 en Aragón {{ last_day.fecha }}</h2>
         <div class="chart-container">
             <canvas id="chartAragon"></canvas>
