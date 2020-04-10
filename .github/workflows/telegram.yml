@@ -15,4 +15,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets. TELEGRAM_KEY }}
-        args: La web de http://www.curvaenaragon.com/ tiene datos actualizados
+        message: La web de http://www.curvaenaragon.com/ tiene datos actualizados
