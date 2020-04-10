@@ -172,6 +172,8 @@ def ignore_first_row(rows)
   args[:diferencia_fallecimientos_dia] = 0
   args[:diferencia_altas_dia] = 0
   rows[1] = TargetRow.new(args)
+  rows.delete_at(1)
+  rows.delete_at(0)
   rows
 end
 
