@@ -1,1 +1,10 @@
-La web de http://www.curvaenaragon.com/ tiene datos actualizados
+---
+---
+{% assign last_day_aragon = site.data.coronavirus_cases | last %}
+Actualización del {{ last_day_aragon.fecha }}:<br/>
+<ul>
+  <li>{% include formatNumber.html number=last_day_aragon.confirmados_dia decimals=0%} casos nuevos</li>
+  <li>{% include formatNumber.html number=last_day_aragon.altas_dia decimals=0%} altas</li>
+  <li>{% include formatNumber.html number=last_day_aragon.fallecimientos_dia decimals=0%} fallecimientos</li>
+</ul>
+Entra en http://www.curvaenaragon.com/ para ver más detalles
