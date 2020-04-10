@@ -19,16 +19,16 @@ function getChartConfigFor(args){
         pointBackgroundColor: "#01afaf",
       },{
         label: "  CASOS NUEVOS",
-        backgroundColor: color("#f7849f").alpha(0.35).rgbString(),
+        backgroundColor: color("#f7849f").alpha(0.4).rgbString(),
         borderColor: "#f7849f",
         data: args.news,
         pointBackgroundColor: "#f7849f",
       },{
         label: "  CASOS ACTIVOS",
-        backgroundColor: color("#919191").alpha(0.35).rgbString(),
-        borderColor: "#919191",
+        backgroundColor: color("#acb2b2").alpha(0.12).rgbString(),
+        borderColor: "#acb2b2",
         data: args.actives,
-        pointBackgroundColor: "#919191",
+        pointBackgroundColor: "#acb2b2",
       }]
     },
     options: {
