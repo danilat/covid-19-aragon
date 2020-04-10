@@ -1,0 +1,18 @@
+name: Send notifications to telegram
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: send custom message with args
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets. TELEGRAM_KEY }}
+        args: La web de http://www.curvaenaragon.com/ tiene datos actualizados
