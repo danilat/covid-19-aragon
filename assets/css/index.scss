@@ -126,57 +126,42 @@ td{
 .dashboard svg{
     position: absolute;
     overflow: overlay;
+    bottom: 9%;
+    right: 7%;
 }
 .dashboard #icoConfirmados{
-    width: 117px;
-    bottom: 25px;
-    right: 25px;
+    width: 31%;
 }
 .dashboard #icoAltas{
-    width: 94px;
-    bottom: 25px;
-    right: 25px;
+    width: 26%;
 }
 .dashboard #icoFallecimientos{
-    width: 94px;
-    bottom: 25px;
-    right: 25px;
+    width: 26%;
 }
 .dashboard #icoIngresos{
-    width: 94px;
-    bottom: 25px;
-    right: 25px;
+    width: 26%;
 }
 .dashboard #icoUci{
-    width: 94px;
-    bottom: 25px;
-    right: 25px;
+    width: 26%;
 }
 .dashboard #icoSanitarios{
-    width: 94px;
-    bottom: 25px;
-    right: 25px;
+    width: 26%;
 }
 .dashboard .detalle{
     width: 60%;
-
 }
 .dashboard.today svg{
     position: absolute;
     overflow: overlay;
+    bottom: 7%;
+    right: 7%;
 }
 .dashboard.today #icoConfirmados{
-    width: 117px;
-    bottom: 31px;
-    right: 48px;
+    width: 31%;
 }
 .dashboard.today #icoAltas{
-    width: 94px;
-    bottom: 37px;
-    right: 40px;
+    width: 26%;
 }
 .dashboard.today #icoFallecimientos{
-    width: 94px;
-    bottom: 37px;
-    right: 40px;
+    width: 26%;
 }
