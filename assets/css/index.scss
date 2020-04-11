@@ -132,6 +132,9 @@ th{
     padding: 1.1%;
     line-height: 1.2em;
 }
+table th .mobile{
+    display: none;
+}
 td{
     border-bottom: $grisClaro 1px solid;
     text-align: right;
@@ -229,13 +232,14 @@ td{
     background-color: $verdeExtraClaro;
     position: fixed;
     bottom: 0;
-    left: 0;
+    right: 0;
     font-size: 0.9rem;
-    line-height: 1.1rem;
+    line-height: 1.2rem;
+    width: 33%;
 }
 #cookie-law .content{
     width: 90%;
-    margin: auto 5%;
+    margin: auto 7%;
     padding: 5% 0 3% 0;
 }
 .icoCookie{
@@ -279,6 +283,12 @@ td{
     }
     .nota.fuente{
         font-size: 0.7rem;
+    }
+    table th .desktop{
+        display: none;
+    }
+    table th .mobile{
+        display: block;
     }
 }
 @media all and (max-width: 425px){
@@ -335,12 +345,6 @@ td{
     table td{
         font-size: 1.1rem;
     }
-    table th .desktop{
-        display: none;
-    }
-    table th .mobile{
-        display: block;
-    }
     .diary, .tendency {
         float: none;
     }
@@ -373,5 +377,19 @@ td{
     }
     .header, .header.sticky{
         background: url(/assets/img/curvas_MVL.jpg) -110px 0px #FFF no-repeat;
+    }
+    .cookie-law{
+        font-size: 0.9rem;
+        line-height: 1.1rem;
+        width: 100%;
+    }
+    #cookie-law .content{
+        width: 90%;
+        margin: auto 5%;
+        padding: 5% 0 3% 0;
+    }
+    .icoCookie{
+        width: 15%;
+        margin: 30px 20px 90px 10px;
     }
 }
