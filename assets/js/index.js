@@ -124,7 +124,7 @@ function acceptCookies(){
 }
 
 function stickMenu() {
-  var header = document.getElementById("menu");
+  var header = document.getElementById("header");
   var sticky = header.offsetTop;
 
   if (window.pageYOffset > sticky) {

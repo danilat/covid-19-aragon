@@ -63,6 +63,27 @@ header a{
     height: 17px;
     background-color: $verdeClaro;
 }
+.header {
+  padding: 0px 0 10px 0;
+  background: #fff;
+  z-index: 999;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0 0 4% 0;
+    -webkit-box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
+    -moz-box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
+    box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
+}
+.sticky .barSup{
+    display: none;
+}
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
 h2{
     margin: 80px 0 40px 0;
     color:$verde;
@@ -197,6 +218,7 @@ td{
     padding: 1% 0 3% 0;
 }
 
+
 @media (max-width: 1050px){
     body{
         line-height: 1.2em;
@@ -295,24 +317,20 @@ td{
         font-size: 1rem;
         line-height: 1.5rem;
     }
-    /* Style the header */
-    .menu {
-      padding: 10px 0 10px 0;
-      background: #fff;
-      z-index: 999;
+    .sticky .logo {
+        width: 20%;
+        float: left;
+        margin: 15px 0 0 20px;
     }
-
-    /* The sticky class is added to the header with JS when it reaches its scroll position */
-    .sticky {
-        position: fixed;
-        top: 0;
-        -webkit-box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
-        -moz-box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
-        box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
+    .sticky nav {
+        float: left;
+        width: 70%;
+        margin: 45px 0 0 3%;
     }
-
-    /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-    .sticky + .content {
-      padding-top: 102px;
+    .sticky ul{
+        margin: 0;
+    }
+    .sticky li {
+        font-size: 1.2rem;
     }
 }
