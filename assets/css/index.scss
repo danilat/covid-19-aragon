@@ -245,6 +245,11 @@ td{
         width: 60%;
         margin: 20% 20% 5% 20%;
     }
+    .content {
+        width: 84%;
+        margin: 0 7% 0 7%;
+        padding: 0;
+    }
     header nav {
         float: none;
         width: 90%;
@@ -257,5 +262,10 @@ td{
     header nav ul li {
         font-size: 1.5rem;
         text-align: center;
+    }
+    h2 {
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        margin: 60px 0 20px 0;
     }
 }
