@@ -3,7 +3,7 @@
   <head>
     <title>{{site.title}}. {{page.title}}</title>
     <meta name="description" content="{{site.description}}">
-    <link rel="shortcut icon" href="https://www.danilat.com/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/img/favicon-16x16.png" type="image/x-icon">
     <meta property="og:title" content="{{site.title}}" />
     <meta property="og:description" content="{{site.description}}" />
     <meta property="og:image" content="" />
@@ -13,6 +13,10 @@
     <meta name="twitter:description" content="{{site.description}}" />
     <meta name="twitter:title" content="{{site.title}}" />
     <meta name="twitter:image" content="" />
+  
+    <link rel="icon" type="image/png" href="/assets/img/favicon-196x196.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon-196x196.png">
+
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/assets/css/index.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -36,15 +40,13 @@
       </header>
       {{ content }}
       <footer>
+        <div class="bar"></div>
         <div>
           Ideado, diseñado y desarrollado con cariño por <a href="https://www.linkedin.com/in/vanessa-rubio-marquino/">Vanessa Rubio</a> y <a href="https://www.danilat.com/">Dani Latorre</a>.
         </div>
         <div>
-          {% assign last_day = site.data.coronavirus_cases | last %}
-          Datos obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, última actualización el {{ last_day.fecha }}.
-
           Código <a href="https://github.com/danilat/covid-19-aragon/">disponible en github</a>
-
+          <br>
           Consulta nuestra <a href="/cookies">política de cookies</a>
         </div>
       </footer>
