@@ -37,7 +37,17 @@
       </header>
       {{ content }}
       <footer>
-        
+        <div>
+          Ideado, diseñado y desarrollado con cariño por <a href="https://www.linkedin.com/in/vanessa-rubio-marquino/">Vanessa Rubio</a> y <a href="https://www.danilat.com/">Dani Latorre</a>.
+        </div>
+        <div>
+          {% assign last_day = site.data.coronavirus_cases | last %}
+          Datos obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, última actualización el {{ last_day.fecha }}.
+
+          Código <a href="https://github.com/danilat/covid-19-aragon/">disponible en github</a>
+
+          Consulta nuestra <a href="/cookies">política de cookies</a>
+        </div>
       </footer>
       <div id="cookie-law" style="display: none;">
         <div class="content">
