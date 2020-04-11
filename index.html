@@ -26,6 +26,7 @@ layout: default
         <h2>Progresión desde el {{ initial_day_aragon.fecha }} en Aragón</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases %}
 
+        <a name="huesca"></a>
         <h2>Evolución del COVID-19 en Huesca</h2>
         <div class="chart-container">
             <canvas id="chartHuesca"></canvas>
@@ -37,6 +38,7 @@ layout: default
         <h2>Progresión desde el {{ initial_day_huesca.fecha }} en Huesca</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca %}
         
+        <a name="zaragoza"></a>
         <h2>Evolución del COVID-19 en Zaragoza</h2>
         <div class="chart-container">
             <canvas id="chartZaragoza"></canvas>
@@ -47,7 +49,8 @@ layout: default
 
         <h2>Progresión desde el {{ initial_day_zaragoza.fecha }} en Zaragoza</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza %}
-
+        
+        <a name="teruel"></a>
         <h2>Evolución del COVID-19 en Teruel</h2>
         <div class="chart-container">
             <canvas id="chartTeruel"></canvas>
