@@ -22,13 +22,13 @@ function getChartConfigFor(args){
         data: args.recovered,
         pointBackgroundColor: "#01afaf",
       },{
-        label: "  CASOS NUEVOS",
+        label: "  NUEVOS",
         backgroundColor: color("#f7849f").alpha(0.4).rgbString(),
         borderColor: "#f7849f",
         data: args.news,
         pointBackgroundColor: "#f7849f",
       },{
-        label: "  CASOS ACTIVOS",
+        label: "  ACTIVOS",
         backgroundColor: color("#acb2b2").alpha(0.12).rgbString(),
         borderColor: "#acb2b2",
         data: args.actives,
@@ -37,6 +37,8 @@ function getChartConfigFor(args){
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
+      aspectRatio: 0.5,
       tooltips: {
         mode: "index",
         intersect: false,
