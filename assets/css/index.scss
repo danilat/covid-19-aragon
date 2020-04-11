@@ -155,6 +155,7 @@ td{
 }
 .number{
     font-size: 3rem;
+    margin-bottom: 16px;
 }
 .dashboard svg{
     position: absolute;
@@ -237,6 +238,9 @@ td{
 @media all and (max-width: 425px){
     .dashboard .card{
         width:100%;
+    }
+    .number{
+        margin-bottom: 20px;
     }
     table{
         display: block;

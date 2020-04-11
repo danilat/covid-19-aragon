@@ -3,7 +3,7 @@
     {% include illustrations/ico_confirmados2.svg %}
     <h3>Casos confirmados</h3>
     <div class="detalle">
-      <span class="number">{% include formatNumber.html number=include.last_day.casos_confirmados decimals=0%}</span><br>
+      <div class="number">{% include formatNumber.html number=include.last_day.casos_confirmados decimals=0%}</div>
       De {% include formatNumber.html number=include.last_day.total_personas decimals=0%} {{ include.demonym }}, un <b>{% include formatNumber.html number=include.last_day.porcentaje_personas_confirmadas decimals=2%}%</b> han sido casos confirmados
     </div>
   </div>
@@ -11,7 +11,7 @@
     {% include illustrations/ico_altas.svg %}
     <h3>Altas</h3>
     <div class="detalle">
-      <span class="number">{% include formatNumber.html number=include.last_day.altas decimals=0 %}</span><br>
+      <div class="number">{% include formatNumber.html number=include.last_day.altas decimals=0 %}</div>
       Un <b>{% include formatNumber.html number=include.last_day.porcentaje_altas_confirmados %} %</b> de casos confirmados se han dado de alta
     </div>
   </div>
@@ -19,7 +19,7 @@
     {% include illustrations/ico_fallecimientos.svg %}
     <h3>Fallecimientos</h3>
     <div class="detalle">
-      <span class="number">{% include formatNumber.html  number=include.last_day.fallecimientos decimals=0 %}</span><br>
+      <div class="number">{% include formatNumber.html  number=include.last_day.fallecimientos decimals=0 %}</div>
       Un <b>{% include formatNumber.html number=include.last_day.porcentaje_fallecimiento_confirmados %} %</b> de los confirmados han fallecido
     </div>
   </div>
@@ -27,7 +27,7 @@
     {% include illustrations/ico_ingresos.svg %}
      <h3>Ingresos hospitalarios</h3>
      <div class="detalle">
-      <span class="number">{% include formatNumber.html number=include.last_day.ingresos_hospitalarios decimals=0 %}</span><br>
+      <div class="number">{% include formatNumber.html number=include.last_day.ingresos_hospitalarios decimals=0 %}</div>
       Un <b>{% include formatNumber.html number=include.last_day.porcentaje_ingresos_confirmados %} %</b> de los confirmados han requerido ingreso hospitalario
     </div>
   </div>
@@ -35,7 +35,7 @@
     {% include illustrations/ico_uci.svg %}
     <h3>Ingresos en UCI</h3>
     <div class="detalle">
-      <span class="number">{% include formatNumber.html number=include.last_day.ingresos_uci decimals=0 %}</span><br>
+      <div class="number">{% include formatNumber.html number=include.last_day.ingresos_uci decimals=0 %}</div>
       Un <b>{% include formatNumber.html number=include.last_day.porcentaje_uci_confirmados %} %</b> de los confirmados han sido ingresados en UCI
     </div>
   </div>
@@ -43,7 +43,7 @@
     {% include illustrations/ico_sanitarios.svg %}
     <h3>Casos de personal sanitario</h3>
     <div class="detalle">
-      <span class="number">{% include formatNumber.html number=include.last_day.casos_personal_sanitario decimals=0 %}</span><br>
+      <div class="number">{% include formatNumber.html number=include.last_day.casos_personal_sanitario decimals=0 %}</div>
       Un <b>{% include formatNumber.html number=include.last_day.porcentaje_sanitarios_confirmados %} %</b> de los confirmados pertenecen a personal sanitario
     </div>
   </div>

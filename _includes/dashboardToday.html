@@ -2,7 +2,7 @@
   <div class="card confirmados">
     {% include illustrations/ico_confirmados2.svg %}
     <h3>Nuevos casos confirmados</h3>
-    <span class="number">{% include formatNumber.html number=last_day_aragon.confirmados_dia decimals=0%}</span><br>
+    <div class="number">{% include formatNumber.html number=last_day_aragon.confirmados_dia decimals=0%}</div>
     En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_dia decimals=0%}</b><br>
     En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_dia decimals=0%}</b><br>
     En Teruel <b>{% include formatNumber.html number=last_day_teruel.confirmados_dia decimals=0%}</b><br>
@@ -13,7 +13,7 @@
   <div class="card altas">
     {% include illustrations/ico_altas.svg %}
     <h3>Nuevas altas</h3>
-    <span class="number">{% include formatNumber.html number=last_day_aragon.altas_dia decimals=0 %}</span><br>
+    <div class="number">{% include formatNumber.html number=last_day_aragon.altas_dia decimals=0 %}</div>
     En Huesca <b>{% include formatNumber.html number=last_day_huesca.altas_dia decimals=0 %}</b><br>
     En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.altas_dia decimals=0 %}</b><br>
     En Teruel <b>{% include formatNumber.html number=last_day_teruel.altas_dia decimals=0 %}</b><br>
@@ -24,7 +24,7 @@
   <div class="card fallecimientos">
     {% include illustrations/ico_fallecimientos.svg %}
     <h3>Nuevos fallecimientos</h3>
-    <span class="number">{% include formatNumber.html  number=last_day_aragon.fallecimientos_dia decimals=0 %}</span><br>
+    <div class="number">{% include formatNumber.html  number=last_day_aragon.fallecimientos_dia decimals=0 %}</div>
     En Huesca <b>{% include formatNumber.html  number=last_day_huesca.fallecimientos_dia decimals=0 %}</b><br>
     En Zaragoza <b>{% include formatNumber.html  number=last_day_zaragoza.fallecimientos_dia decimals=0 %}</b><br>
     En Teruel <b>{% include formatNumber.html  number=last_day_teruel.fallecimientos_dia decimals=0 %}</b><br>
