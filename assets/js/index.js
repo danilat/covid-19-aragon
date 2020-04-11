@@ -48,25 +48,50 @@ function getChartConfigFor(args){
         titleMarginBottom: 15
       },
       legend: {
-        reverse: true
+        reverse: true,
+        position: "bottom",
+        labels: {
+          fontSize: 15,
+          padding: 40,
+          usePointStyle: true,
+          fontColor:"#08a4a4",
+          filter: function(label) {
+            if (!label.hidden){
+              label.text += "   X"
+            }else{
+              label.text += "    "
+            }
+            return label
+          }
+        },
+        onHover: function(e) {
+          e.target.style.cursor = 'pointer';
+       }
+      },
+      hover: {
+        onHover: function(e) {
+          var point = this.getElementAtEvent(e);
+          if (point.length) e.target.style.cursor = 'pointer';
+          else e.target.style.cursor = 'default';
+        }
       },
       scales: {
         xAxes: [{
           display: true,
           scaleLabel: {
-            display: true,
+            display: false,
             labelString: "FECHA",
             fontStyle: "bold",
-            padding: {top: 30}
+            padding: {top: 20},
           }
         }],
         yAxes: [{
           display: true,
           scaleLabel: {
-            display: true,
+            display: false,
             labelString: "PERSONAS",
             fontStyle: "bold",
-            padding: {bottom: 30}
+            padding: {bottom: 20}
           }
         }]
       }
