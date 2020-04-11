@@ -293,19 +293,37 @@ td{
         display: block;
     }
 }
-@media all and (max-width: 831px){
-    .dashboard .card {
-        flex-grow: 0;
-        width: 38%;
-    }
+@media all and (max-width: 950px){
     .cookie-law{
         width: 60%;
     }
     header nav, .sticky nav{
         width: 60%;
     }
+     header nav{
+        margin: 101px 5% 0 0;
+    }
+    h2{
+        font-size: 2.4rem;
+    }
+}
+
+@media all and (max-width: 831px){
+    .dashboard .card {
+        flex-grow: 0;
+        width: 38%;
+    }
+    .logo {
+        width: 130px;
+        margin: 46px 0 0 6%;
+    }
     h2{
         line-height: 3rem;
+    }
+}
+@media all and (max-width: 768px){
+.header, .header.sticky{
+        background: url(/assets/img/curvas_MVL.jpg) 0px 0px #FFF no-repeat;
     }
 }
 @media all and (max-width: 425px){
