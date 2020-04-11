@@ -1,7 +1,9 @@
 name: Send notifications to telegram
 
 on:
-  page_build:
+  push:
+    paths:
+    - '_data/last_update'
 
 jobs:
   telegram_job:
