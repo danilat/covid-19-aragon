@@ -1,8 +1,0 @@
----
----
-{% assign last_day_aragon = site.data.coronavirus_cases | last %}
-Actualización del {{ last_day_aragon.fecha }} en Aragón:
-- <b>{% include formatNumber.html number=last_day_aragon.confirmados_dia decimals=0%}</b> casos nuevos
-- <b>{% include formatNumber.html number=last_day_aragon.altas_dia decimals=0%}</b> altas
-- <b>{% include formatNumber.html number=last_day_aragon.fallecimientos_dia decimals=0%}</b> fallecimientos
-<a href="http://www.curvaenaragon.com/">Entra en CurvaEnAragón</a> para ver mas detalles.
