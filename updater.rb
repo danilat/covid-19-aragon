@@ -135,6 +135,22 @@ def write_csv(target_rows, path)
   end
 end
 
+def write_changelog(newer_row)
+  open("_data/last_update", "w") { |file|
+    file.puts newer_row.fecha
+  }
+  changelog_message ="Actualización del #{ newer_row.fecha } en Aragón:
+  - <b>#{ newer_row.confirmados_activos}</b> casos activos
+  - <b>#{ newer_row.confirmados_dia}</b> casos nuevos
+  - <b>#{ newer_row.altas_dia }</b> altas
+  - <b>#{ newer_row.fallecimientos_dia }</b> fallecimientos
+  <a href='http://www.curvaenaragon.com/'>Entra en CurvaEnAragón</a> para ver mas detalles."
+  puts changelog_message
+  open("_data/changelog_message", "w") { |file|
+    file.puts changelog_message
+  }
+end
+
 csv = read_csv("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv")
 source_rows = csv.collect do |row|
   data = row.to_h.transform_keys!(&:to_sym)
@@ -142,6 +158,7 @@ source_rows = csv.collect do |row|
 end.compact
 target_rows = sources_to_targets(source_rows, :aragon)
 write_csv(target_rows, "_data/coronavirus_cases.csv")
+write_changelog(target_rows.last)
 
 csv = read_csv("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv")
 sources_by_province = {}
