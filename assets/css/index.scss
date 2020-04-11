@@ -90,6 +90,10 @@ table{
     width:100%;
     margin-top: 40px;
 }
+table .fecha{
+    font-weight: 800;
+    text-align: center;
+}
 th{
     text-transform: uppercase;
     font-size: 0.8em;
@@ -98,6 +102,9 @@ th{
     color:$blanco;
     padding: 1.1%;
     line-height: 1.2em;
+}
+table th .mobile{
+    display: none;
 }
 td{
     border-bottom: $grisClaro 1px solid;
@@ -269,4 +276,30 @@ td{
     .dashboard svg, .dashboard.today svg{
         width: 31%!important;
     }
+    table .fecha, table td{
+        font-size: 1rem;
+    }
+     table th{
+        font-size: 0.8rem;
+    }
+    table .fecha{
+        font-size: 0.9rem;
+    }
+    table td{
+        font-size: 1.1rem;
+    }
+    table th .desktop{
+        display: none;
+    }
+    table th .mobile{
+        display: block;
+    }
+    .diary, .tendency {
+        float: none;
+    }
+    .tendency {
+        width: auto;
+        padding: 0;
+    }
 }
+
