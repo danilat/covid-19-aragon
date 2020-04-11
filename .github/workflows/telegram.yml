@@ -16,4 +16,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_KEY }}
-        content-url: 'http://www.curvaenaragon.com/message'
+        content-url: 'https://raw.githubusercontent.com/danilat/covid-19-aragon/master/_data/changelog_message'
