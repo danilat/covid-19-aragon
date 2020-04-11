@@ -78,7 +78,7 @@ h3{
     margin-top: 0;
     line-height: 2.5rem;
 }
-canvas{
+#chartAragon{
     width: 100%;
 }
 footer{
@@ -310,5 +310,26 @@ td{
         font-size: 1rem;
         line-height: 1.5rem;
     }
+    /* Style the header */
+    .menu {
+      padding: 10px 0 10px 0;
+      background: #fff;
+      z-index: 999;
+    }
+
+    /* The sticky class is added to the header with JS when it reaches its scroll position */
+    .sticky {
+        position: fixed;
+        top: 0;
+        -webkit-box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
+        -moz-box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
+        box-shadow: 0px -15px 23px 42px rgba(255,255,255,1);
+    }
+
+    /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+    .sticky + .content {
+      padding-top: 102px;
+    }
+
 }
 

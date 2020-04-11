@@ -120,6 +120,17 @@ function acceptCookies(){
   Cookies.set('cookiesAllowed', true);
 }
 
+function stickMenu() {
+  var header = document.getElementById("menu");
+  var sticky = header.offsetTop;
+
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
 window.onload = function() {
   if(Cookies.get('cookiesAllowed')){
     loadAnalytics();
@@ -141,4 +152,6 @@ window.onscroll = function (e) {
       acceptCookies();
     }
   }
+  stickMenu()
 }
+
