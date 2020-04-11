@@ -19,7 +19,9 @@ $rojo:#ff3867;
 $fuente_titulos:'Montserrat', sans-serif;
 $fuente_textos: 'Lato', sans-serif;
 
-
+html{
+    scroll-behavior: smooth;
+}
 body{
     margin:0;
     padding:0;
@@ -289,6 +291,21 @@ td{
     }
     table th .mobile{
         display: block;
+    }
+}
+@media all and (max-width: 831px){
+    .dashboard .card {
+        flex-grow: 0;
+        width: 38%;
+    }
+    .cookie-law{
+        width: 60%;
+    }
+    header nav, .sticky nav{
+        width: 60%;
+    }
+    h2{
+        line-height: 3rem;
     }
 }
 @media all and (max-width: 425px){
