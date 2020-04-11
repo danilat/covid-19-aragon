@@ -237,4 +237,25 @@ td{
     .dashboard .card{
         width:100%;
     }
+    table{
+        display: block;
+        overflow: auto;
+    }
+    .logo {
+        width: 60%;
+        margin: 20% 20% 5% 20%;
+    }
+    header nav {
+        float: none;
+        width: 90%;
+        margin: auto 5% auto 5%;
+    }
+    header nav ul {
+        flex-wrap: nowrap;
+        padding: 0;
+    }
+    header nav ul li {
+        font-size: 1.5rem;
+        text-align: center;
+    }
 }
