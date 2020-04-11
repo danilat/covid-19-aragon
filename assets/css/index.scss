@@ -228,12 +228,6 @@ td{
     }
 }
 @media all and (max-width: 425px){
-    .dashboard svg, .dashboard.today svg{
-        position: absolute;
-        bottom: 9%;
-        right: 7%;
-        width: 26%;
-    }
     .dashboard .card{
         width:100%;
     }
