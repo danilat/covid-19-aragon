@@ -51,7 +51,7 @@ function getChartConfigFor(args){
       },
       legend: {
         reverse: true,
-        position: "bottom",
+        position: "top",
         labels: {
           fontSize: 15,
           padding: 40,
