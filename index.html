@@ -100,10 +100,4 @@ layout: default
         zaragoza.deceases.push({{ case.fallecimientos_dia }})
         zaragoza.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      window.onload = function() {
-        draw("chartAragon", getChartConfigFor(aragon));
-        draw("chartHuesca", getChartConfigFor(huesca));
-        draw("chartTeruel", getChartConfigFor(teruel));
-        draw("chartZaragoza", getChartConfigFor(zaragoza));
-      }
     </script>

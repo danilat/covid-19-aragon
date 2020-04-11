@@ -79,12 +79,29 @@ function loadAnalytics(){
   console.log("loadAnalytics is pending")
 }
 
-if(Cookies.get('cookiesAllowed')){
+function acceptCookies(){
   loadAnalytics();
-} else {
-  document.getElementById("cookie-law").style.display = '';
-  document.getElementById("accept-cookie-law").onclick = function(){
+  document.getElementById("cookie-law").style.display = 'none';
+  Cookies.set('cookiesAllowed', true);
+}
+
+window.onload = function() {
+  if(Cookies.get('cookiesAllowed')){
     loadAnalytics();
-    Cookies.set('cookiesAllowed', true);
+  } else {
+    document.getElementById("cookie-law").style.display = '';
+    document.getElementById("accept-cookie-law").onclick = acceptCookies;
+  }
+
+  draw("chartAragon", getChartConfigFor(aragon));
+  draw("chartHuesca", getChartConfigFor(huesca));
+  draw("chartTeruel", getChartConfigFor(teruel));
+  draw("chartZaragoza", getChartConfigFor(zaragoza));
+}
+
+window.onscroll = function (e) {  
+  var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+  if (scrollTop > 250){
+    acceptCookies();
   }
 }
