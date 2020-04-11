@@ -154,24 +154,7 @@ end.each do |province, rows|
   end
 end
 
-UNKNOWN = -1
 def ignore_first_row(rows)
-  first_target_row = rows[0]
-  args = first_target_row.to_h
-  args[:diferencia_confirmados_activos] = 0
-  args[:confirmados_dia] = UNKNOWN
-  args[:diferencia_confirmados_dia] = 0
-  args[:fallecimientos_dia] = UNKNOWN
-  args[:diferencia_fallecimientos_dia] = 0
-  args[:altas_dia] = UNKNOWN
-  args[:diferencia_altas_dia] = 0
-  rows[0] = TargetRow.new(args)
-  second_target_row = rows[1]
-  args = second_target_row.to_h
-  args[:diferencia_confirmados_dia] = 0
-  args[:diferencia_fallecimientos_dia] = 0
-  args[:diferencia_altas_dia] = 0
-  rows[1] = TargetRow.new(args)
   rows.delete_at(1)
   rows.delete_at(0)
   rows
@@ -179,7 +162,7 @@ end
 
 sources_by_province.each do |province, source_rows|
   target_rows = sources_to_targets(source_rows, province)
-  ignore_first_row(target_rows)
+  ignore_first_row(target_rows) #to avoid misinterpretations in the data because we don't have all the days evolution
   write_csv(target_rows, "_data/coronavirus_cases_#{province}.csv")
 end
 
