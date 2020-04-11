@@ -233,6 +233,7 @@ td{
     }
     .nota.fuente{
         font-size: 0.7rem;
+        line-height: 1.1rem;
     }
 }
 @media all and (max-width: 425px){
@@ -304,6 +305,10 @@ td{
     .tendency {
         width: auto;
         padding: 0;
+    }
+    .nota.fuente{
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
 }
 
