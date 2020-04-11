@@ -78,9 +78,6 @@ h3{
     margin-top: 0;
     line-height: 2.5rem;
 }
-#chartAragon{
-    width: 100%;
-}
 footer{
     height: 17px;
     margin-top: 20px;
@@ -90,10 +87,6 @@ table{
     width:100%;
     margin-top: 40px;
 }
-table .fecha{
-    font-weight: 800;
-    text-align: center;
-}
 th{
     text-transform: uppercase;
     font-size: 0.8em;
@@ -102,9 +95,6 @@ th{
     color:$blanco;
     padding: 1.1%;
     line-height: 1.2em;
-}
-table th .mobile{
-    display: none;
 }
 td{
     border-bottom: $grisClaro 1px solid;
@@ -155,7 +145,6 @@ td{
 }
 .number{
     font-size: 3rem;
-    margin-bottom: 16px;
 }
 .dashboard svg{
     position: absolute;
@@ -233,15 +222,11 @@ td{
     }
     .nota.fuente{
         font-size: 0.7rem;
-        line-height: 1.1rem;
     }
 }
 @media all and (max-width: 425px){
     .dashboard .card{
         width:100%;
-    }
-    .number{
-        margin-bottom: 20px;
     }
     table{
         display: block;
@@ -330,6 +315,4 @@ td{
     .sticky + .content {
       padding-top: 102px;
     }
-
 }
-

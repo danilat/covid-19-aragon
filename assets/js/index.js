@@ -89,6 +89,9 @@ function getChartConfigFor(args){
         }],
         yAxes: [{
           display: true,
+          ticks: {
+            stepSize:1000,
+          },
           scaleLabel: {
             display: false,
             labelString: "PERSONAS",
