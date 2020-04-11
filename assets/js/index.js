@@ -79,10 +79,12 @@ function draw(canvasId, config){
   window[canvasId] = new Chart(ctx, config);
 }
 
-function loadAnalytics(){    
-  ga('create', 'UA-XXXXX-Y', 'auto');
-  ga('send', 'pageview');
-  console.log("loadAnalytics")
+function loadAnalytics(){
+  console.log("loadingAnalytics") 
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-918753-15');
 }
 
 function acceptCookies(){
