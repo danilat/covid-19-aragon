@@ -13,11 +13,11 @@ The website is developed using [Jekyll](https://jekyllrb.com/) and is publisherd
 
 We are using some open source libraries: [SASS](https://sass-lang.com/), [chartjs](https://www.chartjs.org/) and [js-cookie](https://github.com/js-cookie/js-cookie).
 
-The data for the website is updated daily [in this repository](../_data).
+The data for the website is updated daily [in this repository](../master/_data).
 
 ## The data processor
 
-Right now the data processor is [a ruby script](../updater.rb) that gets the data from Aragón Open Data CSV files and gets some calculated data in new CSVs as outputs.
+Right now the data processor is [a ruby script](../master/updater.rb) that gets the data from Aragón Open Data CSV files and gets some calculated data in new CSVs as outputs.
 
 Also generates a daily changelog file and another one that serves as timestamp for the repo.
 
@@ -25,7 +25,7 @@ This script is executed in a machine and the data generated is pushed to this re
 
 ## The telegram channel
 
-A [Telegram Bot](https://core.telegram.org/bots) is configured to send messages to the [CurvaEnAragón channel](https://t.me/curvaenaragon). This bot is noticed to send the message using [a workflow](../.github/workflows/telegram.yml) that is executed when the timestamp file is present in a push. Uses the Github action [externalized-telegram-notifications-action](https://github.com/danilat/externalized-telegram-notifications-action), 
+A [Telegram Bot](https://core.telegram.org/bots) is configured to send messages to the [CurvaEnAragón channel](https://t.me/curvaenaragon). This bot is noticed to send the message using [a workflow](../master/.github/workflows/telegram.yml) that is executed when the timestamp file is present in a push. Uses the Github action [externalized-telegram-notifications-action](https://github.com/danilat/externalized-telegram-notifications-action), 
 
 ## Contributors
 
