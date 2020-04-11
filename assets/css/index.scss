@@ -6,7 +6,7 @@
 /** COLORES **/
 $verde:#01afaf;
 $verdeClaro: #3bd2d278;
-$verdeExtraClaro:#95efef73;
+$verdeExtraClaro:#dbf4f4;
 $verdeOscuro: #08a4a4;
 $blanco:#FFFFFF;
 $negro:#1c1c1c;
@@ -99,8 +99,6 @@ header a{
 .sticky li{
   font-size: 1.5rem
 }
-
-
 h2{
     margin: 80px 0 40px 0;
     color:$verde;
@@ -227,13 +225,32 @@ td{
 .dashboard.today .icoFallecimientos{
     width: 26%;
 }
-#cookie-law{
+.cookie-law{
     background-color: $verdeExtraClaro;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
 }
 #cookie-law .content{
     width: 90%;
     margin: auto 5%;
-    padding: 1% 0 3% 0;
+    padding: 5% 0 3% 0;
+}
+.icoCookie{
+    width: 15%;
+    float: right;
+    margin: 30px 20px 90px 10px;
+}
+.accept-cookie-law{
+    background-color: #01afaf;
+    color: #fff;
+    margin: 10px 20% 0 20%;
+    display: block;
+    text-align: center;
+    padding: 7px;
+    text-decoration: none; 
 }
 
 
@@ -354,7 +371,7 @@ td{
     .sticky li {
         font-size: 1.2rem;
     }
-    .header{
+    .header, .header.sticky{
         background: url(/assets/img/curvas_MVL.jpg) -110px 0px #FFF no-repeat;
     }
 }
