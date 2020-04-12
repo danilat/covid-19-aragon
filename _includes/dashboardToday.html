@@ -3,42 +3,52 @@
     {% include illustrations/ico_confirmados.svg %}
     <h3>Nuevos casos confirmados</h3>
     <div class="number">{% include formatNumber.html number=last_day_aragon.confirmados_dia decimals=0%}</div>
-    En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_dia decimals=0%}</b><br>
-    En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_dia decimals=0%}</b><br>
-    En Teruel <b>{% include formatNumber.html number=last_day_teruel.confirmados_dia decimals=0%}</b><br>
-    {% if last_day_otros.confirmados_dia != "0"%}
-    Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_dia decimals=0%}</b>
+    {%if last_day_aragon.fecha == last_day_huesca.fecha %}
+      En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_dia decimals=0%}</b><br>
+      En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_dia decimals=0%}</b><br>
+      En Teruel <b>{% include formatNumber.html number=last_day_teruel.confirmados_dia decimals=0%}</b><br>
+      {% if last_day_otros.confirmados_dia != "0"%}
+      Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_dia decimals=0%}</b>
+      {% endif %}
     {% endif %}
   </div>
 <div class="card activos">
     {% include illustrations/ico_activos.svg %}
     <h3>Nuevos casos activos</h3>
-        <div class="number">9999</div>
-        En Huesca <b>99</b><br>
-        En Zaragoza <b>99</b><br>
-        En Teruel <b>99</b><br>
-        Sin asignar <b>999</b>
+      <div class="number">{% include formatNumber.html number=last_day_aragon.confirmados_activos decimals=0%}</div>
+      {%if last_day_aragon.fecha == last_day_huesca.fecha %}
+        En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_activos decimals=0%}</b><br>
+        En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_activos decimals=0%}</b><br>
+        En Teruel <b>{% include formatNumber.html number=last_day_teruel.confirmados_activos decimals=0%}</b><br>
+        {% if last_day_otros.confirmados_activos != "0"%}
+          Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_activos decimals=0%}</b>
+          {% endif %}
+      {% endif %}
 </div>
   <div class="card altas">
     {% include illustrations/ico_altas.svg %}
     <h3>Nuevas altas</h3>
     <div class="number">{% include formatNumber.html number=last_day_aragon.altas_dia decimals=0 %}</div>
-    En Huesca <b>{% include formatNumber.html number=last_day_huesca.altas_dia decimals=0 %}</b><br>
-    En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.altas_dia decimals=0 %}</b><br>
-    En Teruel <b>{% include formatNumber.html number=last_day_teruel.altas_dia decimals=0 %}</b><br>
-    {% if last_day_otros.altas_dia != "0"%}
-    Sin asignar <b>{% include formatNumber.html number=last_day_otros.altas_dia decimals=0%}</b>
+    {%if last_day_aragon.fecha == last_day_huesca.fecha %}
+      En Huesca <b>{% include formatNumber.html number=last_day_huesca.altas_dia decimals=0 %}</b><br>
+      En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.altas_dia decimals=0 %}</b><br>
+      En Teruel <b>{% include formatNumber.html number=last_day_teruel.altas_dia decimals=0 %}</b><br>
+      {% if last_day_otros.altas_dia != "0"%}
+      Sin asignar <b>{% include formatNumber.html number=last_day_otros.altas_dia decimals=0%}</b>
+      {% endif %}
     {% endif %}
  </div>
   <div class="card fallecimientos">
     {% include illustrations/ico_fallecimientos.svg %}
     <h3>Nuevos fallecimientos</h3>
     <div class="number">{% include formatNumber.html  number=last_day_aragon.fallecimientos_dia decimals=0 %}</div>
-    En Huesca <b>{% include formatNumber.html  number=last_day_huesca.fallecimientos_dia decimals=0 %}</b><br>
-    En Zaragoza <b>{% include formatNumber.html  number=last_day_zaragoza.fallecimientos_dia decimals=0 %}</b><br>
-    En Teruel <b>{% include formatNumber.html  number=last_day_teruel.fallecimientos_dia decimals=0 %}</b><br>
-    {% if last_day_otros.fallecimientos_dia != "0"%}
-    Sin asignar <b>{% include formatNumber.html number=last_day_otros.fallecimientos_dia decimals=0%}</b>
+    {%if last_day_aragon.fecha == last_day_huesca.fecha %}
+      En Huesca <b>{% include formatNumber.html  number=last_day_huesca.fallecimientos_dia decimals=0 %}</b><br>
+      En Zaragoza <b>{% include formatNumber.html  number=last_day_zaragoza.fallecimientos_dia decimals=0 %}</b><br>
+      En Teruel <b>{% include formatNumber.html  number=last_day_teruel.fallecimientos_dia decimals=0 %}</b><br>
+      {% if last_day_otros.fallecimientos_dia != "0"%}
+      Sin asignar <b>{% include formatNumber.html number=last_day_otros.fallecimientos_dia decimals=0%}</b>
+      {% endif %}
     {% endif %}
   </div>
 </div>
