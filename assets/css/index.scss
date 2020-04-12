@@ -221,10 +221,12 @@ td{
     width: 60%;
 }
 .dashboard.today svg{
-    position: absolute;
-    overflow: overlay;
-    bottom: 7%;
-    right: 7%;
+   position: relative;
+    margin: auto 40%;
+    width: 34%;
+}
+.dashboard.today .card{
+    width: 19%;
 }
 .dashboard.today .icoConfirmados{
     width: 31%;
@@ -233,6 +235,9 @@ td{
     width: 26%;
 }
 .dashboard.today .icoFallecimientos{
+    width: 26%;
+}
+.dashboard.today .icoActivos{
     width: 26%;
 }
 .cookie-law{
@@ -263,7 +268,11 @@ td{
     padding: 7px;
     text-decoration: none; 
 }
-
+@media (max-width: 1350px){
+    .dashboard.today .card{
+        width: 39%;
+    }
+}
 
 @media (max-width: 1050px){
     body{
@@ -274,19 +283,19 @@ td{
         font-size: 1.6rem;
         line-height: 2rem;
     }
-    .dashboard svg, .dashboard.today svg{
+    .dashboard.zonas svg{
         position: relative;
         margin: auto 40%;
         width: 34%!important;
         min-height:100px;
         bottom:0px;
     }
-    .dashboard .icoConfirmados, .dashboard.today .icoConfirmados{
+    .dashboard.zonas .icoConfirmados{
         position: relative;
         margin: auto 37%;
         width: 40%!important; 
     }
-    .dashboard .detalle {
+    .dashboard.zonas .detalle {
         width: 100%;
     }
     .nota.fuente{
@@ -336,6 +345,11 @@ footer .bar{
         height: 58px;
     }
 
+}
+@media (max-width: 704px){
+    .dashboard.today .card{
+        width: 100%;
+    }
 }
 @media all and (max-width: 425px){
     .dashboard .card{

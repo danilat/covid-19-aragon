@@ -1,6 +1,6 @@
 <div class="dashboard today">
   <div class="card confirmados">
-    {% include illustrations/ico_confirmados2.svg %}
+    {% include illustrations/ico_confirmados.svg %}
     <h3>Nuevos casos confirmados</h3>
     <div class="number">{% include formatNumber.html number=last_day_aragon.confirmados_dia decimals=0%}</div>
     En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_dia decimals=0%}</b><br>
@@ -10,6 +10,15 @@
     Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_dia decimals=0%}</b>
     {% endif %}
   </div>
+<div class="card activos">
+    {% include illustrations/ico_activos.svg %}
+    <h3>Nuevos casos activos</h3>
+        <div class="number">9999</div>
+        En Huesca <b>99</b><br>
+        En Zaragoza <b>99</b><br>
+        En Teruel <b>99</b><br>
+        Sin asignar <b>999</b>
+</div>
   <div class="card altas">
     {% include illustrations/ico_altas.svg %}
     <h3>Nuevas altas</h3>
