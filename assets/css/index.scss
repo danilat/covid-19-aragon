@@ -369,16 +369,17 @@ footer .bar{
     .dashboard.zonas .card{
         width: 100%;
     }
-}
-@media (max-width: 500px){
-    .dashboard.today svg{
+    .dashboard.zonas svg, .dashboard.today svg{
         position: relative;
-        margin: 23px 38%;
-        width: 37%;
+        margin: 0 40% 20px 40%;
+        width: 34% !important;
+        min-height: 100px;
+        bottom: 0px;
     }
-    .dashboard.today .icoConfirmados{
-        width: 48%;
-        margin: 9px 33%;
+    .dashboard.zohas .icoConfirmados, .dashboard.today .icoConfirmados{
+        position: relative;
+        margin: 0 37% 20px 37%;
+        width: 40% !important;
     }
 }
 @media all and (max-width: 425px){
