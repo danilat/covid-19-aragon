@@ -15,7 +15,7 @@ layout: default
         <h2>Última actualización {{ last_day_aragon.fecha }}</h2>
         {% include dashboardToday.html %}
 
-        <h2>Evolución del COVID-19 en Aragón {{ last_day_aragon.fecha }}</h2>
+        <h2>Evolución del COVID-19 en Aragón hasta el {{ last_day_aragon.fecha }}</h2>
         <div class="chart-container">
             <canvas id="chartAragon"></canvas>
         </div>
