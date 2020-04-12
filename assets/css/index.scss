@@ -8,6 +8,7 @@ $verde:#01afaf;
 $verdeClaro: #3bd2d278;
 $verdeExtraClaro:#dbf4f4;
 $verdeOscuro: #08a4a4;
+$verdeExtraOscuro:#008e8a;
 $blanco:#FFFFFF;
 $negro:#1c1c1c;
 $gris:#919191;
@@ -115,14 +116,44 @@ header a{
     background: url(/assets/img/curvas.jpg) 0px -23px #FFF no-repeat;
 }
 footer{
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-top: 20px;
     background: url(/assets/img/fondoVerdeClaro.jpg);
+    min-height: 190px;
 }
 footer .bar{
     width: 100%;
     height:123px;
-    background: url(/assets/img/curvasFooter.jpg) 0px 0px #FFF no-repeat;
+    background: url(/assets/img/curvasFooter.jpg) 0px 0px #bce8e9 no-repeat;
+}
+footer .content{
+    display: flex;
+    align-items:center;
+    width: 80%;
+}
+footer .author{
+    width: 80%;
+    color:$verdeExtraOscuro;
+}
+footer .legal{
+    float: right;
+    width: 20%;
+    min-width: 130px;
+}
+footer .author a{
+   color:$verdeOscuro;
+}
+footer .icoGithub{
+    width:40px;
+    float: right;
+    margin:0; 
+}
+footer .icoCookies{
+    width:40px;
+    margin:0;
+    margin: 0 20px 0 0;
+    float: right;
+    overflow: overlay;
 }
 .sticky nav{
     width: 40%;
@@ -431,7 +462,7 @@ td{
         background: url(/assets/img/curvas_MVL.jpg) 0px 0px #FFF no-repeat;
     }
 footer .bar{
-        background: url(/assets/img/curvasFooter_MVL.jpg) 0px 0px #FFF no-repeat;
+        background: url(/assets/img/curvasFooter_MVL.jpg) 0px 0px #bce8e9 no-repeat;
         height: 58px;
     }
 }
@@ -608,5 +639,29 @@ footer .bar{
         padding: 0 2% 0 2%;
         font-size: 1.2rem;
         line-height: 1.6rem;
+    }
+    footer{
+        min-height:210px;
+        padding-bottom: 5px;
+        font-size: 1rem;
+    }
+    footer .content{
+        display: block;
+        text-align: center;
+        margin: 0 auto 0 auto;
+    }
+    footer .author {
+        width:100%;
+    }
+    footer .legal {
+        float: none;
+        margin: 0 auto 0 auto;
+        margin: 0px auto 0 auto;
+        padding-top: 30px;
+        text-align: center;
+        min-width: 110px;
+    }
+    footer .icoCookies {
+        margin: 0 30px 0 0;
     }
 }

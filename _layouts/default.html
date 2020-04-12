@@ -43,14 +43,20 @@
       {{ content }}
       <footer>
         <div class="bar"></div>
-        <div>
-          Ideado, diseñado y desarrollado con cariño por <a href="https://www.linkedin.com/in/vanessa-rubio-marquino/">Vanessa Rubio</a> y <a href="https://www.danilat.com/">Dani Latorre</a>.
-        </div>
-        <div>
-          Código <a href="https://github.com/danilat/covid-19-aragon/">disponible en github</a>
-          <br>
-          Consulta nuestra <a href="/cookies">política de cookies</a>
-        </div>
+          <div class="content">
+            <div class="author">
+              Ideado, diseñado y desarrollado con cariño por <a href="https://www.linkedin.com/in/vanessa-rubio-marquino/">Vanessa Rubio</a> y <a href="https://www.danilat.com/">Dani Latorre</a>
+            </div>
+            <div class="legal">
+                 <a href="https://github.com/danilat/covid-19-aragon/" title="GitHub" target="_blank">{% include illustrations/ico_gitHub.svg %}</a>
+                 <a href="/cookies" title="Cookies">{% include illustrations/ico_cookies2.svg %}</a>
+            </div>
+            <!--<div>
+              Código <a href="https://github.com/danilat/covid-19-aragon/">disponible en github</a>
+              <br>
+              Consulta nuestra <a href="/cookies">política de cookies</a>
+            </div>-->
+          </div>
       </footer>
       <div id="cookie-law" class="cookie-law" style="display:none;">
           {% include illustrations/ico_cookies.svg %}
