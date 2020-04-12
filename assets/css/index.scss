@@ -261,19 +261,25 @@ td{
     padding: 7px;
     text-decoration: none; 
 }
-@media (max-width: 1350px){
+@media (max-width: 1400px){
     .dashboard.today .card{
         width: 39%;
     }
-}
+    .dashboard.today svg{
+       width: 32%;
+    }
+    .dashboard.today .icoConfirmados{
+       width: 41%;
+    }
 
+}
 @media (max-width: 1050px){
     body{
         line-height: 1.2em;
         font-size: 1.5rem;
     }                           
     h3{
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         line-height: 2rem;
     }
     .dashboard.zonas svg{
@@ -340,14 +346,42 @@ footer .bar{
 
 }
 @media (max-width: 704px){
+    h3{
+        width: 75%;
+    }
     .dashboard.today .card{
         width: 100%;
     }
+    .dashboard.today svg{
+        width: 20%;
+        position: absolute;
+        overflow: overlay;
+        bottom: 9%;
+        right: 7%;
+        margin: 0px 0 7px 0;
+    }
+    .dashboard.today .icoConfirmados{
+        width: 28%;
+        margin:0 -22px 0 0;
+    }
+}
+@media (max-width: 645px){
+    .dashboard.zonas .card{
+        width: 100%;
+    }
+}
+@media (max-width: 500px){
+    .dashboard.today svg{
+        position: relative;
+        margin: 23px 38%;
+        width: 37%;
+    }
+    .dashboard.today .icoConfirmados{
+        width: 48%;
+        margin: 9px 33%;
+    }
 }
 @media all and (max-width: 425px){
-    .dashboard .card{
-        width:100%;
-    }
     table{
         display: block;
         overflow: auto;
@@ -382,9 +416,18 @@ footer .bar{
     h3 {
         text-align: center;
         padding: 0 0 10px 0;
+        width: 100%;
     }
-    .dashboard svg, .dashboard.today svg{
+    .dashboard .card{
+        width:100%;
+    }
+    .dashboard.zonas svg, .dashboard.today svg{
         width: 31%!important;
+        margin: 0px 42%;
+    }
+    .dashboard.today .icoConfirmados {
+        width: 40% !important;
+        margin: 0px 37%;
     }
     table .fecha, table td{
         font-size: 1rem;
