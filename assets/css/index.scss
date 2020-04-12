@@ -146,6 +146,12 @@ h3{
     margin-top: 0;
     line-height: 2.5rem;
 }
+h4{
+    color:$verdeOscuro;
+    font-size: 1.5rem;
+    font-family: $fuente_titulos;
+    margin: 0 0 10px 0;
+}
 table{
     width:100%;
     margin-top: 40px;
@@ -258,6 +264,38 @@ td{
     width: 48%;
     margin: 9px 29%;
 }
+.icoTelegram{
+    float: left;
+    width: 4.5%;
+    min-width: 65px;
+    margin: 22px 50px 10px 24px;
+}
+.suscripcion .boton{
+    background-color: #01afaf;
+    color: #fff;
+    display: block;
+    text-align: center;
+    padding: 7px;
+    text-decoration: none;
+    margin: 0 20px 0 30px;
+    font-weight: 600;
+    font-size: 1.31rem;
+}
+.suscripcion{
+    background-color: $verdeExtraClaro;
+    padding: 2%;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: no-wrap;
+    align-items: center;
+}
+.suscripcion .content{
+   width: 55%;
+   padding: 0;
+}
+.suscripcion .cta{
+   width: 50%;
+}
 .cookie-law{
     background-color: $verdeExtraClaro;
     position: fixed;
@@ -332,6 +370,30 @@ td{
     table th .mobile{
         display: block;
     }
+    .icoTelegram{
+        width: 8.5%;
+        margin: 62px 50px 10px 24px;
+    }
+    .suscripcion{
+        flex-wrap: wrap;
+    }
+    .suscripcion .content{
+       width: 72%;
+    }
+    .suscripcion .cta{
+        width: 77%;
+        margin: 0 auto 0 auto;
+    }
+    .suscripcion .boton {
+        width: 73%;
+        margin: 30px auto 20px auto;
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 14px 5% 14px 5%;
+    }
+    h4{
+        margin: 30px 0 10px 0;
+    }
 }
 @media all and (max-width: 950px){
     .cookie-law{
@@ -360,6 +422,9 @@ td{
     h2{
         line-height: 3rem;
     }
+    .suscripcion .cta {
+        width: 100%;
+    }
 }
 @media all and (max-width: 768px){
 .header, .header.sticky{
@@ -369,7 +434,6 @@ footer .bar{
         background: url(/assets/img/curvasFooter_MVL.jpg) 0px 0px #FFF no-repeat;
         height: 58px;
     }
-
 }
 @media (max-width: 704px){
     h3{
@@ -407,6 +471,21 @@ footer .bar{
         position: relative;
         margin: 0 30% 20px 30%;
         width: 40% !important;
+    }
+    .icoTelegram {
+        width: 21%;
+        margin: 24px auto 6px auto;
+    }
+    .suscripcion .content{
+        width: 100%;
+        padding: 0 9% 0 9%;
+    }
+    .suscripcion .boton{
+        width: 73%;
+        margin: 30px auto 20px auto;
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 14px 5% 14px 5%;
     }
 }
 @media all and (max-width: 425px){
@@ -515,5 +594,19 @@ footer .bar{
     .icoCookie{
         width: 15%;
         margin: 30px 20px 90px 10px;
+    }
+    h4 {
+        margin: 18px 0 10px 0;
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+    }
+    .suscripcion .boton {
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+    }
+    .suscripcion .content {
+        padding: 0 2% 0 2%;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
     }
 }
