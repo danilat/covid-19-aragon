@@ -11,7 +11,8 @@ layout: default
         {% assign initial_day_teruel = site.data.coronavirus_cases_teruel | first %}
         {% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
         {% assign last_day_otros = site.data.coronavirus_cases_otros | last %}
-  
+        
+        <div id="aragon" class="ancla aragon"></div>
         <h2 class="inicio">Última actualización {{ last_day_aragon.fecha }}</h2>
         <div class="fuente">
             Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.
@@ -30,7 +31,7 @@ layout: default
         <h2>Progresión diaria desde el {{ initial_day_aragon.fecha }} en Aragón</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases %}
 
-        <a id="huesca">&nbsp;</a><br><br>
+        <div id="huesca" class="ancla huesca"></div>
         <h2>Evolución del COVID-19 en Huesca hasta el {{ last_day_huesca.fecha }}</h2>
         <div class="chart-container">
             <canvas id="chartHuesca"></canvas>
@@ -42,7 +43,7 @@ layout: default
         <h2>Progresión diaria desde el {{ initial_day_huesca.fecha }} en Huesca</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca %}
         
-        <a id="zaragoza">&nbsp;</a><br><br>
+        <div id="zaragoza" class="ancla zaragoza"></div>
         <h2>Evolución del COVID-19 en Zaragoza hasta el {{ last_day_zaragoza.fecha }}</h2>
         <div class="chart-container">
             <canvas id="chartZaragoza"></canvas>
@@ -54,7 +55,7 @@ layout: default
         <h2>Progresión diaria desde el {{ initial_day_zaragoza.fecha }} en Zaragoza</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza %}
         
-        <a id="teruel">&nbsp;</a><br><br>
+        <div id="teruel" class="ancla teruel"></div>
         <h2>Evolución del COVID-19 en Teruel hasta el {{ last_day_teruel.fecha }}</h2>
         <div class="chart-container">
             <canvas id="chartTeruel"></canvas>
