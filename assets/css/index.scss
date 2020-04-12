@@ -220,26 +220,18 @@ td{
 .dashboard .detalle{
     width: 60%;
 }
-.dashboard.today svg{
-   position: relative;
-    margin: 7px 40%;
-    width: 34%;
-}
+
 .dashboard.today .card{
     width: 19%;
 }
+.dashboard.today svg{
+    position: relative;
+    margin: 23px 38%;
+    width: 37%;
+}
 .dashboard.today .icoConfirmados{
-    width: 31%;
-    margin: auto 40%;
-}
-.dashboard.today .icoAltas{
-    width: 26%;
-}
-.dashboard.today .icoFallecimientos{
-    width: 26%;
-}
-.dashboard.today .icoActivos{
-    width: 26%;
+    width: 48%;
+    margin: 9px 33%;
 }
 .cookie-law{
     background-color: $verdeExtraClaro;
