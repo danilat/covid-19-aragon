@@ -3,7 +3,7 @@
     {% include illustrations/ico_activos.svg %}
     <h3>Casos activos</h3>
       <div class="number">{% include formatNumber.html number=last_day_aragon.confirmados_activos decimals=0%}</div>
-      {%if true %}
+      {%if last_day_aragon.fecha == last_day_huesca.fecha %}
         En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_activos decimals=0%}</b><br>
         En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_activos decimals=0%}</b><br>
         En Teruel <b>{% include formatNumber.html number=last_day_teruel.confirmados_activos decimals=0%}</b><br>
