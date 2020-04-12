@@ -12,7 +12,11 @@ layout: default
         {% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
         {% assign last_day_otros = site.data.coronavirus_cases_otros | last %}
   
-        <h2>Última actualización {{ last_day_aragon.fecha }}</h2>
+        <h2 class="inicio">Última actualización {{ last_day_aragon.fecha }}</h2>
+        <div class="fuente">
+            Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.
+        </div>
+
         {% include dashboardToday.html %}
 
         <h2>Evolución del COVID-19 en Aragón hasta el {{ last_day_aragon.fecha }}</h2>
@@ -63,7 +67,7 @@ layout: default
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel %}
 
         <div class="nota fuente">
-          <span>Datos obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualizados el {{ last_day_aragon.fecha }}.</span>
+          <span>Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.</span>
         </div>
       </div>
 

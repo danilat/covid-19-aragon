@@ -150,6 +150,9 @@ td{
     padding-right: 10px;
     width: 14%;
 }
+.fuente{
+  margin:0 0 50px 0; 
+}
 .nota.fuente{
     margin-top: 80px;
 }
@@ -302,8 +305,8 @@ td{
     .dashboard.zonas .detalle {
         width: 100%;
     }
-    .nota.fuente{
-        font-size: 0.7rem;
+    .nota.fuente, .fuente{
+        font-size: 1.1rem;
     }
     table th .desktop{
         display: none;
@@ -455,7 +458,7 @@ footer .bar{
         width: auto;
         padding: 0;
     }
-    .nota.fuente{
+    .nota.fuente, .fuente{
         font-size: 1rem;
         line-height: 1.5rem;
     }
