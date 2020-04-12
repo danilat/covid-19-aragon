@@ -34,6 +34,8 @@ a{
     color: $verde;
     font-weight: 800;
 }
+header{
+}
 header nav{
     float:right;
     width: 40%;
@@ -226,12 +228,14 @@ td{
 }
 .dashboard.today svg{
     position: relative;
-    margin: 23px 38%;
+    margin: 23px 34%;
     width: 37%;
+    bottom: 0;
+    right: 0;
 }
 .dashboard.today .icoConfirmados{
     width: 48%;
-    margin: 9px 33%;
+    margin: 9px 29%;
 }
 .cookie-law{
     background-color: $verdeExtraClaro;
@@ -284,14 +288,15 @@ td{
     }
     .dashboard.zonas svg{
         position: relative;
-        margin: auto 40%;
+        margin: auto 33%;
         width: 34%!important;
         min-height:100px;
-        bottom:0px;
+        bottom: 0;
+        right: 0;
     }
     .dashboard.zonas .icoConfirmados{
         position: relative;
-        margin: auto 37%;
+        margin: auto 30%;
         width: 40%!important; 
     }
     .dashboard.zonas .detalle {
@@ -371,14 +376,15 @@ footer .bar{
     }
     .dashboard.zonas svg, .dashboard.today svg{
         position: relative;
-        margin: 0 40% 20px 40%;
+        margin: 0 33% 20px 33%;
         width: 34% !important;
         min-height: 100px;
-        bottom: 0px;
+        bottom: 0;
+        right: 0;
     }
-    .dashboard.zohas .icoConfirmados, .dashboard.today .icoConfirmados{
+    .dashboard.zonas .icoConfirmados, .dashboard.today .icoConfirmados{
         position: relative;
-        margin: 0 37% 20px 37%;
+        margin: 0 30% 20px 30%;
         width: 40% !important;
     }
 }
