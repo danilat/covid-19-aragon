@@ -7,8 +7,9 @@
         En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_activos decimals=0%}</b><br>
         En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_activos decimals=0%}</b><br>
         En Teruel <b>{% include formatNumber.html number=last_day_teruel.confirmados_activos decimals=0%}</b><br>
-        {% if last_day_otros.confirmados_activos != "0"%}
-          Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_activos decimals=0%}</b>
+        {% assign others = last_day_aragon.confirmados_activos | minus: last_day_huesca.confirmados_activos | minus: last_day_zaragoza.confirmados_activos | minus: last_day_teruel.confirmados_activos%}
+        {% if others > 0 %}
+          Sin asignar <b>{% include formatNumber.html number=others decimals=0%}</b>
           {% endif %}
       {% endif %}
 </div>
@@ -20,8 +21,9 @@
       En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_dia decimals=0%}</b><br>
       En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_dia decimals=0%}</b><br>
       En Teruel <b>{% include formatNumber.html number=last_day_teruel.confirmados_dia decimals=0%}</b><br>
-      {% if last_day_otros.confirmados_dia != "0"%}
-      Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_dia decimals=0%}</b>
+      {% assign others = last_day_aragon.confirmados_dia | minus: last_day_huesca.confirmados_dia | minus: last_day_zaragoza.confirmados_dia | minus: last_day_teruel.confirmados_dia%}
+      {% if others > 0 %}
+      Sin asignar <b>{% include formatNumber.html number=others decimals=0%}</b>
       {% endif %}
     {% endif %}
   </div>
@@ -33,8 +35,9 @@
       En Huesca <b>{% include formatNumber.html number=last_day_huesca.altas_dia decimals=0 %}</b><br>
       En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.altas_dia decimals=0 %}</b><br>
       En Teruel <b>{% include formatNumber.html number=last_day_teruel.altas_dia decimals=0 %}</b><br>
-      {% if last_day_otros.altas_dia != "0"%}
-      Sin asignar <b>{% include formatNumber.html number=last_day_otros.altas_dia decimals=0%}</b>
+      {% assign others = last_day_aragon.altas_dia | minus: last_day_huesca.altas_dia | minus: last_day_zaragoza.altas_dia | minus: last_day_teruel.altas_dia%}
+      {% if others > 0 %}
+      Sin asignar <b>{% include formatNumber.html number=others decimals=0%}</b>
       {% endif %}
     {% endif %}
  </div>
@@ -46,8 +49,9 @@
       En Huesca <b>{% include formatNumber.html  number=last_day_huesca.fallecimientos_dia decimals=0 %}</b><br>
       En Zaragoza <b>{% include formatNumber.html  number=last_day_zaragoza.fallecimientos_dia decimals=0 %}</b><br>
       En Teruel <b>{% include formatNumber.html  number=last_day_teruel.fallecimientos_dia decimals=0 %}</b><br>
-      {% if last_day_otros.fallecimientos_dia != "0"%}
-      Sin asignar <b>{% include formatNumber.html number=last_day_otros.fallecimientos_dia decimals=0%}</b>
+      {% assign others = last_day_aragon.fallecimientos_dia | minus: last_day_huesca.fallecimientos_dia | minus: last_day_zaragoza.fallecimientos_dia | minus: last_day_teruel.fallecimientos_dia%}
+      {% if others > 0 %}
+      Sin asignar <b>{% include formatNumber.html number=others decimals=0%}</b>
       {% endif %}
     {% endif %}
   </div>
