@@ -299,6 +299,7 @@ td.fecha a{
     width: 48%;
     margin: 9px 29%;
 }
+
 .icoInformacion{
     padding: 0;
     overflow: visible;
@@ -318,7 +319,7 @@ td.fecha a{
 .notification.opened td{
     border-bottom:0;
 }
-.fecha div{
+.fecha .dato{
     float: right;
     display: inline-block;
     vertical-align: middle;
@@ -326,8 +327,15 @@ td.fecha a{
     font-weight: bold;
     margin-right: 43px;
 }
-
-.notification .fecha div{
+.fecha a, .sinNotification .fecha .dato{
+    width: 80%;
+    margin: 0 10% 0 10%;
+    display: block;
+}
+.sinNotification .fecha .dato{
+    padding: 0 43px 0 0px;
+}
+.notification .fecha .dato{
     margin-right: 17px;
 }
 td.nota{
@@ -335,9 +343,6 @@ td.nota{
     line-height: 1.3rem;
     text-align: left;
     padding: 0px 0 10px 11px;
-}
-.hide{
-    display:none;
 }
 .icoTelegram{
     float: left;
@@ -511,15 +516,34 @@ footer .bar{
     }
     .icoInformacion{
         width: 20px;
-        margin: 4px 0 4px 0;
+        margin: 4px 0 0px 0;
     }
     .icoInformacionII{
         width: 17px;
         margin: 5px 3px 0 0;
     }
-    .fecha div{
+    .fecha .dato, .notification .fecha .dato{
         float: right;
-        margin-right: 37px;
+        margin: -5px 0px 0px 0px;
+    }
+    .icono{
+        width: 100%;
+        display: inline-block;
+    }
+    .dato{
+        display: inline-block;
+        margin: -6px 0 0 0;
+    }
+    .notification .fecha dato{
+        float: left;
+        padding: 0;
+        margin:0;
+    }
+    .sinNotification .fecha .dato{
+        width: 80%;
+        margin: 0 10% 0 10%;
+        display: block;
+        padding: 0;
     }
 }
 @media (max-width: 704px){
@@ -720,4 +744,7 @@ footer .bar{
     footer .icoCookies{
         margin: 0 30px 0 0;
     }
+}
+.hide{
+    display:none;
 }
