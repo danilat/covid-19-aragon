@@ -11,7 +11,7 @@
   <tr>
     <td class="fecha">
       {% include illustrations/ico_informacion.svg %}
-      <span>{{ case.fecha | date: "%d/%m" }}</span>
+      <div>{{ case.fecha | date: "%d/%m" }}</div>
     </td>
     <td>{% include tendency.html difference=case.diferencia_confirmados_activos %}
       <div class="diary">
