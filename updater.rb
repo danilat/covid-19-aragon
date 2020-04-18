@@ -77,6 +77,7 @@ class TargetRow < SourceRow
   attribute :diferencia_ingresos_hospitalarios_dia, Types::Coercible::Integer
   attribute :diferencia_ingresos_uci_dia, Types::Coercible::Integer
   attribute :diferencia_casos_personal_sanitario_dia, Types::Coercible::Integer
+  attribute :incidencias, Types::Strict::String.optional
   
   def porcentaje_personas_confirmadas
     casos_confirmados.percent_of(total_personas)
@@ -125,12 +126,34 @@ def populate_args_with_daily_and_diffs(args, previous_target_row)
   args[:diferencia_casos_personal_sanitario_dia] = difference_by_day(args, previous_target_row, :casos_personal_sanitario_dia)
 end
 
+def incidence_for(from, date)
+  incidences = {
+    aragon:{
+      "16/04/2020": 'De los casos nuevos 155 se corresponden con los resultados acumulados de los tests rápidos realizados en la última semana. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
+      "18/04/2020": 'La Dirección General de Salud Pública ha depurado los datos de altas, de modo que la cifra que se notifica hoy es inferior al acumulado del día anterior. Fuente: <a href="http://aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1342/id.258983" target="_blank">Aragón Hoy</a>'
+    },
+    huesca: {
+      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">se contabilizaron en Aragón el día 16</a>'
+    },
+    zaragoza: {
+      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">se contabilizaron en Aragón el día 16</a>'
+    },
+    teruel: {
+      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">se contabilizaron en Aragón el día 16</a>'
+    },
+    otros: {}
+  }
+  incidences[from][date.to_sym]
+end
+
 def sources_to_targets(source_rows, from)
   previous_target_row = nil
   target_rows = source_rows.collect do |source_row|
     args = source_row.to_h
     args[:total_personas] = TOTAL_OF_PEOPLE[from] || 0
-    args[:fecha] = Date.parse(args[:fecha]).strftime("%d/%m/%Y")
+    date = Date.parse(args[:fecha])
+    args[:fecha] = date.strftime("%d/%m/%Y")
+    args[:incidencias] = incidence_for(from, args[:fecha])
     populate_args_with_daily_and_diffs(args, previous_target_row)
     target_row = TargetRow.new(args)
     previous_target_row = target_row
