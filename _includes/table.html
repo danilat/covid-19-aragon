@@ -8,9 +8,11 @@
   </tr>
   {% assign cases = include.coronavirus_cases | reverse %}
   {% for case in cases %}
-  <tr>
+  <tr class="{% if case.incidencias %}notification{%endif%}">
     <td class="fecha">
-      {% include illustrations/ico_informacion.svg %}
+      {% if case.incidencias %}
+        {% include illustrations/ico_informacion.svg %}
+      {% endif %}
       <div>{{ case.fecha | date: "%d/%m" }}</div>
     </td>
     <td>{% include tendency.html difference=case.diferencia_confirmados_activos %}
