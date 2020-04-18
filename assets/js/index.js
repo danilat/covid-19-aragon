@@ -134,6 +134,11 @@ function stickMenu() {
   }
 }
 
+
+function toggle(id){
+  document.getElementById(id).classList.toggle("hide");
+}
+
 window.onload = function() {
   if(Cookies.get('cookiesAllowed')){
     loadAnalytics();
