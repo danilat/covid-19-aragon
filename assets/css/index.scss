@@ -295,6 +295,22 @@ td{
     width: 48%;
     margin: 9px 29%;
 }
+.icoInformacion{
+    width: 40%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+.fecha span{
+    line-height: 0.5rem;
+    float: right;
+}
+td.nota{
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    text-align: left;
+    padding: 15px 0 18px 0;
+}
 .icoTelegram{
     float: left;
     width: 4.5%;
