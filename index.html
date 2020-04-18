@@ -29,7 +29,7 @@ layout: default
         {% include dashboard.html last_day=last_day_aragon demonym="aragoneses" %}
       
         <h2>Progresión diaria desde el {{ initial_day_aragon.fecha }} en Aragón</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases %}
+        {% include table.html coronavirus_cases=site.data.coronavirus_cases place="aragon" %}
 
         {% include suscription.html %}
 
@@ -43,7 +43,7 @@ layout: default
         {% include dashboard.html last_day=last_day_huesca demonym="oscenses" %}
 
         <h2>Progresión diaria desde el {{ initial_day_huesca.fecha }} en Huesca</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca %}
+        {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca place="huesca"%}
 
         {% include suscription.html %}
         
@@ -57,7 +57,7 @@ layout: default
         {% include dashboard.html last_day=last_day_zaragoza demonym="zaragozanos" %}
 
         <h2>Progresión diaria desde el {{ initial_day_zaragoza.fecha }} en Zaragoza</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza %}
+        {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza place="zaragoza"%}
 
         {% include suscription.html %}
         
@@ -71,7 +71,7 @@ layout: default
         {% include dashboard.html last_day=last_day_teruel demonym="turolenses" %}
 
         <h2>Progresión diaria desde el {{ initial_day_teruel.fecha }} en Teruel</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel %}
+        {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel place="teruel"%}
 
         {% include suscription.html %}
 
