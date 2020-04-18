@@ -8,9 +8,9 @@
   </tr>
   {% assign cases = include.coronavirus_cases | reverse %}
   {% for case in cases %}
-  <tr class="{% if case.incidencias %}notification{%endif%}">
+  <tr class="" id="row-{{include.place}}{{forloop.index}}">
     <td class="fecha">
-      {% if case.incidencias %}<a class="incidenceLink" href="javascript:void(0)" onclick="toggle('incidence-{{include.place}}{{forloop.index}}')">{%endif%}
+      {% if case.incidencias %}<a class="incidenceLink" href="javascript:void(0)" onclick="toggle('{{include.place}}{{forloop.index}}')">{%endif%}
       {% if case.incidencias %}
         {% include illustrations/ico_informacion.svg %}
       {% endif %}
@@ -39,7 +39,7 @@
     </td>
   </tr>
   {% if case.incidencias %}
-    <tr id="incidence-{{include.place}}{{forloop.index}}">
+    <tr id="incidence-{{include.place}}{{forloop.index}}" class="hide">
       <td class="nota" colspan="5">
         {{case.incidencias}}
       </td>
