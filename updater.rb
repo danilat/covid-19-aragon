@@ -133,13 +133,13 @@ def incidence_for(from, date)
       "18/04/2020": 'La Dirección General de Salud Pública ha depurado los datos de altas, de modo que la cifra que se notifica hoy es inferior al acumulado del día anterior. Fuente: <a href="http://aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1342/id.258983" target="_blank">Aragón Hoy</a>'
     },
     huesca: {
-      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">se contabilizaron en Aragón el día 16</a>'
+      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.'
     },
     zaragoza: {
-      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">se contabilizaron en Aragón el día 16</a>'
+      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.'
     },
     teruel: {
-      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">se contabilizaron en Aragón el día 16</a>'
+      "18/04/2020": 'El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.'
     },
     otros: {}
   }
