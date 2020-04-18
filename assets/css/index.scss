@@ -299,13 +299,21 @@ td.fecha a{
     width: 48%;
     margin: 9px 29%;
 }
-.icoInformacion, .icoInformacionII{
+.icoInformacion{
     padding: 0;
     overflow: visible;
-    width: 26px;
     float: right;
-    margin: 2px 0 0 0px;
     display: inline-block;
+    width: 26px;
+    margin: 2px 0 0 0px;
+}
+.icoInformacionII{
+    padding: 0;
+    overflow: visible;
+    float: right;
+    display: inline-block;
+    width: 23px;
+    margin: 4px 0 0 0;
 }
 .notification.opened td{
     border-bottom:0;
@@ -501,9 +509,13 @@ footer .bar{
         background: url(/assets/img/curvasFooter_MVL.jpg) 0px 0px #bce8e9 no-repeat;
         height: 58px;
     }
-    .icoInformacion, .icoInformacionII{
+    .icoInformacion{
         width: 20px;
-        margin: 6px 0 4px 0;
+        margin: 4px 0 4px 0;
+    }
+    .icoInformacionII{
+        width: 17px;
+        margin: 5px 0 0 0;
     }
     .fecha div{
         float: right;
