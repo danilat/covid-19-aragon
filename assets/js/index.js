@@ -136,7 +136,8 @@ function stickMenu() {
 
 
 function toggle(id){
-  document.getElementById(id).classList.toggle("hide");
+  document.getElementById("incidence-" + id).classList.toggle("hide");
+  document.getElementById("row-" + id).classList.toggle("notification");
 }
 
 window.onload = function() {
