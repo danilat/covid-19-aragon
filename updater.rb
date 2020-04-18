@@ -69,12 +69,14 @@ class TargetRow < SourceRow
   attribute :altas_dia, Types::Coercible::Integer
   attribute :ingresos_hospitalarios_dia, Types::Coercible::Integer
   attribute :ingresos_uci_dia, Types::Coercible::Integer
+  attribute :casos_personal_sanitario_dia, Types::Coercible::Integer
   attribute :diferencia_confirmados_activos, Types::Coercible::Integer
   attribute :diferencia_confirmados_dia, Types::Coercible::Integer
   attribute :diferencia_fallecimientos_dia, Types::Coercible::Integer
   attribute :diferencia_altas_dia, Types::Coercible::Integer
   attribute :diferencia_ingresos_hospitalarios_dia, Types::Coercible::Integer
   attribute :diferencia_ingresos_uci_dia, Types::Coercible::Integer
+  attribute :diferencia_casos_personal_sanitario_dia, Types::Coercible::Integer
   
   def porcentaje_personas_confirmadas
     casos_confirmados.percent_of(total_personas)
@@ -119,6 +121,8 @@ def populate_args_with_daily_and_diffs(args, previous_target_row)
   args[:diferencia_ingresos_hospitalarios_dia] = difference_by_day(args, previous_target_row, :ingresos_hospitalarios_dia)
   args[:ingresos_uci_dia] = difference_by_day(args, previous_target_row, :ingresos_uci)
   args[:diferencia_ingresos_uci_dia] = difference_by_day(args, previous_target_row, :ingresos_uci_dia)
+  args[:casos_personal_sanitario_dia] = difference_by_day(args, previous_target_row, :casos_personal_sanitario)
+  args[:diferencia_casos_personal_sanitario_dia] = difference_by_day(args, previous_target_row, :casos_personal_sanitario_dia)
 end
 
 def sources_to_targets(source_rows, from)
