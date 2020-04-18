@@ -10,10 +10,12 @@
   {% for case in cases %}
   <tr class="{% if case.incidencias %}notification{%endif%}">
     <td class="fecha">
+      {% if case.incidencias %}<a class="incidenceLink" href="javascript:void(0)" onclick="toggle('incidence-{{include.place}}{{forloop.index}}')">{%endif%}
       {% if case.incidencias %}
         {% include illustrations/ico_informacion.svg %}
       {% endif %}
       <div>{{ case.fecha | date: "%d/%m" }}</div>
+      {% if case.incidencias %}</a>{%endif%}
     </td>
     <td>{% include tendency.html difference=case.diferencia_confirmados_activos %}
       <div class="diary">
@@ -22,28 +24,22 @@
     </td>
     <td>{% include tendency.html difference=case.diferencia_confirmados_dia %} 
       <div class="diary">
-        {%if case.confirmados_dia != "-1" %}
-          {{ case.confirmados_dia }}
-        {% endif %}
+        {{ case.confirmados_dia }}
       </div>
     </td>
     <td>{% include tendency.html difference=case.diferencia_altas_dia increase_is_positive=true%} 
       <div class="diary">
-        {%if case.altas_dia != "-1" %}
-          {{ case.altas_dia }}
-        {% endif %}
+        {{ case.altas_dia }}
       </div>
     </td>
     <td>{% include tendency.html difference=case.diferencia_fallecimientos_dia %} 
       <div class="diary">
-        {%if case.fallecimientos_dia != "-1" %}
-          {{ case.fallecimientos_dia }}
-        {% endif %}
+        {{ case.fallecimientos_dia }}
       </div>
     </td>
   </tr>
   {% if case.incidencias %}
-    <tr>
+    <tr id="incidence-{{include.place}}{{forloop.index}}">
       <td class="nota" colspan="5">
         {{case.incidencias}}
       </td>
