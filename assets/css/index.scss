@@ -186,6 +186,7 @@ h4{
 table{
     width:100%;
     margin-top: 40px;
+    min-width: 270px;
 }
 th{
     text-transform: uppercase;
@@ -303,6 +304,9 @@ td{
     margin: 2px 0 0 16px;
     display: inline-block;
 }
+.notification td{
+    border-bottom:0;
+}
 .fecha div{
     float: right;
     display: inline-block;
@@ -313,7 +317,7 @@ td.nota{
     font-size: 0.9rem;
     line-height: 1.3rem;
     text-align: left;
-    padding: 15px 0 18px 0;
+    padding: 0px 0 10px 11px;
 }
 .icoTelegram{
     float: left;
