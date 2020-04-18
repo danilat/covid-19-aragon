@@ -522,10 +522,6 @@ footer .bar{
         width: 17px;
         margin: 5px 3px 0 0;
     }
-    .fecha .dato, .notification .fecha .dato{
-        float: right;
-        margin: -5px 0px 0px 0px;
-    }
     .icono{
         width: 100%;
         display: inline-block;
@@ -534,16 +530,19 @@ footer .bar{
         display: inline-block;
         margin: -6px 0 0 0;
     }
-    .notification .fecha dato{
-        float: left;
+    .notification .fecha .dato{
         padding: 0;
         margin:0;
+        margin: -5px 0px 0px 0px!important;
     }
     .sinNotification .fecha .dato{
         width: 80%;
         margin: 0 10% 0 10%;
         display: block;
         padding: 0;
+    }
+    .fecha .dato{
+        float: none;
     }
 }
 @media (max-width: 704px){
