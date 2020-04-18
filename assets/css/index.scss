@@ -186,7 +186,7 @@ h4{
 table{
     width:100%;
     margin-top: 40px;
-    min-width: 270px;
+    min-width: 280px;
 }
 th{
     text-transform: uppercase;
@@ -205,6 +205,9 @@ td{
     text-align: right;
     padding-right: 10px;
     width: 14%;
+}
+td.fecha a{
+    color:$negro;
 }
 .fuente{
   margin:0 0 50px 0; 
@@ -296,15 +299,15 @@ td{
     width: 48%;
     margin: 9px 29%;
 }
-.icoInformacion{
+.icoInformacion, .icoInformacionII{
     padding: 0;
     overflow: visible;
     width: 26px;
     float: right;
-    margin: 2px 0 0 16px;
+    margin: 2px 0 0 0px;
     display: inline-block;
 }
-.notification td{
+.notification.opened td{
     border-bottom:0;
 }
 .fecha div{
@@ -313,6 +316,11 @@ td{
     vertical-align: middle;
     margin:0;
     font-weight: bold;
+    margin-right: 43px;
+}
+
+.notification .fecha div{
+    margin-right: 17px;
 }
 td.nota{
     font-size: 0.9rem;
@@ -493,7 +501,7 @@ footer .bar{
         background: url(/assets/img/curvasFooter_MVL.jpg) 0px 0px #bce8e9 no-repeat;
         height: 58px;
     }
-    .icoInformacion{
+    .icoInformacion, .icoInformacionII{
         width: 20px;
         margin: 6px 0 4px 0;
     }
