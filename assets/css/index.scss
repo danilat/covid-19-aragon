@@ -296,14 +296,18 @@ td{
     margin: 9px 29%;
 }
 .icoInformacion{
-    width: 40%;
-    margin: 0;
     padding: 0;
     overflow: visible;
-}
-.fecha span{
-    line-height: 0.5rem;
+    width: 26px;
     float: right;
+    margin: 2px 0 0 16px;
+    display: inline-block;
+}
+.fecha div{
+    float: right;
+    display: inline-block;
+    vertical-align: middle;
+    margin:0;
 }
 td.nota{
     font-size: 0.9rem;
@@ -480,6 +484,12 @@ td.nota{
 footer .bar{
         background: url(/assets/img/curvasFooter_MVL.jpg) 0px 0px #bce8e9 no-repeat;
         height: 58px;
+    }
+    .icoInformacion{
+        width: 20px;
+    }
+    .fecha div{
+        float: right;
     }
 }
 @media (max-width: 704px){
