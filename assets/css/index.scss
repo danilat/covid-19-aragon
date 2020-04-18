@@ -312,8 +312,8 @@ td.fecha a{
     overflow: visible;
     float: right;
     display: inline-block;
-    width: 23px;
-    margin: 4px 0 0 0;
+    width: 22px;
+    margin: 4px 4px 0 0px;
 }
 .notification.opened td{
     border-bottom:0;
@@ -515,10 +515,11 @@ footer .bar{
     }
     .icoInformacionII{
         width: 17px;
-        margin: 5px 0 0 0;
+        margin: 5px 3px 0 0;
     }
     .fecha div{
         float: right;
+        margin-right: 37px;
     }
 }
 @media (max-width: 704px){
