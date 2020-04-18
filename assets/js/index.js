@@ -91,6 +91,7 @@ function getChartConfigFor(args){
           display: true,
           ticks: {
             stepSize:1000,
+            min:0
           },
           scaleLabel: {
             display: false,
