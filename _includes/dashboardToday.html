@@ -22,11 +22,10 @@
       En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_dia decimals=0%}</b><br>
       En Teruel <b>{% include formatNumber.html number=last_day_teruel.confirmados_dia decimals=0%}</b><br>
       {% assign others = last_day_aragon.confirmados_dia | minus: last_day_huesca.confirmados_dia | minus: last_day_zaragoza.confirmados_dia | minus: last_day_teruel.confirmados_dia%}
-      {% if others != 0 %}
-      Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_dia decimals=0%}</b>
+      {% if last_day_otros.confirmados_dia != "0" %}
+        Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_dia decimals=0%}</b>
       {% endif %}
     {% endif %}
-    <p style="font-size: 0.7em; line-height: 1.3rem;">El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">se contabilizaron en Aragón el día 16</a>.</p>
   </div>
   <div class="card altas">
     {% include illustrations/ico_altas.svg %}
@@ -37,10 +36,9 @@
       En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.altas_dia decimals=0 %}</b><br>
       En Teruel <b>{% include formatNumber.html number=last_day_teruel.altas_dia decimals=0 %}</b><br>
       {% assign others = last_day_aragon.altas_dia | minus: last_day_huesca.altas_dia | minus: last_day_zaragoza.altas_dia | minus: last_day_teruel.altas_dia%}
-      {% if others != 0 %}
-      Sin asignar <b>{% include formatNumber.html number=others decimals=0%}</b>
+      {% if last_day_otros.altas_dia != "0" %}
+        Sin asignar <b>{% include formatNumber.html number=last_day_otros.altas_dia decimals=0%}</b>
       {% endif %}
-      <p style="font-size: 0.7em; line-height: 1.3rem;"><a href="http://aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1342/id.258983" target="_blank">Anuncia la Dirección General de Salud Pública</a> que se han depurado los datos de altas, de modo que la cifra que se notifica hoy es inferior al acumulado de ayer.</p>
     {% endif %}
  </div>
   <div class="card fallecimientos">
@@ -52,7 +50,7 @@
       En Zaragoza <b>{% include formatNumber.html  number=last_day_zaragoza.fallecimientos_dia decimals=0 %}</b><br>
       En Teruel <b>{% include formatNumber.html  number=last_day_teruel.fallecimientos_dia decimals=0 %}</b><br>
       {% assign others = last_day_aragon.fallecimientos_dia | minus: last_day_huesca.fallecimientos_dia | minus: last_day_zaragoza.fallecimientos_dia | minus: last_day_teruel.fallecimientos_dia%}
-      {% if others != 0 %}
+      {% if last_day_otros.fallecimientos_dia != "0" %}
       Sin asignar <b>{% include formatNumber.html number=last_day_otros.fallecimientos_dia decimals=0%}</b>
       {% endif %}
     {% endif %}
