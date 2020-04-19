@@ -115,17 +115,23 @@ header a{
 .header.sticky {
     background: url(/assets/img/curvas.jpg) 0px -23px #FFF no-repeat;
 }
-.header.sticky, .header.sticky .logo, .header.sticky nav ul li{
+.header, .header.sticky, .header.sticky .logo, .header.sticky nav ul li{
     -webkit-transition: -webkit-all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-.header.sticky .logo{
+.header .logo, .header.sticky .logo{
     -webkit-transition: -webkit-all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
+}
+.header nav ul li, .header.sticky nav ul li{
+    -webkit-transition: -webkit-all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
 }
 .header.sticky nav ul li{
     -webkit-transition: -webkit-all 0.5s ease;
