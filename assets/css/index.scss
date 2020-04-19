@@ -115,6 +115,24 @@ header a{
 .header.sticky {
     background: url(/assets/img/curvas.jpg) 0px -23px #FFF no-repeat;
 }
+.header.sticky, .header.sticky .logo, .header.sticky nav ul li{
+    -webkit-transition: -webkit-all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.header.sticky .logo{
+    -webkit-transition: -webkit-all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.header.sticky nav ul li{
+    -webkit-transition: -webkit-all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
 footer{
     font-size: 1.1rem;
     margin-top: 20px;
@@ -499,8 +517,11 @@ td.nota{
     }
 }
 @media all and (max-width: 768px){
-.header, .header.sticky{
-        background: url(/assets/img/curvas_MVL.jpg) 0px 0px #FFF no-repeat;
+.header{
+        background: url(/assets/img/curvas_MVL.jpg) 0px -58px #FFF no-repeat;
+    }
+.header.sticky{
+        background: url(/assets/img/curvas_MVL.jpg) 0px -77px #FFF no-repeat;
     }
 footer .bar{
         background: url(/assets/img/curvasFooter_MVL.jpg) 0px 0px #bce8e9 no-repeat;
@@ -636,7 +657,7 @@ footer .bar{
     table .fecha, table td{
         /*font-size: 1rem;*/
     }
-     table th{
+    table th{
         font-size: 0.8rem;
     }
     table .fecha{
@@ -675,8 +696,11 @@ footer .bar{
     .sticky li {
         font-size: 1.2rem;
     }
-    .header, .header.sticky{
-        background: url(/assets/img/curvas_MVL.jpg) -110px 0px #FFF no-repeat;
+    .header{
+        background: url(/assets/img/curvas_MVL.jpg) -190px -58px #FFF no-repeat;
+    }
+    .header.sticky{
+        background: url(/assets/img/curvas_MVL.jpg) -110px -77px #FFF no-repeat;
     }
     .cookie-law{
         font-size: 0.9rem;
