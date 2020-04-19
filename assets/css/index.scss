@@ -90,7 +90,7 @@ header a{
     padding: 0px 0 10px 0;
     z-index: 999;
     background-size: cover;
-    background: url(/assets/img/curvas.jpg) 0px 0px #FFF no-repeat; 
+    background: url(/assets/img/curvas.jpg) 0px 0px #FFF no-repeat;
 }
 .sticky {
     position: fixed;
@@ -110,6 +110,7 @@ header a{
 }
 .sticky .logo {
     width: 103px;
+    min-height: 70px; 
     margin: 20px 0 0 6%;
 }
 .header.sticky {
