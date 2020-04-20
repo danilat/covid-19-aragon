@@ -17,5 +17,6 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 15/04/2020,3249,1565,216,383,515,768,63,964693,13,46,32,1,12,4,14,-12,41,11,-3,12,,2098,48.17,6.65,11.79,15.85,23.64,0.34
 16/04/2020,3301,1589,219,410,525,820,52,964693,27,52,24,3,10,-27,-11,14,6,-8,2,-2,,2071,48.14,6.63,12.42,15.9,24.84,0.34
 17/04/2020,3360,1616,167,426,536,845,59,964693,16,25,27,-52,11,18,7,-11,-27,3,-55,1,,2089,48.1,4.97,12.68,15.95,25.15,0.35
-18/04/2020,3585,1706,174,458,542,869,225,964693,32,24,90,7,6,169,166,16,-1,63,59,-5,"El descuadre a nivel provincial se debe a que hoy se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841"" target=""_blank"">Aragón Hoy</a>.",2258,47.59,4.85,12.78,15.12,24.24,0.37
+18/04/2020,3585,1706,174,458,542,869,225,964693,32,24,90,7,6,169,166,16,-1,63,59,-5,"El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841"" target=""_blank"">Aragón Hoy</a>.",2258,47.59,4.85,12.78,15.12,24.24,0.37
 19/04/2020,3643,1736,177,474,568,911,58,964693,16,42,30,3,26,0,-167,-16,18,-60,-4,20,,2258,47.65,4.86,13.01,15.59,25.01,0.38
+20/04/2020,3678,1756,179,491,569,913,35,964693,17,2,20,2,1,16,-23,1,-40,-10,-1,-25,,2274,47.74,4.87,13.35,15.47,24.82,0.38
