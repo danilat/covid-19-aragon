@@ -20,3 +20,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 18/04/2020,537,224,32,64,110,113,10,134137,5,-20,3,0,1,25,1,2,-31,-5,0,-2,"El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841"" target=""_blank"">Aragón Hoy</a>.",360,41.71,5.96,11.92,20.48,21.04,0.4
 19/04/2020,540,225,32,64,114,118,3,134137,0,5,1,0,4,-2,-7,-5,25,-2,0,3,,358,41.67,5.93,11.85,21.11,21.85,0.4
 20/04/2020,541,227,32,65,114,117,1,134137,1,-1,2,0,0,1,-2,1,-6,1,0,-4,"En Teruel se ha corregido el dato del día anterior, el número de altas acumuladas a día 20/04 pasa de 118 a 117.",359,41.96,5.91,12.01,21.07,21.63,0.4
+21/04/2020,544,229,32,67,114,121,3,134137,2,4,2,0,0,-3,2,1,5,0,0,0,,356,42.1,5.88,12.32,20.96,22.24,0.41
