@@ -22,3 +22,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 20/04/2020,541,227,32,65,114,117,1,134137,1,-1,2,0,0,1,-2,1,-6,1,0,-4,"En Teruel se ha corregido el dato del día anterior, el número de altas acumuladas a día 20/04 pasa de 118 a 117.",359,41.96,5.91,12.01,21.07,21.63,0.4
 21/04/2020,544,229,32,67,114,121,3,134137,2,4,2,0,0,-3,2,1,5,0,0,0,,356,42.1,5.88,12.32,20.96,22.24,0.41
 22/04/2020,546,230,32,67,114,121,2,134137,0,0,1,0,0,2,-1,-2,-4,-1,0,0,,358,42.12,5.86,12.27,20.88,22.16,0.41
+23/04/2020,547,231,32,68,115,168,1,134137,1,47,1,0,1,-47,-1,1,47,0,0,1,"Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099"" target=""_blank"">Aragón Hoy</a>.",311,42.23,5.85,12.43,21.02,30.71,0.41
