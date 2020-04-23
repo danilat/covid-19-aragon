@@ -25,6 +25,7 @@
       {% if last_day_otros.confirmados_dia != "0" %}
         Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_dia decimals=0%}</b>
       {% endif %}
+      <p style="font-size: 0.7em; line-height: 1.3rem;">Se ha corregido el dato del día anterior del número de casos confirmados Sin asignar.</p>
     {% endif %}
   </div>
   <div class="card altas">
@@ -39,7 +40,7 @@
       {% if last_day_otros.altas_dia != "0" %}
         Sin asignar <b>{% include formatNumber.html number=last_day_otros.altas_dia decimals=0%}</b>
       {% endif %}
-      <p style="font-size: 0.7em; line-height: 1.3rem;">Se ha corregido el dato del día anterior del número de altas Sin asignar.</p>
+      <p style="font-size: 0.7em; line-height: 1.3rem;">Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias.</p>
     {% endif %}
  </div>
   <div class="card fallecimientos">
