@@ -49,3 +49,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 22/04/2020,5054,2304,252,656,766,1215,116,1319291,13,33,33,2,10,70,64,7,29,6,0,9,,3183,45.59,4.99,12.98,15.16,24.04,0.38
 23/04/2020,5237,2340,253,681,774,1680,183,1319291,25,465,36,1,8,-307,67,12,432,3,-1,-2,"Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099"" target=""_blank"">Aragón Hoy</a>.",2876,44.68,4.83,13.0,14.78,32.08,0.4
 24/04/2020,5295,2359,254,695,784,1781,58,1319291,14,101,19,1,10,-57,-125,-11,-364,-17,0,2,,2819,44.55,4.8,13.13,14.81,33.64,0.4
+25/04/2020,5382,2372,255,709,786,1929,87,1319291,14,148,13,1,2,-75,29,0,47,-6,0,-8,,2744,44.07,4.74,13.17,14.6,35.84,0.41
