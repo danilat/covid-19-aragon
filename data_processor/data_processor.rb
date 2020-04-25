@@ -66,3 +66,12 @@ class ProcessToDailyProgression
     DailyStatisticsOutput.new(args)
   end
 end
+
+class ProcessHospitalProgression
+  def invoke(rows)
+    inputs = rows.collect do |row|
+      data = row.to_h.transform_keys!(&:to_sym)
+      HospitalOccupationInput.new(data)
+    end.compact
+  end
+end
