@@ -7,7 +7,7 @@ describe "Update data from aragon open data" do
   it "transdorm the input file to the output file" do
     source = read_csv(source_file)
 
-    target_rows = process_daily_progression.invoke(source)
+    target_rows = process_daily_progression.invoke(source, :aragon)
     write_csv(target_rows, "tmp/coronavirus_cases.csv")
     resultant_csv = read_csv("tmp/coronavirus_cases.csv")
     

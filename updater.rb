@@ -79,11 +79,8 @@ end
 
 download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv", "_data/sources/casos_coronavirus_aragon.csv")
 csv = read_csv("_data/sources/casos_coronavirus_aragon.csv")
-source_rows = csv.collect do |row|
-  data = row.to_h.transform_keys!(&:to_sym)
-  SourceRow.new(data) if data[:casos_confirmados]
-end.compact
-target_rows = sources_to_targets(source_rows, :aragon)
+process_daily_progression = ProcessToDailyProgression.new
+target_rows = process_daily_progression.invoke(csv, :aragon)
 write_csv(target_rows, "_data/coronavirus_cases.csv")
 write_changelog(target_rows.last)
 

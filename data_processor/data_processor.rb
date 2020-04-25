@@ -19,12 +19,13 @@ class ProcessToDailyProgression
   def initialize()
     @incidences = Incidences.new
   end
-  def invoke(source)
-    source_rows = source.collect do |row|
+
+  def invoke(raw, place)
+    source_rows = raw.collect do |row|
       data = row.to_h.transform_keys!(&:to_sym)
       SourceRow.new(data) if data[:casos_confirmados]
     end.compact
-    target_rows = sources_to_targets(source_rows, :aragon)
+    target_rows = sources_to_targets(source_rows, place)
   end
 
   def difference_by_day(args, previous_target_row, attribute)
