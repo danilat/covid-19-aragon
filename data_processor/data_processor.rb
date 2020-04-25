@@ -3,6 +3,7 @@ module Types
   include Dry.Types()
 end
 require "./data_processor/population"
+require "./data_processor/downloader"
 require "./data_processor/csv"
 require "./data_processor/source_row"
 require "./data_processor/target_row"

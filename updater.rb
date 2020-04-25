@@ -1,15 +1,4 @@
-require "net/http"
-require "uri"
 require "./data_processor/data_processor"
-
-def download(uri, path)
-  uri = URI.parse(uri)
-  response = Net::HTTP.get_response(uri)
-  content = response.body
-  open(path, 'w') do |file|
-    file << content
-  end
-end
 
 def difference_by_day(args, previous_target_row, attribute)
   return args[attribute] unless previous_target_row
