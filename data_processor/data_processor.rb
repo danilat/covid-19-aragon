@@ -52,25 +52,17 @@ class ProcessToDailyProgression
   def sources_to_targets(source_rows, from)
     previous_target_row = nil
     target_rows = source_rows.collect do |source_row|
-      args = source_row.to_h
-      args[:total_personas] = TOTAL_OF_PEOPLE[from] || 0
-      date = Date.parse(args[:fecha])
-      args[:fecha] = date.strftime("%d/%m/%Y")
-      args[:incidencias] = @incidences.get(from, args[:fecha])
-      populate_args_with_daily_and_diffs(args, previous_target_row)
-      target_row = TargetRow.new(args)
-      previous_target_row = target_row
-      target_row
+      previous_target_row = source_to_target(source_row, from, previous_target_row)
     end
   end
 
-  def source_to_target(source, total_of_people)
+  def source_to_target(source_row, from, previous_target_row)
     args = source_row.to_h
-    args[:total_personas] = total_of_people
+    args[:total_personas] = TOTAL_OF_PEOPLE[from] || 0
     date = Date.parse(args[:fecha])
     args[:fecha] = date.strftime("%d/%m/%Y")
     args[:incidencias] = @incidences.get(from, args[:fecha])
     populate_args_with_daily_and_diffs(args, previous_target_row)
-    target_row = TargetRow.new(args)
+    TargetRow.new(args)
   end
 end
