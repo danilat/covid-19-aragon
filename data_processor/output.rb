@@ -1,4 +1,4 @@
-class TargetRow < Dry::Struct
+class DailyStatisticsOutput < Dry::Struct
   attribute :fecha, Types::Strict::String
   attribute :casos_confirmados, Types::Coercible::Integer
   attribute :ingresos_hospitalarios, Types::Coercible::Integer.default(0)

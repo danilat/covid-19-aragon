@@ -1,4 +1,4 @@
-class SourceRow < Dry::Struct
+class DailyStatisticsInput < Dry::Struct
   transform_types do |type|
     if type.default?
       type.constructor do |value|

@@ -6,7 +6,7 @@ describe "Update data from aragon open data" do
   let(:expected_target_rows) do
     CSV.read(target_file, headers: true).collect do |row|
       args = row.to_h.transform_keys!(&:to_sym)
-      TargetRow.new(args)
+      DailyStatisticsOutput.new(args)
     end
   end
   subject(:process_daily_progression) { ProcessToDailyProgression.new }
