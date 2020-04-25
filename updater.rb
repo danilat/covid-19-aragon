@@ -1,6 +1,6 @@
 require "net/http"
 require "uri"
-require "csv"
+require "./data_processor/csv"
 require "dry-struct"
 
 class Numeric
@@ -98,11 +98,13 @@ TOTAL_OF_PEOPLE = {
   aragon: 1319291
 }.freeze
 
-def read_csv(uri)
+def download(uri, path)
   uri = URI.parse(uri)
   response = Net::HTTP.get_response(uri)
   content = response.body
-  CSV.new(response.body, headers: true, col_sep: ";", liberal_parsing: true)
+  open(path, 'w') do |file|
+    file << content
+  end
 end
 
 def difference_by_day(args, previous_target_row, attribute)
@@ -166,15 +168,6 @@ def sources_to_targets(source_rows, from)
   end
 end
 
-def write_csv(target_rows, path)
-  headers = target_rows.first.to_h.keys
-  CSV.open(path, "w", write_headers: true, headers: headers) do |targert_csv|
-    target_rows.each do |target_row|
-      targert_csv << target_row.to_h
-    end
-  end
-end
-
 def write_changelog(newer_row)
   open("_data/last_update", "w") { |file|
     file.puts newer_row.fecha
@@ -191,7 +184,8 @@ def write_changelog(newer_row)
   }
 end
 
-csv = read_csv("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv")
+download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv", "_data/sources/casos_coronavirus_aragon.csv")
+csv = read_csv("_data/sources/casos_coronavirus_aragon.csv")
 source_rows = csv.collect do |row|
   data = row.to_h.transform_keys!(&:to_sym)
   SourceRow.new(data) if data[:casos_confirmados]
@@ -200,7 +194,8 @@ target_rows = sources_to_targets(source_rows, :aragon)
 write_csv(target_rows, "_data/coronavirus_cases.csv")
 write_changelog(target_rows.last)
 
-csv = read_csv("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv")
+download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv", "_data/sources/casos_coronavirus_provincias.csv")
+csv = read_csv("_data/sources/casos_coronavirus_provincias.csv")
 sources_by_province = {}
 csv.group_by do |row|
   row["provincia"].downcase.to_sym
