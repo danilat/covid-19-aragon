@@ -11,7 +11,7 @@ describe "Update data from aragon open data" do
   end
   subject(:process_daily_progression) { ProcessToDailyProgression.new }
 
-  it "transdorm the input file to the output file" do
+  it "transform the aragon input file to the output file" do
     target_rows = process_daily_progression.invoke(source, :aragon)
     
     expect(target_rows).to eq expected_target_rows
