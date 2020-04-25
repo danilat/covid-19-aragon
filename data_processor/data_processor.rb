@@ -20,8 +20,8 @@ class ProcessToDailyProgression
     @incidences = Incidences.new
   end
 
-  def invoke(raw, place)
-    source_rows = raw.collect do |row|
+  def invoke(rows, place)
+    source_rows = rows.collect do |row|
       data = row.to_h.transform_keys!(&:to_sym)
       SourceRow.new(data) if data[:casos_confirmados]
     end.compact

@@ -1,66 +1,6 @@
 require "./data_processor/data_processor"
 
-def difference_by_day(args, previous_target_row, attribute)
-  return args[attribute] unless previous_target_row
-  args[attribute] - previous_target_row.send(attribute)
-end
-
-def populate_args_with_daily_and_diffs(args, previous_target_row)
-  args[:diferencia_confirmados_activos] = difference_by_day(args, previous_target_row, :confirmados_activos)
-  args[:confirmados_dia] = difference_by_day(args, previous_target_row, :casos_confirmados)
-  args[:diferencia_confirmados_dia] = difference_by_day(args, previous_target_row, :confirmados_dia)
-  args[:fallecimientos_dia] = difference_by_day(args, previous_target_row, :fallecimientos)
-  args[:diferencia_fallecimientos_dia] = difference_by_day(args, previous_target_row, :fallecimientos_dia)
-  args[:altas_dia] = difference_by_day(args, previous_target_row, :altas)
-  args[:diferencia_altas_dia] = difference_by_day(args, previous_target_row, :altas_dia)
-  args[:ingresos_hospitalarios_dia] = difference_by_day(args, previous_target_row, :ingresos_hospitalarios)
-  args[:diferencia_ingresos_hospitalarios_dia] = difference_by_day(args, previous_target_row, :ingresos_hospitalarios_dia)
-  args[:ingresos_uci_dia] = difference_by_day(args, previous_target_row, :ingresos_uci)
-  args[:diferencia_ingresos_uci_dia] = difference_by_day(args, previous_target_row, :ingresos_uci_dia)
-  args[:casos_personal_sanitario_dia] = difference_by_day(args, previous_target_row, :casos_personal_sanitario)
-  args[:diferencia_casos_personal_sanitario_dia] = difference_by_day(args, previous_target_row, :casos_personal_sanitario_dia)
-end
-
-def incidence_for(from, date)
-  incidences = {
-    aragon:{
-      "16/04/2020": 'De los casos nuevos 155 se corresponden con los resultados acumulados de los tests rápidos realizados en esa última semana. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
-      "18/04/2020": 'La Dirección General de Salud Pública ha depurado los datos de altas, de modo que la cifra que se notifica este día es inferior al acumulado del día anterior. Fuente: <a href="http://aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1342/id.258983" target="_blank">Aragón Hoy</a>',
-      "23/04/2020": 'Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099" target="_blank">Aragón Hoy</a>.'
-    },
-    huesca: {
-      "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
-      "23/04/2020": 'Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099" target="_blank">Aragón Hoy</a>.'
-    },
-    zaragoza: {
-      "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
-      "23/04/2020": 'Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099" target="_blank">Aragón Hoy</a>.'
-    },
-    teruel: {
-      "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
-      "20/04/2020": 'En Teruel se ha corregido el dato del día anterior, el número de altas acumuladas a día 20/04 pasa de 118 a 117.',
-      "23/04/2020": 'Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099" target="_blank">Aragón Hoy</a>.'
-    },
-    otros: {}
-  }
-  incidences[from][date.to_sym]
-end
-
-def sources_to_targets(source_rows, from)
-  previous_target_row = nil
-  target_rows = source_rows.collect do |source_row|
-    args = source_row.to_h
-    args[:total_personas] = TOTAL_OF_PEOPLE[from] || 0
-    date = Date.parse(args[:fecha])
-    args[:fecha] = date.strftime("%d/%m/%Y")
-    args[:incidencias] = incidence_for(from, args[:fecha])
-    populate_args_with_daily_and_diffs(args, previous_target_row)
-    target_row = TargetRow.new(args)
-    previous_target_row = target_row
-    target_row
-  end
-end
-
+# Aragón
 def write_changelog(newer_row)
   open("_data/last_update", "w") { |file|
     file.puts newer_row.fecha
@@ -78,34 +18,26 @@ def write_changelog(newer_row)
 end
 
 download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv", "_data/sources/casos_coronavirus_aragon.csv")
-csv = read_csv("_data/sources/casos_coronavirus_aragon.csv")
+raw = read_csv("_data/sources/casos_coronavirus_aragon.csv")
 process_daily_progression = ProcessToDailyProgression.new
-target_rows = process_daily_progression.invoke(csv, :aragon)
+target_rows = process_daily_progression.invoke(raw, :aragon)
 write_csv(target_rows, "_data/coronavirus_cases.csv")
 write_changelog(target_rows.last)
 
-download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv", "_data/sources/casos_coronavirus_provincias.csv")
-csv = read_csv("_data/sources/casos_coronavirus_provincias.csv")
-sources_by_province = {}
-csv.group_by do |row|
-  row["provincia"].downcase.to_sym
-end.each do |province, rows|
-  sources_by_province[province.to_sym] = rows.collect do |row|
-    data = row.to_h.transform_keys!(&:to_sym)
-    SourceRow.new(data)
-  end
-end
-
-def ignore_first_row(rows)
+# Provinces
+def ignore_first_rows(rows)
   rows.delete_at(1)
   rows.delete_at(0)
   rows
 end
 
-sources_by_province.each do |province, source_rows|
-  target_rows = sources_to_targets(source_rows, province)
-  ignore_first_row(target_rows) #to avoid misinterpretations in the data because we don't have all the days evolution
+download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv", "_data/sources/casos_coronavirus_provincias.csv")
+raw = read_csv("_data/sources/casos_coronavirus_provincias.csv")
+by_province = {}
+raw.group_by do |row|
+  row["provincia"].downcase.to_sym
+end.each do |province, rows|
+  target_rows = process_daily_progression.invoke(rows, province.to_sym)
+  ignore_first_rows(target_rows) #to avoid misinterpretations in the data because we don't have all the days evolution
   write_csv(target_rows, "_data/coronavirus_cases_#{province}.csv")
 end
-
-
