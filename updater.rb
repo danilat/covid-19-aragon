@@ -17,8 +17,8 @@ def write_changelog(newer_row)
   }
 end
 
-download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv", "_data/sources/casos_coronavirus_aragon.csv")
-raw = read_csv("_data/sources/casos_coronavirus_aragon.csv")
+download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv", "sources/casos_coronavirus_aragon.csv")
+raw = read_csv("sources/casos_coronavirus_aragon.csv")
 process_daily_progression = ProcessToDailyProgression.new
 target_rows = process_daily_progression.invoke(raw, :aragon)
 write_csv(target_rows, "_data/coronavirus_cases.csv")
@@ -31,8 +31,8 @@ def ignore_first_rows(rows)
   rows
 end
 
-download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv", "_data/sources/casos_coronavirus_provincias.csv")
-raw = read_csv("_data/sources/casos_coronavirus_provincias.csv")
+download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv", "sources/casos_coronavirus_provincias.csv")
+raw = read_csv("sources/casos_coronavirus_provincias.csv")
 by_province = {}
 raw.group_by do |row|
   row["provincia"].downcase.to_sym
