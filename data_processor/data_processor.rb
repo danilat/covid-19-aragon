@@ -5,6 +5,7 @@ end
 require "./data_processor/population"
 require "./data_processor/downloader"
 require "./data_processor/csv"
+require "./data_processor/json"
 require "./data_processor/input"
 require "./data_processor/output"
 require "./data_processor/incidences"

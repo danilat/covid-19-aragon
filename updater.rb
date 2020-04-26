@@ -42,3 +42,9 @@ end.each do |province, rows|
   write_csv(target_rows, "_data/coronavirus_cases_#{province}.csv")
 end
 
+# Hospitals
+
+download("https://www.aragon.es/documents/20127/38742837/casos_coronavirus_hospitales.csv", "sources/casos_coronavirus_hospitales.csv")
+raw = read_csv("sources/casos_coronavirus_hospitales.csv")
+hospital_outputs = ProcessHospitalProgression.new.invoke(raw)
+write_json(hospital_outputs, "_data/hospitals.json")
