@@ -15,7 +15,7 @@ layout: default
               <ul>
                 {% assign daily_occupations = hospital.daily_occupations | reverse %}
                 {% for daily in daily_occupations %}
-                  <li>{{daily.date}} - Total: {{daily.total_beds}} - UCI: {{daily.uci_beds}}</li>
+                  <li>{{daily.date}} - Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})</li>
                 {% endfor %}
               </ul>
             {% endfor %}
