@@ -8,7 +8,8 @@ class Incidences
       },
       huesca: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
-        "23/04/2020": 'Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099" target="_blank">Aragón Hoy</a>.'
+        "23/04/2020": 'Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099" target="_blank">Aragón Hoy</a>.',
+        "26/04/2020": 'En Huesca se ha corregido el dato del día anterior, el número de altas acumuladas a día 26/04 pasa de 226 a 211.'
       },
       zaragoza: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
