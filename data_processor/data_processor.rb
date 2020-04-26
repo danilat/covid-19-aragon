@@ -103,8 +103,9 @@ class ProcessHospitalProgression
   end
 
   private def daily_occupations(inputs)
+    previous_day = nil
     inputs.collect do |input|
-      DailyOccupation.new(date: input[:fecha], total_beds: input[:camas_ocupadas_total], uci_beds: input[:camas_uci_ocupadas])
+      previous_day = DailyOccupation.with_previous_daily_occupation(previous_day, date: input[:fecha], total_beds: input[:camas_ocupadas_total], uci_beds: input[:camas_uci_ocupadas])
     end
   end
 end

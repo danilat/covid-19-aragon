@@ -61,7 +61,29 @@ end
 class DailyOccupation < Dry::Struct
   attribute :date, Types::Strict::String
   attribute :total_beds, Types::Coercible::Integer
+  attribute :total_beds_difference, Types::Coercible::Integer
   attribute :uci_beds, Types::Coercible::Integer
+  attribute :uci_beds_difference, Types::Coercible::Integer
+
+  def regular_beds
+    total_beds - uci_beds
+  end
+
+  def to_h
+    hash = super.to_h
+    hash[:regular_beds] = regular_beds
+    hash
+  end
+
+  def self.with_previous_daily_occupation(previous_daily_occupation, args)
+    args[:total_beds_difference] = args[:total_beds]
+    args[:uci_beds_difference] = args[:uci_beds]
+    if previous_daily_occupation
+      args[:total_beds_difference] = args[:total_beds] - previous_daily_occupation.total_beds
+      args[:uci_beds_difference] = args[:uci_beds] - previous_daily_occupation.uci_beds
+    end
+    new(args)
+  end
 end
 
 class Hospital < Dry::Struct
