@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="content">
+  <ul>
+  {% for province in site.data.hospitals.provinces %}
+    <li>
+      {{province.name}}
+      <ul>
+        {% for municipality in province.municipalities %}
+          <li>{{municipality.name}}</li>
+          <ul>
+            {% for hospital in municipality.hospitals %}
+              <li>{{hospital.name}}</li>
+              <ul>
+                {% assign daily_occupations = hospital.daily_occupations | reverse %}
+                {% for daily in daily_occupations %}
+                  <li>{{daily.date}} - Total: {{daily.total_beds}} - UCI: {{daily.uci_beds}}</li>
+                {% endfor %}
+              </ul>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
