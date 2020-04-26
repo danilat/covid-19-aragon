@@ -25,3 +25,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 23/04/2020,681,252,37,83,73,203,60,220461,2,59,1,0,1,-1,47,2,52,-5,0,1,"Se ha modificado la cifra de las altas incluyendo también las altas epidemiológicas, es decir, las altas en casos confirmados que se han mantenido en su domicilio, que se suman a las hospitalarias. Fuente: <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.259099"" target=""_blank"">Aragón Hoy</a>.",395,37.0,5.43,12.19,10.72,29.81,0.31
 24/04/2020,686,254,38,85,74,209,5,220461,2,6,2,1,1,-3,-55,0,-53,1,1,0,,392,37.03,5.54,12.39,10.79,30.47,0.31
 25/04/2020,699,254,38,86,74,226,13,220461,1,17,0,0,0,-5,8,-1,11,-2,-1,-1,,387,36.34,5.44,12.3,10.59,32.33,0.32
+26/04/2020,714,256,39,88,74,211,15,220461,2,-15,2,1,0,28,2,1,-32,2,1,0,"En Huesca se ha corregido el dato del día anterior, el número de altas acumuladas a día 26/04 pasa de 226 a 211.",415,35.85,5.46,12.32,10.36,29.55,0.32
