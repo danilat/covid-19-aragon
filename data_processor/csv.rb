@@ -2,7 +2,7 @@
 require "csv"
 
 def read_csv(path)
-  CSV.read(path, headers: true, col_sep: ";", liberal_parsing: true)
+  CSV.read(path, headers: true, col_sep: ";", liberal_parsing: true, header_converters: :symbol)
 end
 
 def write_csv(target_rows, path)
