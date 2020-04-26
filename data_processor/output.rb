@@ -57,3 +57,29 @@ class DailyStatisticsOutput < Dry::Struct
     hash
   end
 end
+
+class DailyOccupation < Dry::Struct
+  attribute :date, Types::Strict::String
+  attribute :total_beds, Types::Coercible::Integer
+  attribute :uci_beds, Types::Coercible::Integer
+end
+
+class Hospital < Dry::Struct
+  attribute :name, Types::Strict::String
+  attribute :daily_occupations, Types::Strict::Array.of(DailyOccupation)
+end
+
+class Municipality < Dry::Struct
+  attribute :name, Types::Strict::String
+  attribute :hospitals, Types::Strict::Array.of(Hospital)
+end
+
+class Province < Dry::Struct
+  attribute :name, Types::Strict::String
+  attribute :municipalities, Types::Strict::Array.of(Municipality)
+end
+
+class HospitalOccupationOutput < Dry::Struct
+  attribute :provinces, Types::Strict::Array.of(Province)
+end
+

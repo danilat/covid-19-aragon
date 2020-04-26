@@ -19,7 +19,7 @@ describe "Update and process data from AragonOpenData" do
     end
   end
 
-  context "Coronavirus ocuppation" do
+  context "Coronavirus hospital ocuppation" do
     subject(:process_hospital_progression) { ProcessHospitalProgression.new }
     let(:source_file) { "./spec/support/sources/casos_coronavirus_hospitales.csv" }
     let(:source) { read_csv(source_file) }
@@ -27,7 +27,29 @@ describe "Update and process data from AragonOpenData" do
     it "transform the input file to the output file" do
       outputs = process_hospital_progression.invoke(source)
 
-      expect(outputs).not_to be_empty
+      expect(outputs).not_to be_nil
+    end
+
+    context "Hospital occupation output" do
+      let(:output) { process_hospital_progression.invoke(source) }
+      let(:provinces){ output.provinces }
+      let(:municipalities){ provinces.first.municipalities }
+      let(:hospitals){ municipalities.first.hospitals }
+      it "has province" do
+        expect(provinces).not_to be_empty
+        expect(provinces.first.name).not_to be_nil
+      end
+      it "has municipalities" do
+        expect(municipalities).not_to be_empty
+        expect(municipalities.first.name).not_to be_nil
+      end
+      it "has hospitals" do
+        expect(hospitals).not_to be_empty
+        expect(hospitals.first.name).not_to be_nil
+      end
+      it "hospitals with daily_occupations" do
+        expect(hospitals.first.daily_occupations).not_to be_empty
+      end
     end
   end
 end

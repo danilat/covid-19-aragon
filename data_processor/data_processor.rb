@@ -73,5 +73,37 @@ class ProcessHospitalProgression
       data = row.to_h.transform_keys!(&:to_sym)
       HospitalOccupationInput.new(data)
     end.compact
+    inputs_to_outputs(inputs)
+  end
+
+  def inputs_to_outputs(inputs)
+    provinces = inputs.group_by do |input|
+      input[:provincia]
+    end.collect do |province, inputs|
+      Province.new(name: province, municipalities: municipalities(inputs))
+    end
+    HospitalOccupationOutput.new(provinces: provinces)
+  end
+
+  private def municipalities(inputs)
+    inputs.group_by do |input|
+      input[:municipio]
+    end.collect do |municipality, inputs|
+      Municipality.new(name: municipality, hospitals: hospitals(inputs))
+    end
+  end
+
+  private def hospitals(inputs)
+    inputs.group_by do |input|
+      input[:hospital]
+    end.collect do |hospital, inputs|
+      Hospital.new(name: hospital, daily_occupations: daily_occupations(inputs))
+    end
+  end
+
+  private def daily_occupations(inputs)
+    inputs.collect do |input|
+      DailyOccupation.new(date: input[:fecha], total_beds: input[:camas_ocupadas_total], uci_beds: input[:camas_uci_ocupadas])
+    end
   end
 end

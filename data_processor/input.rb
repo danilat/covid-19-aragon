@@ -32,6 +32,7 @@ class DailyStatisticsInput < Input
 end
 
 class HospitalOccupationInput < Input
+  attribute :fecha, Types::Strict::String
   attribute :hospital, Types::Strict::String
   attribute :municipio, Types::Strict::String
   attribute :provincia, Types::Strict::String
