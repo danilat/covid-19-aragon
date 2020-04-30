@@ -29,3 +29,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 27/04/2020,730,256,39,89,74,216,16,220461,1,5,0,0,0,10,1,-1,20,-2,-1,0,,425,35.07,5.34,12.19,10.14,29.59,0.33
 28/04/2020,732,256,39,90,74,226,2,220461,1,10,0,0,0,-9,-14,0,5,0,0,0,,416,34.97,5.33,12.3,10.11,30.87,0.33
 29/04/2020,747,260,39,90,75,236,15,220461,0,10,4,0,1,5,13,-1,0,4,0,1,,421,34.81,5.22,12.05,10.04,31.59,0.34
+30/04/2020,918,262,39,91,79,257,171,220461,1,21,2,0,4,149,156,1,11,-2,0,3,"El aumento en el número de casos detectados se corresponde con la inclusión en la estadística de 166 casos confirmados procedentes del brote asociado a dos centros de trabajo de Binéfar. Fuente: <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1341/id.259460"" target=""_blank"">Aragón Hoy</a>.",570,28.54,4.25,9.91,8.61,28.0,0.42
