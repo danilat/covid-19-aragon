@@ -4,11 +4,13 @@ layout: default
 <div class="content">
   <ul>
   {% for province in site.data.hospitals.provinces %}
+    {% assign daily = province.daily_occupations | last %}
     <li>
-      {{province.name}}
+      {{province.name}} - Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})
       <ul>
         {% for municipality in province.municipalities %}
-          <li>{{municipality.name}}</li>
+          {% assign daily = municipality.daily_occupations | last %}
+          <li>{{municipality.name}} - Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})</li> 
           <ul>
             {% for hospital in municipality.hospitals %}
               <li>{{hospital.name}}</li>
