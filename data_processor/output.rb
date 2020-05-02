@@ -58,6 +58,10 @@ class DailyStatisticsOutput < Dry::Struct
   end
 end
 
+def sum_occupations(daily_occupations, attribute)
+  daily_occupations.inject(0){|sum, occupation| sum + occupation[attribute] }
+end
+
 class DailyOccupation < Dry::Struct
   attribute :date, Types::Strict::String
   attribute :total_beds, Types::Coercible::Integer
@@ -105,12 +109,8 @@ class Municipality < Dry::Struct
     end
   end
 
-  def sum_occupations(daily_occupations, attribute)
-    daily_occupations.inject(0){|sum, occupation| sum + occupation[attribute] }
-  end
-
   private def hospital_occupations_by_day
-    hospital_occupations_by_day = hospitals.inject([]) do |sum, hospital| 
+    hospitals.inject([]) do |sum, hospital| 
       sum + hospital.daily_occupations
     end.group_by do |daily_occupation|
       daily_occupation[:date]
@@ -121,6 +121,24 @@ end
 class Province < Dry::Struct
   attribute :name, Types::Strict::String
   attribute :municipalities, Types::Strict::Array.of(Municipality)
+
+  def daily_occupations
+    municipality_occupations_by_day.collect do |date, daily_occupations|
+      total_beds = sum_occupations(daily_occupations, :total_beds)
+      total_beds_difference = sum_occupations(daily_occupations, :total_beds_difference)
+      uci_beds = sum_occupations(daily_occupations, :uci_beds)
+      uci_beds_difference = sum_occupations(daily_occupations, :uci_beds_difference)
+      DailyOccupation.new(date: date, total_beds: total_beds, total_beds_difference: total_beds_difference, uci_beds: uci_beds, uci_beds_difference: uci_beds_difference)
+    end
+  end
+
+  private def municipality_occupations_by_day
+    municipalities.inject([]) do |sum, municipality| 
+      sum + municipality.daily_occupations
+    end.group_by do |daily_occupation|
+      daily_occupation[:date]
+    end
+  end
 end
 
 class HospitalOccupationOutput < Dry::Struct
