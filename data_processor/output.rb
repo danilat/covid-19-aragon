@@ -143,7 +143,11 @@ class Province < DailyOcupationAggregator
   end
 end
 
-class HospitalOccupationOutput < Dry::Struct
+class HospitalOccupationOutput < DailyOcupationAggregator
   attribute :provinces, Types::Strict::Array.of(Province)
+
+  private def collection_with_daily_occupation
+    provinces
+  end
 end
 

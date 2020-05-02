@@ -30,6 +30,9 @@ describe "Update and process data from AragonOpenData" do
     it "has provinces" do
       expect(provinces).not_to be_empty
     end
+    it "has daily_occupations" do
+      expect(output.daily_occupations).not_to be_empty
+    end
     context "province" do
       it "has name" do
         expect(provinces.first.name).not_to be_nil
