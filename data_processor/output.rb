@@ -58,10 +58,6 @@ class DailyStatisticsOutput < Dry::Struct
   end
 end
 
-def sum_occupations(daily_occupations, attribute)
-  daily_occupations.inject(0){|sum, occupation| sum + occupation[attribute] }
-end
-
 class DailyOccupation < Dry::Struct
   attribute :date, Types::Strict::String
   attribute :total_beds, Types::Coercible::Integer
@@ -95,12 +91,9 @@ class Hospital < Dry::Struct
   attribute :daily_occupations, Types::Strict::Array.of(DailyOccupation)
 end
 
-class Municipality < Dry::Struct
-  attribute :name, Types::Strict::String
-  attribute :hospitals, Types::Strict::Array.of(Hospital)
-
+class DailyOcupationAggregator < Dry::Struct
   def daily_occupations
-    hospital_occupations_by_day.collect do |date, daily_occupations|
+    occupations_by_day.collect do |date, daily_occupations|
       total_beds = sum_occupations(daily_occupations, :total_beds)
       total_beds_difference = sum_occupations(daily_occupations, :total_beds_difference)
       uci_beds = sum_occupations(daily_occupations, :uci_beds)
@@ -109,8 +102,22 @@ class Municipality < Dry::Struct
     end
   end
 
-  private def hospital_occupations_by_day
-    hospitals.inject([]) do |sum, hospital| 
+  def to_h
+    hash = super.to_h
+    hash[:daily_occupations] = daily_occupations
+    hash
+  end
+
+  private def sum_occupations(daily_occupations, attribute)
+    daily_occupations.inject(0){|sum, occupation| sum + occupation[attribute] }
+  end
+
+  def collection_with_daily_occupation
+    raise "collection_with_daily_occupation is not implemented on #{self.class}"
+  end
+  
+  private def occupations_by_day
+    collection_with_daily_occupation.inject([]) do |sum, hospital| 
       sum + hospital.daily_occupations
     end.group_by do |daily_occupation|
       daily_occupation[:date]
@@ -118,26 +125,21 @@ class Municipality < Dry::Struct
   end
 end
 
-class Province < Dry::Struct
+class Municipality < DailyOcupationAggregator
+  attribute :name, Types::Strict::String
+  attribute :hospitals, Types::Strict::Array.of(Hospital)
+
+  private def collection_with_daily_occupation
+    hospitals
+  end
+end
+
+class Province < DailyOcupationAggregator
   attribute :name, Types::Strict::String
   attribute :municipalities, Types::Strict::Array.of(Municipality)
 
-  def daily_occupations
-    municipality_occupations_by_day.collect do |date, daily_occupations|
-      total_beds = sum_occupations(daily_occupations, :total_beds)
-      total_beds_difference = sum_occupations(daily_occupations, :total_beds_difference)
-      uci_beds = sum_occupations(daily_occupations, :uci_beds)
-      uci_beds_difference = sum_occupations(daily_occupations, :uci_beds_difference)
-      DailyOccupation.new(date: date, total_beds: total_beds, total_beds_difference: total_beds_difference, uci_beds: uci_beds, uci_beds_difference: uci_beds_difference)
-    end
-  end
-
-  private def municipality_occupations_by_day
-    municipalities.inject([]) do |sum, municipality| 
-      sum + municipality.daily_occupations
-    end.group_by do |daily_occupation|
-      daily_occupation[:date]
-    end
+  private def collection_with_daily_occupation
+    municipalities
   end
 end
 
