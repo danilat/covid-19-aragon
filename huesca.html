@@ -1,0 +1,42 @@
+---
+layout: default
+title: Huesca.
+---
+      <div class="content">
+        {% assign initial_day_huesca = site.data.coronavirus_cases_huesca | first %}
+        {% assign last_day_huesca = site.data.coronavirus_cases_huesca | last %}
+
+        <div id="aragon" class="ancla aragon"></div>
+        <h2 class="inicio">Última actualización {{ last_day_huesca.fecha }}</h2>
+        <div class="fuente">
+            Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.
+        </div>
+
+        <div id="huesca" class="ancla huesca"></div>
+        <h2>Evolución del COVID-19 en Huesca hasta el {{ last_day_huesca.fecha }}</h2>
+        <div class="chart-container">
+            <canvas id="chartHuesca"></canvas>
+        </div>
+
+        <h2>Datos acumulados en Huesca</h2>
+        {% include dashboard.html last_day=last_day_huesca demonym="oscenses" %}
+
+        <h2>Progresión diaria desde el {{ initial_day_huesca.fecha }} en Huesca</h2>
+        {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca place="huesca"%}
+
+        {% include suscription.html %}
+
+        <div class="nota fuente">
+          <span>Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.</span>
+        </div>
+      </div>
+    <script>
+      huesca = {name: "Huesca", dates: [], actives: [], deceases: [], recovered: [], news: []}
+      {% for case in site.data.coronavirus_cases_huesca %}
+        huesca.dates.push("{{ case.fecha | date: '%d/%m' }}")
+        huesca.actives.push({{ case.confirmados_activos }})
+        huesca.news.push({{ case.confirmados_dia }})
+        huesca.deceases.push({{ case.fallecimientos_dia }})
+        huesca.recovered.push({{ case.altas_dia }})
+      {% endfor%}
+    </script>

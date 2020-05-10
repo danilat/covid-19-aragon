@@ -4,6 +4,8 @@
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 Chart.defaults.global.defaultFontFamily = "Lato, Open Sans";
 function getChartConfigFor(args){
+  if(!args) return;
+
   var color = Chart.helpers.color;
   return config = {
     type: "line",
@@ -106,6 +108,12 @@ function getChartConfigFor(args){
 }
 
 function draw(canvasId, config){
+  console.log(canvasId);
+  console.log(config);
+  if (config == null) {
+    console.log("Config for " + canvasId + " is null")
+    return
+  };
   var ctx = document.getElementById(canvasId).getContext("2d");
   window[canvasId] = new Chart(ctx, config);
 }
@@ -158,12 +166,11 @@ window.onload = function() {
     document.getElementById("cookie-law").style.display = '';
     document.getElementById("accept-cookie-law").onclick = acceptCookies;
   }
-  if (aragon){
-    draw("chartAragon", getChartConfigFor(aragon));
-    draw("chartHuesca", getChartConfigFor(huesca));
-    draw("chartTeruel", getChartConfigFor(teruel));
-    draw("chartZaragoza", getChartConfigFor(zaragoza));
-  }
+
+  draw("chartAragon", getChartConfigFor(aragon));
+  draw("chartHuesca", getChartConfigFor(huesca));
+  draw("chartTeruel", getChartConfigFor(teruel));
+  draw("chartZaragoza", getChartConfigFor(zaragoza));
 }
 
 window.onscroll = function (e) {
