@@ -21,14 +21,14 @@ class DailyStatisticsOutput < Dry::Struct
   attribute :diferencia_ingresos_uci_dia, Types::Coercible::Integer
   attribute :diferencia_casos_personal_sanitario_dia, Types::Coercible::Integer
   attribute :incidencias, Types::Strict::String.optional
-  
+
   def confirmados_activos
     casos_confirmados - fallecimientos - altas
   end
-  def porcentaje_ingresos_confirmados 
+  def porcentaje_ingresos_confirmados
     ingresos_hospitalarios.percent_of(casos_confirmados)
   end
-  def porcentaje_uci_confirmados 
+  def porcentaje_uci_confirmados
     ingresos_uci.percent_of(casos_confirmados)
   end
   def porcentaje_fallecimiento_confirmados
@@ -104,7 +104,7 @@ class DailyOcupationAggregator < Dry::Struct
 
   def to_h
     hash = super.to_h
-    hash[:daily_occupations] = daily_occupations
+    hash[:daily_occupations] = daily_occupations.collect(&:to_h)
     hash
   end
 
@@ -115,9 +115,9 @@ class DailyOcupationAggregator < Dry::Struct
   def collection_with_daily_occupation
     raise "collection_with_daily_occupation is not implemented on #{self.class}"
   end
-  
+
   private def occupations_by_day
-    collection_with_daily_occupation.inject([]) do |sum, hospital| 
+    collection_with_daily_occupation.inject([]) do |sum, hospital|
       sum + hospital.daily_occupations
     end.group_by do |daily_occupation|
       daily_occupation[:date]
@@ -150,4 +150,3 @@ class HospitalOccupationOutput < DailyOcupationAggregator
     provinces
   end
 end
-
