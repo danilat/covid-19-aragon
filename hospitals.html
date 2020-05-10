@@ -1,28 +1,89 @@
 ---
 layout: default
 ---
+
 <div class="content">
   <ul>
   {% for province in site.data.hospitals.provinces %}
     {% assign daily = province.daily_occupations | last %}
     <li>
       {{province.name}} - Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})
-      {% include dailyOccupation.html daily_occupations=province.daily_occupations type="province" name=province.name %}
+      <canvas id="chartHospitals{{province.name}}"></canvas>
       <ul>
         {% for municipality in province.municipalities %}
-          {% assign daily = municipality.daily_occupations | last %}
-          <li>{{municipality.name}}</li>
-          {% include dailyOccupation.html daily_occupations=municipality.daily_occupations type="municipality" name=municipality.name %}
-          <ul>
             {% for hospital in municipality.hospitals %}
               {% assign daily = hospital.daily_occupations | last %}
               <li>{{hospital.name}}</li>
               {% include dailyOccupation.html daily_occupations=hospital.daily_occupations type="hospital" name=hospital.name %}
             {% endfor %}
-          </ul>
         {% endfor %}
       </ul>
     </li>
   {% endfor %}
   </ul>
 </div>
+
+
+<script type="text/javascript">
+  function hospitalCharData(place){
+    return {
+        labels: place.dates,
+        datasets: [{
+            label: " CAMAS EN PLANTA",
+            backgroundColor: "#acb2b2",
+            data: place.regularBeds
+          },
+          {
+            label: " CAMAS EN UCI",
+            backgroundColor: "#f7849f",
+            data: place.uciBeds
+          }
+        ]
+      };
+  }
+
+  function toChartPlace(place){
+    var dailyOccupations = place.daily_occupations;
+    var dates = []
+    var regularBeds = []
+    var uciBeds = []
+    for (var index = 0; dailyOccupations.length > index; index++) {
+     dates.push(dailyOccupations[index].date)
+     regularBeds.push(dailyOccupations[index].regular_beds)
+     uciBeds.push(dailyOccupations[index].uci_beds)
+    }
+    return {
+      dates: dates,
+      regularBeds: regularBeds,
+      uciBeds: uciBeds
+    }
+  }
+
+  var aragonHospitals = JSON.parse('{{site.data.hospitals | jsonify}}');
+  var provinces = [];
+  for (var index = 0; aragonHospitals.provinces.length > index; index++) {
+   provinces.push(aragonHospitals.provinces[index])
+   var province = aragonHospitals.provinces[index];
+   var chartPlace = toChartPlace(province)
+   draw("chartHospitals" + province.name, {
+ 				type: 'bar',
+ 				data: hospitalCharData(chartPlace),
+ 				options: {
+ 					tooltips: {
+ 						mode: 'index',
+ 						intersect: false
+ 					},
+ 					responsive: true,
+ 					scales: {
+ 						xAxes: [{
+ 							stacked: true,
+ 						}],
+ 						yAxes: [{
+ 							stacked: true
+ 						}]
+ 					}
+ 				}
+ 	});
+  }
+
+</script>
