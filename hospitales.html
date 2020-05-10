@@ -6,10 +6,8 @@ title: Hospitales.
   <h2>Evolución de la ocupación hospitalaria en Aragón</h2>
   <canvas id="chartHospitalsAragon"></canvas>
   {% for province in site.data.hospitals.provinces %}
-    {% assign daily = province.daily_occupations | last %}
     <h2>Evolución de la ocupación hospitalaria en {{province.name}}</h2>
       <canvas id="chartHospitals{{province.name}}"></canvas>
-
   {% endfor %}
 
   <ul>

@@ -171,13 +171,23 @@ function hospitalCharData(place){
     };
 }
 
+function ddmm(date) {
+  var mm = date.getMonth() + 1;
+  var dd = date.getDate();
+
+  return [ (mm>9 ? '' : '0') + mm,
+          (dd>9 ? '' : '0') + dd
+        ].join('/');
+};
+
 function toChartPlace(place){
   var dailyOccupations = place.daily_occupations;
   var dates = []
   var regularBeds = []
   var uciBeds = []
   for (var index = 0; dailyOccupations.length > index; index++) {
-   dates.push(dailyOccupations[index].date)
+   var date = new Date(dailyOccupations[index].date)
+   dates.push(ddmm(date))
    regularBeds.push(dailyOccupations[index].regular_beds)
    uciBeds.push(dailyOccupations[index].uci_beds)
   }
