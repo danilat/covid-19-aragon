@@ -111,7 +111,7 @@ function draw(canvasId, config){
 }
 
 function loadAnalytics(){
-  console.log("loadingAnalytics") 
+  console.log("loadingAnalytics")
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -136,13 +136,21 @@ function stickMenu() {
 }
 
 
-function toggle(id){
+function toggleIncidence(id){
   document.getElementById("incidence-" + id).classList.toggle("hide");
   document.getElementById("info-closed-" + id).classList.toggle("hide");
   document.getElementById("info-opened-" + id).classList.toggle("hide");
   document.getElementById("row-" + id).classList.toggle("opened");
 }
 
+function toggle(id){
+  document.getElementById(id).classList.toggle("hide");
+}
+
+var aragon;
+var huesca;
+var teruel;
+var zaragoza;
 window.onload = function() {
   if(Cookies.get('cookiesAllowed')){
     loadAnalytics();
@@ -150,14 +158,15 @@ window.onload = function() {
     document.getElementById("cookie-law").style.display = '';
     document.getElementById("accept-cookie-law").onclick = acceptCookies;
   }
-
-  draw("chartAragon", getChartConfigFor(aragon));
-  draw("chartHuesca", getChartConfigFor(huesca));
-  draw("chartTeruel", getChartConfigFor(teruel));
-  draw("chartZaragoza", getChartConfigFor(zaragoza));
+  if (aragon){
+    draw("chartAragon", getChartConfigFor(aragon));
+    draw("chartHuesca", getChartConfigFor(huesca));
+    draw("chartTeruel", getChartConfigFor(teruel));
+    draw("chartZaragoza", getChartConfigFor(zaragoza));
+  }
 }
 
-window.onscroll = function (e) {  
+window.onscroll = function (e) {
   if(!Cookies.get('cookiesAllowed')){
     var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
     if (scrollTop > 250){
@@ -166,4 +175,3 @@ window.onscroll = function (e) {
   }
   stickMenu()
 }
-

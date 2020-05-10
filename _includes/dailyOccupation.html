@@ -1,0 +1,10 @@
+{% assign name = include.name | slugify %}
+<div>
+  <a href="javascript:void(0)" onclick="toggle('{{include.type}}_{{name}}')">Evolución diaria</a>
+  <ul class="hide" id="{{include.type}}_{{name}}">
+    {% assign daily_occupations = include.daily_occupations | reverse %}
+    {% for daily in daily_occupations %}
+      <li>{{daily.date}} - Total de camas: {{daily.total_beds}} - Camas en UCI: {{daily.uci_beds}}</li>
+    {% endfor %}
+  </ul>
+<div>

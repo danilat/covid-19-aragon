@@ -7,19 +7,17 @@ layout: default
     {% assign daily = province.daily_occupations | last %}
     <li>
       {{province.name}} - Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})
+      {% include dailyOccupation.html daily_occupations=province.daily_occupations type="province" name=province.name %}
       <ul>
         {% for municipality in province.municipalities %}
           {% assign daily = municipality.daily_occupations | last %}
-          <li>{{municipality.name}} - Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})</li> 
+          <li>{{municipality.name}}</li>
+          {% include dailyOccupation.html daily_occupations=municipality.daily_occupations type="municipality" name=municipality.name %}
           <ul>
             {% for hospital in municipality.hospitals %}
+              {% assign daily = hospital.daily_occupations | last %}
               <li>{{hospital.name}}</li>
-              <ul>
-                {% assign daily_occupations = hospital.daily_occupations | reverse %}
-                {% for daily in daily_occupations %}
-                  <li>{{daily.date}} - Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})</li>
-                {% endfor %}
-              </ul>
+              {% include dailyOccupation.html daily_occupations=hospital.daily_occupations type="hospital" name=hospital.name %}
             {% endfor %}
           </ul>
         {% endfor %}

@@ -11,7 +11,7 @@ layout: default
         {% assign initial_day_teruel = site.data.coronavirus_cases_teruel | first %}
         {% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
         {% assign last_day_otros = site.data.coronavirus_cases_otros | last %}
-        
+
         <div id="aragon" class="ancla aragon"></div>
         <h2 class="inicio">Última actualización {{ last_day_aragon.fecha }}</h2>
         <div class="fuente">
@@ -27,7 +27,7 @@ layout: default
 
         <h2>Datos acumulados en Aragón</h2>
         {% include dashboard.html last_day=last_day_aragon demonym="aragoneses" %}
-      
+
         <h2>Progresión diaria desde el {{ initial_day_aragon.fecha }} en Aragón</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases place="aragon" %}
 
@@ -46,7 +46,7 @@ layout: default
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca place="huesca"%}
 
         {% include suscription.html %}
-        
+
         <div id="zaragoza" class="ancla zaragoza"></div>
         <h2>Evolución del COVID-19 en Zaragoza hasta el {{ last_day_zaragoza.fecha }}</h2>
         <div class="chart-container">
@@ -60,7 +60,7 @@ layout: default
         {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza place="zaragoza"%}
 
         {% include suscription.html %}
-        
+
         <div id="teruel" class="ancla teruel"></div>
         <h2>Evolución del COVID-19 en Teruel hasta el {{ last_day_teruel.fecha }}</h2>
         <div class="chart-container">
@@ -84,7 +84,7 @@ layout: default
 
 
     <script>
-      var aragon = {name: "Aragón", dates: [], actives: [], deceases: [], recovered: [], news: []}
+      aragon = {name: "Aragón", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases %}
         aragon.dates.push("{{ case.fecha | date: '%d/%m' }}")
         aragon.actives.push({{ case.confirmados_activos }})
@@ -92,7 +92,7 @@ layout: default
         aragon.deceases.push({{ case.fallecimientos_dia }})
         aragon.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var huesca = {name: "Huesca", dates: [], actives: [], deceases: [], recovered: [], news: []}
+      huesca = {name: "Huesca", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases_huesca %}
         huesca.dates.push("{{ case.fecha | date: '%d/%m' }}")
         huesca.actives.push({{ case.confirmados_activos }})
@@ -100,7 +100,7 @@ layout: default
         huesca.deceases.push({{ case.fallecimientos_dia }})
         huesca.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var teruel = {name: "Teruel", dates: [], actives: [], deceases: [], recovered: [], news: []}
+      teruel = {name: "Teruel", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases_teruel %}
         teruel.dates.push("{{ case.fecha | date: '%d/%m' }}")
         teruel.actives.push({{ case.confirmados_activos }})
@@ -108,7 +108,7 @@ layout: default
         teruel.deceases.push({{ case.fallecimientos_dia }})
         teruel.recovered.push({{ case.altas_dia }})
       {% endfor%}
-      var zaragoza = {name: "Zaragoza", dates: [], actives: [], deceases: [], recovered: [], news: []}
+      zaragoza = {name: "Zaragoza", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases_zaragoza %}
         zaragoza.dates.push("{{ case.fecha | date: '%d/%m' }}")
         zaragoza.actives.push({{ case.confirmados_activos }})
