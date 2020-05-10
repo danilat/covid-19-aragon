@@ -4,6 +4,8 @@ layout: default
 ---
 
 <div class="content">
+  <h2>Evolución de ocupación en hospitales en Aragón</h2>
+  <canvas id="chartHospitalsAragon"></canvas>
   {% for province in site.data.hospitals.provinces %}
     {% assign daily = province.daily_occupations | last %}
     <h2>Evolución de ocupación en hospitales en {{province.name}}</h2>
@@ -25,98 +27,11 @@ layout: default
 
 
 <script type="text/javascript">
-  function hospitalCharData(place){
-    return {
-        labels: place.dates,
-        datasets: [{
-            label: " CAMAS EN PLANTA",
-            backgroundColor: "#acb2b2",
-            data: place.regularBeds
-          },
-          {
-            label: " CAMAS EN UCI",
-            backgroundColor: "#f7849f",
-            data: place.uciBeds
-          }
-        ]
-      };
-  }
-
-  function toChartPlace(place){
-    var dailyOccupations = place.daily_occupations;
-    var dates = []
-    var regularBeds = []
-    var uciBeds = []
-    for (var index = 0; dailyOccupations.length > index; index++) {
-     dates.push(dailyOccupations[index].date)
-     regularBeds.push(dailyOccupations[index].regular_beds)
-     uciBeds.push(dailyOccupations[index].uci_beds)
-    }
-    return {
-      dates: dates,
-      regularBeds: regularBeds,
-      uciBeds: uciBeds
-    }
-  }
-
   var aragonHospitals = JSON.parse('{{site.data.hospitals | jsonify}}');
   for (var index = 0; aragonHospitals.provinces.length > index; index++) {
    var province = aragonHospitals.provinces[index];
    var chartPlace = toChartPlace(province)
-   draw("chartHospitals" + province.name, {
- 				type: "line",
- 				data: hospitalCharData(chartPlace),
- 				options: {
-          responsive: true,
- 					tooltips: {
- 						mode: "index",
-            intersect: false,
-            bodySpacing: 15,
-            reverse: true,
-            cornerRadius: 0,
-            titleFontSize: 17,
-            titleAlign: "center",
-            titleMarginBottom: 15
- 					},
-          legend: {
-            reverse: true,
-            position: "top",
-            labels: {
-              fontSize: 15,
-              padding: 40,
-              usePointStyle: true,
-              fontColor:"#08a4a4",
-              filter: function(label) {
-                if (!label.hidden){
-                  label.text += "   X"
-                }else{
-                  label.text += "    "
-                }
-                return label
-              }
-            },
-            onHover: function(e) {
-              e.target.style.cursor = 'pointer';
-           }
-          },
-          hover: {
-            onHover: function(e) {
-              var point = this.getElementAtEvent(e);
-              if (point.length) e.target.style.cursor = 'pointer';
-              else e.target.style.cursor = 'default';
-            }
-          },
- 					responsive: true,
- 					scales: {
- 						xAxes: [{
- 							stacked: true,
- 						}],
- 						yAxes: [{
- 							stacked: true
- 						}]
- 					}
- 				}
- 	});
+   draw("chartHospitals" + province.name, getHospitalChartConfigFor(chartPlace));
   }
-
+  draw("chartHospitalsAragon", getHospitalChartConfigFor(toChartPlace(aragonHospitals)));
 </script>
