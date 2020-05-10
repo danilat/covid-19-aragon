@@ -1,14 +1,16 @@
 ---
 layout: default
+
 ---
 
 <div class="content">
-  <ul>
   {% for province in site.data.hospitals.provinces %}
     {% assign daily = province.daily_occupations | last %}
-    <li>
-      {{province.name}} - Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})
+    <h2>Evolución de ocupación en hospitales en {{province.name}}</h2>
       <canvas id="chartHospitals{{province.name}}"></canvas>
+      Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})
+
+
       <ul>
         {% for municipality in province.municipalities %}
             {% for hospital in municipality.hospitals %}
@@ -18,9 +20,7 @@ layout: default
             {% endfor %}
         {% endfor %}
       </ul>
-    </li>
   {% endfor %}
-  </ul>
 </div>
 
 
@@ -60,19 +60,52 @@ layout: default
   }
 
   var aragonHospitals = JSON.parse('{{site.data.hospitals | jsonify}}');
-  var provinces = [];
   for (var index = 0; aragonHospitals.provinces.length > index; index++) {
-   provinces.push(aragonHospitals.provinces[index])
    var province = aragonHospitals.provinces[index];
    var chartPlace = toChartPlace(province)
    draw("chartHospitals" + province.name, {
- 				type: 'bar',
+ 				type: "line",
  				data: hospitalCharData(chartPlace),
  				options: {
+          responsive: true,
  					tooltips: {
- 						mode: 'index',
- 						intersect: false
+ 						mode: "index",
+            intersect: false,
+            bodySpacing: 15,
+            reverse: true,
+            cornerRadius: 0,
+            titleFontSize: 17,
+            titleAlign: "center",
+            titleMarginBottom: 15
  					},
+          legend: {
+            reverse: true,
+            position: "top",
+            labels: {
+              fontSize: 15,
+              padding: 40,
+              usePointStyle: true,
+              fontColor:"#08a4a4",
+              filter: function(label) {
+                if (!label.hidden){
+                  label.text += "   X"
+                }else{
+                  label.text += "    "
+                }
+                return label
+              }
+            },
+            onHover: function(e) {
+              e.target.style.cursor = 'pointer';
+           }
+          },
+          hover: {
+            onHover: function(e) {
+              var point = this.getElementAtEvent(e);
+              if (point.length) e.target.style.cursor = 'pointer';
+              else e.target.style.cursor = 'default';
+            }
+          },
  					responsive: true,
  					scales: {
  						xAxes: [{
