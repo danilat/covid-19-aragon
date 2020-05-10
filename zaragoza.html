@@ -2,43 +2,41 @@
 layout: default
 title: Zaragoza.
 ---
-      <div class="content">
-        {% assign initial_day_zaragoza = site.data.coronavirus_cases_zaragoza | first %}
-        {% assign last_day_zaragoza = site.data.coronavirus_cases_zaragoza | last %}
+<div class="content">
+  {% assign initial_day_zaragoza = site.data.coronavirus_cases_zaragoza | first %}
+  {% assign last_day_zaragoza = site.data.coronavirus_cases_zaragoza | last %}
 
-        <div id="aragon" class="ancla aragon"></div>
-        <h2 class="inicio">Última actualización {{ last_day_zaragoza.fecha }}</h2>
-        <div class="fuente">
-            Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.
-        </div>
+  <div id="aragon" class="ancla aragon"></div>
+  <h2 class="inicio">Última actualización {{ last_day_zaragoza.fecha }}</h2>
+  <div class="fuente">
+      Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.
+  </div>
 
-        {% include provinceDashboardToday.html last_day=last_day_zaragoza %}
+  <div id="zaragoza" class="ancla zaragoza"></div>
+  <h2>Evolución del COVID-19 en Zaragoza hasta el {{ last_day_zaragoza.fecha }}</h2>
+  <div class="chart-container">
+      <canvas id="chartZaragoza"></canvas>
+  </div>
 
-        <div id="zaragoza" class="ancla zaragoza"></div>
-        <h2>Evolución del COVID-19 en Zaragoza hasta el {{ last_day_zaragoza.fecha }}</h2>
-        <div class="chart-container">
-            <canvas id="chartZaragoza"></canvas>
-        </div>
+  <h2>Datos acumulados en Zaragoza</h2>
+  {% include dashboard.html last_day=last_day_zaragoza demonym="zaragozanos" %}
 
-        <h2>Datos acumulados en Zaragoza</h2>
-        {% include dashboard.html last_day=last_day_zaragoza demonym="zaragozanos" %}
+  <h2>Progresión diaria desde el {{ initial_day_zaragoza.fecha }} en Zaragoza</h2>
+  {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza place="zaragoza"%}
 
-        <h2>Progresión diaria desde el {{ initial_day_zaragoza.fecha }} en Zaragoza</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza place="zaragoza"%}
+  {% include suscription.html %}
 
-        {% include suscription.html %}
-
-        <div class="nota fuente">
-          <span>Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.</span>
-        </div>
-      </div>
-    <script>
-      zaragoza = {name: "Zaragoza", dates: [], actives: [], deceases: [], recovered: [], news: []}
-      {% for case in site.data.coronavirus_cases_zaragoza %}
-        zaragoza.dates.push("{{ case.fecha | date: '%d/%m' }}")
-        zaragoza.actives.push({{ case.confirmados_activos }})
-        zaragoza.news.push({{ case.confirmados_dia }})
-        zaragoza.deceases.push({{ case.fallecimientos_dia }})
-        zaragoza.recovered.push({{ case.altas_dia }})
-      {% endfor%}
-    </script>
+  <div class="nota fuente">
+    <span>Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.</span>
+  </div>
+</div>
+<script>
+  zaragoza = {name: "Zaragoza", dates: [], actives: [], deceases: [], recovered: [], news: []}
+  {% for case in site.data.coronavirus_cases_zaragoza %}
+    zaragoza.dates.push("{{ case.fecha | date: '%d/%m' }}")
+    zaragoza.actives.push({{ case.confirmados_activos }})
+    zaragoza.news.push({{ case.confirmados_dia }})
+    zaragoza.deceases.push({{ case.fallecimientos_dia }})
+    zaragoza.recovered.push({{ case.altas_dia }})
+  {% endfor%}
+</script>

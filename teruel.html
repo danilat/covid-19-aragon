@@ -2,43 +2,42 @@
 layout: default
 title: Teruel.
 ---
-      <div class="content">
-        {% assign initial_day_teruel = site.data.coronavirus_cases_teruel | first %}
-        {% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
+<div class="content">
+  {% assign initial_day_teruel = site.data.coronavirus_cases_teruel | first %}
+  {% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
 
-        <div id="aragon" class="ancla aragon"></div>
-        <h2 class="inicio">Última actualización {{ last_day_teruel.fecha }}</h2>
-        <div class="fuente">
-            Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.
-        </div>
+  <div id="aragon" class="ancla aragon"></div>
+  <h2 class="inicio">Última actualización {{ last_day_teruel.fecha }}</h2>
+  <div class="fuente">
+      Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.
+  </div>
 
-        {% include provinceDashboardToday.html last_day=last_day_teruel %}
 
-        <div id="teruel" class="ancla teruel"></div>
-        <h2>Evolución del COVID-19 en Teruel hasta el {{ last_day_teruel.fecha }}</h2>
-        <div class="chart-container">
-            <canvas id="chartTeruel"></canvas>
-        </div>
+  <div id="teruel" class="ancla teruel"></div>
+  <h2>Evolución del COVID-19 en Teruel hasta el {{ last_day_teruel.fecha }}</h2>
+  <div class="chart-container">
+      <canvas id="chartTeruel"></canvas>
+  </div>
 
-        <h2>Datos acumulados en Teruel</h2>
-        {% include dashboard.html last_day=last_day_teruel demonym="turolenses" %}
+  <h2>Datos acumulados en Teruel</h2>
+  {% include dashboard.html last_day=last_day_teruel demonym="turolenses" %}
 
-        <h2>Progresión diaria desde el {{ initial_day_teruel.fecha }} en Teruel</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel place="teruel"%}
+  <h2>Progresión diaria desde el {{ initial_day_teruel.fecha }} en Teruel</h2>
+  {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel place="teruel"%}
 
-        {% include suscription.html %}
+  {% include suscription.html %}
 
-        <div class="nota fuente">
-          <span>Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.</span>
-        </div>
-      </div>
-    <script>
-      teruel = {name: "Teruel", dates: [], actives: [], deceases: [], recovered: [], news: []}
-      {% for case in site.data.coronavirus_cases_teruel %}
-        teruel.dates.push("{{ case.fecha | date: '%d/%m' }}")
-        teruel.actives.push({{ case.confirmados_activos }})
-        teruel.news.push({{ case.confirmados_dia }})
-        teruel.deceases.push({{ case.fallecimientos_dia }})
-        teruel.recovered.push({{ case.altas_dia }})
-      {% endfor%}
-    </script>
+  <div class="nota fuente">
+    <span>Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.</span>
+  </div>
+</div>
+<script>
+  teruel = {name: "Teruel", dates: [], actives: [], deceases: [], recovered: [], news: []}
+  {% for case in site.data.coronavirus_cases_teruel %}
+    teruel.dates.push("{{ case.fecha | date: '%d/%m' }}")
+    teruel.actives.push({{ case.confirmados_activos }})
+    teruel.news.push({{ case.confirmados_dia }})
+    teruel.deceases.push({{ case.fallecimientos_dia }})
+    teruel.recovered.push({{ case.altas_dia }})
+  {% endfor%}
+</script>
