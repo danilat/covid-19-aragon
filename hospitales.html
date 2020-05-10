@@ -28,9 +28,9 @@ title: Hospitales.
 <script type="text/javascript">
   var aragonHospitals = JSON.parse('{{site.data.hospitals | jsonify}}');
   for (var index = 0; aragonHospitals.provinces.length > index; index++) {
-   var province = aragonHospitals.provinces[index];
-   var chartPlace = toChartPlace(province)
-   draw("chartHospitals" + province.name, getHospitalChartConfigFor(chartPlace));
+    var province = aragonHospitals.provinces[index];
+    var chartPlace = toChartPlace(province)
+    draw("chartHospitals" + province.name, getHospitalChartConfigFor(chartPlace));
   }
   draw("chartHospitalsAragon", getHospitalChartConfigFor(toChartPlace(aragonHospitals)));
 </script>

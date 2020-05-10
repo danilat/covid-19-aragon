@@ -3,10 +3,11 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 Chart.defaults.global.defaultFontFamily = "Lato, Open Sans";
+var color = Chart.helpers.color;
+
 function getEvolutionChartConfigFor(args){
   if(!args) return;
 
-  var color = Chart.helpers.color;
   return config = {
     type: "line",
     data: {
@@ -141,7 +142,6 @@ function stickMenu() {
   }
 }
 
-
 function toggleIncidence(id){
   document.getElementById("incidence-" + id).classList.toggle("hide");
   document.getElementById("info-closed-" + id).classList.toggle("hide");
@@ -151,24 +151,6 @@ function toggleIncidence(id){
 
 function toggle(id){
   document.getElementById(id).classList.toggle("hide");
-}
-
-function hospitalCharData(place){
-  return {
-      labels: place.dates,
-      datasets: [
-        {
-          label: " CAMAS EN PLANTA",
-          backgroundColor: "#acb2b2",
-          data: place.regularBeds
-        },
-        {
-          label: " CAMAS EN UCI",
-          backgroundColor: "#f7849f",
-          data: place.uciBeds
-        }
-      ]
-    };
 }
 
 function ddmm(date) {
@@ -195,6 +177,85 @@ function toChartPlace(place){
     dates: dates,
     regularBeds: regularBeds,
     uciBeds: uciBeds
+  }
+}
+
+function hospitalCharData(place){
+  return {
+    labels: place.dates,
+    datasets: [
+      {
+        label: " CAMAS EN PLANTA",
+        backgroundColor: color("#acb2b2").alpha(0.8).rgbString(),
+        borderColor: "#acb2b2",
+        pointBackgroundColor: "#acb2b2",
+        data: place.regularBeds
+      },
+      {
+        label: " CAMAS EN UCI",
+        backgroundColor: color("#f7849f").alpha(0.4).rgbString(),
+        borderColor: "#f7849f",
+        pointBackgroundColor: "#f7849f",
+        data: place.uciBeds
+      }
+    ]
+  };
+}
+
+
+function getHospitalChartConfigFor(chartPlace){
+  return {
+    type: "line",
+    data: hospitalCharData(chartPlace),
+    options: {
+      responsive: true,
+      tooltips: {
+        mode: "index",
+        intersect: false,
+        bodySpacing: 15,
+        reverse: true,
+        cornerRadius: 0,
+        titleFontSize: 17,
+        titleAlign: "center",
+        titleMarginBottom: 15
+      },
+      legend: {
+        reverse: true,
+        position: "top",
+        labels: {
+          fontSize: 15,
+          padding: 40,
+          usePointStyle: true,
+          fontColor:"#08a4a4",
+          filter: function(label) {
+            if (!label.hidden){
+              label.text += "   X"
+            }else{
+              label.text += "    "
+            }
+            return label
+          }
+        },
+        onHover: function(e) {
+          e.target.style.cursor = 'pointer';
+        }
+      },
+      hover: {
+        onHover: function(e) {
+          var point = this.getElementAtEvent(e);
+          if (point.length) e.target.style.cursor = 'pointer';
+          else e.target.style.cursor = 'default';
+        }
+      },
+      scales: {
+        xAxes: [{
+          stacked: true,
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    }
   }
 }
 
@@ -225,61 +286,3 @@ window.onscroll = function (e) {
   }
   stickMenu()
 }
-
-
-function getHospitalChartConfigFor(chartPlace){
-  return {
-        type: "line",
-        data: hospitalCharData(chartPlace),
-        options: {
-         responsive: true,
-          tooltips: {
-            mode: "index",
-           intersect: false,
-           bodySpacing: 15,
-           reverse: true,
-           cornerRadius: 0,
-           titleFontSize: 17,
-           titleAlign: "center",
-           titleMarginBottom: 15
-          },
-         legend: {
-           reverse: true,
-           position: "top",
-           labels: {
-             fontSize: 15,
-             padding: 40,
-             usePointStyle: true,
-             fontColor:"#08a4a4",
-             filter: function(label) {
-               if (!label.hidden){
-                 label.text += "   X"
-               }else{
-                 label.text += "    "
-               }
-               return label
-             }
-           },
-           onHover: function(e) {
-             e.target.style.cursor = 'pointer';
-          }
-         },
-         hover: {
-           onHover: function(e) {
-             var point = this.getElementAtEvent(e);
-             if (point.length) e.target.style.cursor = 'pointer';
-             else e.target.style.cursor = 'default';
-           }
-         },
-          responsive: true,
-          scales: {
-            xAxes: [{
-              stacked: true,
-            }],
-            yAxes: [{
-              stacked: true
-            }]
-          }
-        }
-      }
-    }
