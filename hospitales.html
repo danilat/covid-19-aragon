@@ -1,19 +1,20 @@
 ---
 layout: default
-
+title: Hospitales.
 ---
-
 <div class="content">
-  <h2>Evolución de ocupación en hospitales en Aragón</h2>
+  <h2>Evolución de la ocupación hospitalaria en Aragón</h2>
   <canvas id="chartHospitalsAragon"></canvas>
   {% for province in site.data.hospitals.provinces %}
     {% assign daily = province.daily_occupations | last %}
-    <h2>Evolución de ocupación en hospitales en {{province.name}}</h2>
+    <h2>Evolución de la ocupación hospitalaria en {{province.name}}</h2>
       <canvas id="chartHospitals{{province.name}}"></canvas>
-      Total de camas: {{daily.total_beds}} ({{daily.total_beds_difference}}) - Camas en UCI: {{daily.uci_beds}} ({{daily.uci_beds_difference}})
 
+  {% endfor %}
 
-      <ul>
+  <ul>
+  {% for province in site.data.hospitals.provinces %}
+
         {% for municipality in province.municipalities %}
             {% for hospital in municipality.hospitals %}
               {% assign daily = hospital.daily_occupations | last %}
@@ -21,8 +22,8 @@ layout: default
               {% include dailyOccupation.html daily_occupations=hospital.daily_occupations type="hospital" name=hospital.name %}
             {% endfor %}
         {% endfor %}
-      </ul>
   {% endfor %}
+  </ul>
 </div>
 
 
