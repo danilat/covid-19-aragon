@@ -108,8 +108,6 @@ function getChartConfigFor(args){
 }
 
 function draw(canvasId, config){
-  console.log(canvasId);
-  console.log(config);
   if (config == null) {
     console.log("Config for " + canvasId + " is null")
     return
