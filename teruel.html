@@ -12,6 +12,8 @@ title: Teruel.
             Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.
         </div>
 
+        {% include provinceDashboardToday.html last_day=last_day_teruel %}
+
         <div id="teruel" class="ancla teruel"></div>
         <h2>Evolución del COVID-19 en Teruel hasta el {{ last_day_teruel.fecha }}</h2>
         <div class="chart-container">
