@@ -1,0 +1,22 @@
+<div class="dashboard today">
+  <div class="card activos">
+    {% include illustrations/ico_activos.svg %}
+    <h3>Casos activos</h3>
+    <div class="number">{% include formatNumber.html number=include.last_day.confirmados_activos decimals=0%}</div>
+  </div>
+  <div class="card confirmados">
+    {% include illustrations/ico_confirmados.svg %}
+    <h3>Nuevos casos confirmados</h3>
+    <div class="number">{% include formatNumber.html number=include.last_day.confirmados_dia decimals=0%}</div>
+  </div>
+  <div class="card altas">
+    {% include illustrations/ico_altas.svg %}
+    <h3>Nuevas altas</h3>
+    <div class="number">{% include formatNumber.html number=include.last_day.altas_dia decimals=0 %}</div>
+  </div>
+  <div class="card fallecimientos">
+    {% include illustrations/ico_fallecimientos.svg %}
+    <h3>Nuevos fallecimientos</h3>
+    <div class="number">{% include formatNumber.html  number=include.last_day.fallecimientos_dia decimals=0 %}</div>
+  </div>
+</div>
