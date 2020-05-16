@@ -35,48 +35,6 @@ title: Aragón.
 
         {% include suscription.html %}
 
-        <div id="huesca" class="ancla huesca"></div>
-        <h2>Evolución del COVID-19 en Huesca hasta el {{ last_day_huesca.fecha }}</h2>
-        <div class="chart-container">
-            <canvas id="chartHuesca"></canvas>
-        </div>
-
-        <h2>Datos acumulados en Huesca</h2>
-        {% include dashboard.html last_day=last_day_huesca demonym="oscenses" %}
-
-        <h2>Progresión diaria desde el {{ initial_day_huesca.fecha }} en Huesca</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca place="huesca"%}
-
-        {% include suscription.html %}
-
-        <div id="zaragoza" class="ancla zaragoza"></div>
-        <h2>Evolución del COVID-19 en Zaragoza hasta el {{ last_day_zaragoza.fecha }}</h2>
-        <div class="chart-container">
-            <canvas id="chartZaragoza"></canvas>
-        </div>
-
-        <h2>Datos acumulados en Zaragoza</h2>
-        {% include dashboard.html last_day=last_day_zaragoza demonym="zaragozanos" %}
-
-        <h2>Progresión diaria desde el {{ initial_day_zaragoza.fecha }} en Zaragoza</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza place="zaragoza"%}
-
-        {% include suscription.html %}
-
-        <div id="teruel" class="ancla teruel"></div>
-        <h2>Evolución del COVID-19 en Teruel hasta el {{ last_day_teruel.fecha }}</h2>
-        <div class="chart-container">
-            <canvas id="chartTeruel"></canvas>
-        </div>
-
-        <h2>Datos acumulados en Teruel</h2>
-        {% include dashboard.html last_day=last_day_teruel demonym="turolenses" %}
-
-        <h2>Progresión diaria desde el {{ initial_day_teruel.fecha }} en Teruel</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel place="teruel"%}
-
-        {% include suscription.html %}
-
         <div class="nota fuente">
           <span>Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>, actualización diaria a las 12:00h.</span>
         </div>
