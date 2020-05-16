@@ -71,6 +71,13 @@ header nav ul{
 header nav ul li{
     flex-grow: 1;
     font-size: 1.7rem;
+    text-align: center;
+    border-bottom: 4px solid $blanco;
+    padding-bottom: 6px;
+}
+header nav ul li.active, header nav ul li:hover{
+    border-bottom: 4px solid $verdeClaro;
+    padding-bottom: 6px;
 }
 header a{
     text-decoration: none;
@@ -112,6 +119,9 @@ header a{
     width: 103px;
     min-height: 70px; 
     margin: 20px 0 0 6%;
+}
+.sticky nav ul li{
+    line-height: 1.1em;
 }
 .header.sticky {
     background: url(/assets/img/curvas.jpg) 0px -23px #FFF no-repeat;
@@ -187,6 +197,13 @@ footer .icoCookies{
 .sticky li{
   font-size: 1.5rem
 }
+h1{
+    color:$verde;
+    font-family: $fuente_titulos;
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin: 110px 0 0 0;
+}
 h2{
     margin: 80px 0 40px 0;
     color:$verde;
@@ -194,6 +211,9 @@ h2{
     line-height: 4rem;
     font-family: $fuente_titulos;
     font-weight: 500;
+}
+h2.inicio{
+   margin: 15px 0 40px 0;
 }
 h3{
     color:$verde;
@@ -640,10 +660,16 @@ footer .bar{
         font-size: 1.5rem;
         text-align: center;
     }
+    h1{
+        font-size: 2.6rem;
+    }
     h2 {
         font-size: 1.8rem;
         line-height: 2.4rem;
         margin: 60px 0 20px 0;
+    }
+    h2.inicio{
+        margin: 20px 0 20px 0;
     }
     h3 {
         text-align: center;
