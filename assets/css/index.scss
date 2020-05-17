@@ -74,6 +74,7 @@ header nav ul li{
     text-align: center;
     border-bottom: 4px solid $blanco;
     padding-bottom: 6px;
+    cursor:pointer;
 }
 header nav ul li.active, header nav ul li:hover{
     border-bottom: 4px solid $verdeClaro;
