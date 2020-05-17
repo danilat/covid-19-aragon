@@ -72,13 +72,33 @@ header nav ul li{
     flex-grow: 1;
     font-size: 1.7rem;
     text-align: center;
-    border-bottom: 4px solid $blanco;
-    padding-bottom: 6px;
-    cursor:pointer;
+
 }
-header nav ul li.active, header nav ul li:hover{
-    border-bottom: 4px solid $verdeClaro;
-    padding-bottom: 6px;
+header nav ul li.active a::after{
+    border-top: 4px solid $verdeClaro;
+    border-radius: 3em;
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -0.23em;
+    left: 0;
+}
+header nav ul li a{
+    position:relative;
+    padding: 0 15px 0 15px;
+}
+header nav ul li a::after {
+  border-top: 4px solid $verdeClaro;
+  border-radius: 3em;
+  content: "";
+  position: absolute;
+    right: 100%;
+    bottom: -0.23em;
+    left: 0;
+  transition: right .4s cubic-bezier(0,.5,1,1);
+}
+header nav ul li a:hover::after {
+  right: 0;
 }
 header a{
     text-decoration: none;
@@ -512,6 +532,9 @@ td.nota{
     h4{
         margin: 30px 0 10px 0;
     }
+    header nav {
+        width: 50%;
+    }
 }
 @media all and (max-width: 950px){
     .cookie-law{
@@ -729,6 +752,9 @@ footer .bar{
     }
     .sticky li {
         font-size: 1.2rem;
+    }
+    header nav ul li a{
+        padding:0 7px 0 7px; 
     }
     .header{
         background: url(/assets/img/curvas_MVL.jpg) -190px -58px #FFF no-repeat;
