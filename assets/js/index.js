@@ -158,9 +158,27 @@ function getHospitalChartConfigFor(chartPlace){
       scales: {
         xAxes: [{
           stacked: true,
+          display: true,
+          scaleLabel: {
+            display: false,
+            labelString: "FECHA",
+            fontStyle: "bold",
+            padding: {top: 20},
+          }
         }],
         yAxes: [{
-          stacked: true
+          stacked: true,
+          display: true,
+          ticks: {
+            stepSize:400,
+            min:0
+          },
+          scaleLabel: {
+            display: false,
+            labelString: "PERSONAS INGRESADAS",
+            fontStyle: "bold",
+            padding: {bottom: 20}
+          }
         }]
       }
     }
