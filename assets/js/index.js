@@ -40,19 +40,19 @@ function hospitalCharData(args){
   return {
     labels: args.dates,
     datasets: [
-      {
-        label: " CAMAS EN PLANTA",
-        backgroundColor: color("#acb2b2").alpha(0.8).rgbString(),
-        borderColor: "#acb2b2",
-        pointBackgroundColor: "#acb2b2",
-        data: args.regularBeds
-      },
-      {
+    {
         label: " CAMAS EN UCI",
         backgroundColor: color("#f7849f").alpha(0.4).rgbString(),
         borderColor: "#f7849f",
         pointBackgroundColor: "#f7849f",
         data: args.uciBeds
+      },
+      {
+        label: " CAMAS EN PLANTA",
+        backgroundColor: color("#acb2b2").alpha(0.12).rgbString(),
+        borderColor: "#acb2b2",
+        pointBackgroundColor: "#acb2b2",
+        data: args.regularBeds
       }
     ]
   };
