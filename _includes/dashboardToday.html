@@ -1,3 +1,9 @@
+{% assign last_day_aragon = site.data.coronavirus_cases | last %}
+{% assign last_day_huesca = site.data.coronavirus_cases_huesca | last %}
+{% assign last_day_zaragoza = site.data.coronavirus_cases_zaragoza | last %}
+{% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
+{% assign last_day_otros = site.data.coronavirus_cases_otros | last %}
+
 <div class="dashboard today">
 <div class="card activos">
     {% include illustrations/ico_activos.svg %}

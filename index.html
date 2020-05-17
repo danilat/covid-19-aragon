@@ -5,13 +5,6 @@ title: Aragón.
       <div class="content">
         {% assign last_day_aragon = site.data.coronavirus_cases | last %}
         {% assign initial_day_aragon = site.data.coronavirus_cases | first %}
-        {% assign initial_day_huesca = site.data.coronavirus_cases_huesca | first %}
-        {% assign last_day_huesca = site.data.coronavirus_cases_huesca | last %}
-        {% assign initial_day_zaragoza = site.data.coronavirus_cases_zaragoza | first %}
-        {% assign last_day_zaragoza = site.data.coronavirus_cases_zaragoza | last %}
-        {% assign initial_day_teruel = site.data.coronavirus_cases_teruel | first %}
-        {% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
-        {% assign last_day_otros = site.data.coronavirus_cases_otros | last %}
 
         <div id="aragon" class="ancla aragon"></div>
         <h1>Aragón</h1>
@@ -40,9 +33,6 @@ title: Aragón.
         </div>
       </div>
 
-
-
-
     <script>
       aragon = {name: "Aragón", dates: [], actives: [], deceases: [], recovered: [], news: []}
       {% for case in site.data.coronavirus_cases %}
@@ -51,29 +41,5 @@ title: Aragón.
         aragon.news.push({{ case.confirmados_dia }})
         aragon.deceases.push({{ case.fallecimientos_dia }})
         aragon.recovered.push({{ case.altas_dia }})
-      {% endfor%}
-      huesca = {name: "Huesca", dates: [], actives: [], deceases: [], recovered: [], news: []}
-      {% for case in site.data.coronavirus_cases_huesca %}
-        huesca.dates.push("{{ case.fecha | date: '%d/%m' }}")
-        huesca.actives.push({{ case.confirmados_activos }})
-        huesca.news.push({{ case.confirmados_dia }})
-        huesca.deceases.push({{ case.fallecimientos_dia }})
-        huesca.recovered.push({{ case.altas_dia }})
-      {% endfor%}
-      teruel = {name: "Teruel", dates: [], actives: [], deceases: [], recovered: [], news: []}
-      {% for case in site.data.coronavirus_cases_teruel %}
-        teruel.dates.push("{{ case.fecha | date: '%d/%m' }}")
-        teruel.actives.push({{ case.confirmados_activos }})
-        teruel.news.push({{ case.confirmados_dia }})
-        teruel.deceases.push({{ case.fallecimientos_dia }})
-        teruel.recovered.push({{ case.altas_dia }})
-      {% endfor%}
-      zaragoza = {name: "Zaragoza", dates: [], actives: [], deceases: [], recovered: [], news: []}
-      {% for case in site.data.coronavirus_cases_zaragoza %}
-        zaragoza.dates.push("{{ case.fecha | date: '%d/%m' }}")
-        zaragoza.actives.push({{ case.confirmados_activos }})
-        zaragoza.news.push({{ case.confirmados_dia }})
-        zaragoza.deceases.push({{ case.fallecimientos_dia }})
-        zaragoza.recovered.push({{ case.altas_dia }})
       {% endfor%}
     </script>
