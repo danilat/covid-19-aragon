@@ -27,6 +27,9 @@ title: Teruel.
   <h2>Progresión diaria desde el {{ initial_day_teruel.fecha }} en Teruel</h2>
   {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel place="teruel"%}
 
+  <h2>Ocupación hospitalaria en Teruel</h2>
+  <canvas id="chartHospitals"></canvas>
+
   {% include suscription.html %}
 
   <div class="nota fuente">
@@ -42,4 +45,13 @@ title: Teruel.
     teruel.deceases.push({{ case.fallecimientos_dia }})
     teruel.recovered.push({{ case.altas_dia }})
   {% endfor%}
+  var aragonHospitals = JSON.parse('{{site.data.hospitals | jsonify}}');
+  var chartPlace;
+  for (var index = 0; aragonHospitals.provinces.length > index; index++) {
+    var province = aragonHospitals.provinces[index];
+    if(province.name == "Teruel"){
+      chartPlace = toChartPlace(province)
+    }
+  }
+  draw("chartHospitals", getHospitalChartConfigFor(chartPlace));
 </script>

@@ -27,6 +27,9 @@ title: Huesca.
   <h2>Progresión diaria desde el {{ initial_day_huesca.fecha }} en Huesca</h2>
   {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca place="huesca"%}
 
+  <h2>Ocupación hospitalaria en Huesca</h2>
+  <canvas id="chartHospitals"></canvas>
+
   {% include suscription.html %}
 
   <div class="nota fuente">
@@ -42,4 +45,13 @@ title: Huesca.
     huesca.deceases.push({{ case.fallecimientos_dia }})
     huesca.recovered.push({{ case.altas_dia }})
   {% endfor%}
+  var aragonHospitals = JSON.parse('{{site.data.hospitals | jsonify}}');
+  var chartPlace;
+  for (var index = 0; aragonHospitals.provinces.length > index; index++) {
+    var province = aragonHospitals.provinces[index];
+    if(province.name == "Huesca"){
+      chartPlace = toChartPlace(province)
+    }
+  }
+  draw("chartHospitals", getHospitalChartConfigFor(chartPlace));
 </script>
