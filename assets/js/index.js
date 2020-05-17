@@ -131,7 +131,6 @@ function getEvolutionChartConfigFor(args){
         yAxes: [{
           display: true,
           ticks: {
-            stepSize:1000,
             min:0
           },
           scaleLabel: {
@@ -170,7 +169,6 @@ function getHospitalChartConfigFor(chartPlace){
           stacked: true,
           display: true,
           ticks: {
-            stepSize:400,
             min:0
           },
           scaleLabel: {
@@ -234,8 +232,9 @@ function ddmm(date) {
   var mm = date.getMonth() + 1;
   var dd = date.getDate();
 
-  return [ (mm>9 ? '' : '0') + mm,
-          (dd>9 ? '' : '0') + dd
+  return [ 
+          (dd>9 ? '' : '0') + dd,
+          (mm>9 ? '' : '0') + mm,
         ].join('/');
 };
 
