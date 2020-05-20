@@ -22,7 +22,7 @@
   <div class="card confirmados">
     {% include illustrations/ico_confirmados.svg %}
     <h3>Nuevos casos confirmados</h3>
-    <!-- <div class="number">{% include formatNumber.html number=last_day_aragon.confirmados_dia decimals=0%}</div>
+    <div class="number">{% include formatNumber.html number=last_day_aragon.confirmados_dia decimals=0%}</div>
     {%if last_day_aragon.fecha == last_day_huesca.fecha %}
       En Huesca <b>{% include formatNumber.html number=last_day_huesca.confirmados_dia decimals=0%}</b><br>
       En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.confirmados_dia decimals=0%}</b><br>
@@ -31,15 +31,15 @@
       {% if last_day_otros.confirmados_dia != "0" %}
         Sin asignar <b>{% include formatNumber.html number=last_day_otros.confirmados_dia decimals=0%}</b>
       {% endif %} 
-    {% endif %}-->
-    <p style="font-size: 0.7em; line-height: 1.3rem;">
+    {% endif %}
+    <!-- <p style="font-size: 0.7em; line-height: 1.3rem;">
       Sanidad ha cambiado el criterio de contabilización de confirmados de forma que a partir del 18 solo se contabilizan como contagiados los confirmados a través de PCR y ELISA IgM. Este cambio de criterio provoca cifras no reales en los nuevos casos confirmados de hoy.
-    </p>
+    </p> -->
   </div>
   <div class="card altas">
     {% include illustrations/ico_altas.svg %}
     <h3>Nuevas altas</h3>
-    <!-- <div class="number">{% include formatNumber.html number=last_day_aragon.altas_dia decimals=0 %}</div>
+    <div class="number">{% include formatNumber.html number=last_day_aragon.altas_dia decimals=0 %}</div>
     {%if last_day_aragon.fecha == last_day_huesca.fecha %}
       En Huesca <b>{% include formatNumber.html number=last_day_huesca.altas_dia decimals=0 %}</b><br>
       En Zaragoza <b>{% include formatNumber.html number=last_day_zaragoza.altas_dia decimals=0 %}</b><br>
@@ -47,11 +47,11 @@
       {% assign others = last_day_aragon.altas_dia | minus: last_day_huesca.altas_dia | minus: last_day_zaragoza.altas_dia | minus: last_day_teruel.altas_dia%}
       {% if last_day_otros.altas_dia != "0" %}
         Sin asignar <b>{% include formatNumber.html number=last_day_otros.altas_dia decimals=0%}</b>
-      {% endif %} -->
+      {% endif %}
     {% endif %}
-    <p style="font-size: 0.7em; line-height: 1.3rem;">
+    <!-- <p style="font-size: 0.7em; line-height: 1.3rem;">
       Sanidad ha cambiado el criterio de contabilización de confirmados de forma que a partir del 18 solo se contabilizan como contagiados los confirmados a través de PCR y ELISA IgM. Este cambio de criterio provoca cifras no reales en las nuevas altas de hoy.
-    </p>
+    </p> -->
  </div>
   <div class="card fallecimientos">
     {% include illustrations/ico_fallecimientos.svg %}
