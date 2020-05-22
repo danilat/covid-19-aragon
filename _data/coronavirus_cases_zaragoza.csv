@@ -51,3 +51,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 19/05/2020,4179,2099,192,659,619,2561,-1119,964693,4,-283,6,0,-79,-840,-1130,4,-307,5,-1,-80,"Sanidad ha cambiado el criterio de contabilización de confirmados de forma que a partir del 18 solo se contabilizan como contagiados los confirmados a través de PCR y ELISA IgM. Este cambio de criterio provoca cifras no reales en las variaciones de casos activos, casos nuevos y altas.",959,50.23,4.59,15.77,14.81,61.28,0.43
 20/05/2020,4186,2033,192,661,623,2730,7,964693,2,169,-66,0,4,-164,1126,-2,452,-72,0,83,,795,48.57,4.59,15.79,14.88,65.22,0.43
 21/05/2020,4200,1917,183,661,624,2776,14,964693,0,46,-116,-9,1,-32,7,-2,-123,-50,-9,-3,,763,45.64,4.36,15.74,14.86,66.1,0.44
+22/05/2020,4210,1918,183,668,626,2794,10,964693,7,18,1,0,2,-15,-4,7,-28,117,9,1,,748,45.56,4.35,15.87,14.87,66.37,0.44
