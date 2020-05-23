@@ -49,9 +49,9 @@
         Sin asignar <b>{% include formatNumber.html number=last_day_otros.altas_dia decimals=0%}</b>
       {% endif %}
     {% endif %}
-    <!-- <p style="font-size: 0.7em; line-height: 1.3rem;">
-      Sanidad ha cambiado el criterio de contabilización de confirmados de forma que a partir del 18 solo se contabilizan como contagiados los confirmados a través de PCR y ELISA IgM. Este cambio de criterio provoca cifras no reales en las nuevas altas de hoy.
-    </p> -->
+    <p style="font-size: 0.7em; line-height: 1.3rem;">
+      En Teruel se ha corregido el dato de nuevas altas, el número de altas acumuladas a día 23/05 pasa de 389 a 374.
+    </p>
  </div>
   <div class="card fallecimientos">
     {% include illustrations/ico_fallecimientos.svg %}
@@ -66,5 +66,8 @@
       Sin asignar <b>{% include formatNumber.html number=last_day_otros.fallecimientos_dia decimals=0%}</b>
       {% endif %}
     {% endif %}
+    <p style="font-size: 0.7em; line-height: 1.3rem;">
+      En Huesca se ha corregido el dato de fallecimientos, el número de fsallecimientos acumulados a día 23/05 pasa de 102 a 99.
+    </p>
   </div>
 </div>
