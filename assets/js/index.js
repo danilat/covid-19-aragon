@@ -5,81 +5,119 @@
 Chart.defaults.global.defaultFontFamily = "Lato, Open Sans";
 var color = Chart.helpers.color;
 
+function evolutionChartData(args){
+  return {
+    labels: args.dates,
+    datasets: [{
+      label: "  FALLECIMIENTOS",
+      backgroundColor: color("#444444").alpha(0.9).rgbString(),
+      borderColor: "#444444",
+      data: args.deceases,
+      pointBackgroundColor: "#444444",
+    },{
+      label: "  ALTAS",
+      backgroundColor: color("#01afaf").alpha(0.6).rgbString(),
+      borderColor: "#01afaf",
+      data: args.recovered,
+      pointBackgroundColor: "#01afaf",
+    },{
+      label: "  NUEVOS",
+      backgroundColor: color("#f7849f").alpha(0.4).rgbString(),
+      borderColor: "#f7849f",
+      data: args.news,
+      pointBackgroundColor: "#f7849f",
+    },{
+      label: "  ACTIVOS",
+      backgroundColor: color("#acb2b2").alpha(0.12).rgbString(),
+      borderColor: "#acb2b2",
+      data: args.actives,
+      pointBackgroundColor: "#acb2b2",
+    }]
+  }
+}
+
+function hospitalCharData(args){
+  return {
+    labels: args.dates,
+    datasets: [
+    {
+        label: " CAMAS EN UCI",
+        backgroundColor: color("#f7849f").alpha(0.4).rgbString(),
+        borderColor: "#f7849f",
+        pointBackgroundColor: "#f7849f",
+        data: args.uciBeds
+      },
+      {
+        label: " CAMAS EN PLANTA",
+        backgroundColor: color("#acb2b2").alpha(0.12).rgbString(),
+        borderColor: "#acb2b2",
+        pointBackgroundColor: "#acb2b2",
+        data: args.regularBeds
+      }
+    ]
+  };
+}
+
+function getTooltips(){
+  return {
+    mode: "index",
+    intersect: false,
+    bodySpacing: 15,
+    reverse: true,
+    cornerRadius: 0,
+    titleFontSize: 17,
+    titleAlign: "center",
+    titleMarginBottom: 15
+  }
+}
+
+function getLegends(){
+  return {
+    reverse: true,
+    position: "top",
+    labels: {
+      fontSize: 15,
+      padding: 40,
+      usePointStyle: true,
+      fontColor:"#08a4a4",
+      filter: function(label) {
+        if (!label.hidden){
+          label.text += "   X"
+        }else{
+          label.text += "    "
+        }
+        return label
+      }
+    },
+    onHover: function(e) {
+      e.target.style.cursor = 'pointer';
+    }
+  }
+}
+
+function getChartHover(){
+  return {
+    onHover: function(e) {
+      var point = this.getElementAtEvent(e);
+      if (point.length) e.target.style.cursor = 'pointer';
+      else e.target.style.cursor = 'default';
+    }
+  }
+}
+
 function getEvolutionChartConfigFor(args){
   if(!args) return;
 
-  return config = {
+  return {
     type: "line",
-    data: {
-      labels: args.dates,
-      datasets: [{
-        label: "  FALLECIMIENTOS",
-        backgroundColor: color("#444444").alpha(0.9).rgbString(),
-        borderColor: "#444444",
-        data: args.deceases,
-        pointBackgroundColor: "#444444",
-      },{
-        label: "  ALTAS",
-        backgroundColor: color("#01afaf").alpha(0.6).rgbString(),
-        borderColor: "#01afaf",
-        data: args.recovered,
-        pointBackgroundColor: "#01afaf",
-      },{
-        label: "  NUEVOS",
-        backgroundColor: color("#f7849f").alpha(0.4).rgbString(),
-        borderColor: "#f7849f",
-        data: args.news,
-        pointBackgroundColor: "#f7849f",
-      },{
-        label: "  ACTIVOS",
-        backgroundColor: color("#acb2b2").alpha(0.12).rgbString(),
-        borderColor: "#acb2b2",
-        data: args.actives,
-        pointBackgroundColor: "#acb2b2",
-      }]
-    },
+    data: evolutionChartData(args),
     options: {
       responsive: true,
       maintainAspectRatio: false,
       aspectRatio: 0.5,
-      tooltips: {
-        mode: "index",
-        intersect: false,
-        bodySpacing: 15,
-        reverse: true,
-        cornerRadius: 0,
-        titleFontSize: 17,
-        titleAlign: "center",
-        titleMarginBottom: 15
-      },
-      legend: {
-        reverse: true,
-        position: "top",
-        labels: {
-          fontSize: 15,
-          padding: 40,
-          usePointStyle: true,
-          fontColor:"#08a4a4",
-          filter: function(label) {
-            if (!label.hidden){
-              label.text += "   X"
-            }else{
-              label.text += "    "
-            }
-            return label
-          }
-        },
-        onHover: function(e) {
-          e.target.style.cursor = 'pointer';
-       }
-      },
-      hover: {
-        onHover: function(e) {
-          var point = this.getElementAtEvent(e);
-          if (point.length) e.target.style.cursor = 'pointer';
-          else e.target.style.cursor = 'default';
-        }
-      },
+      tooltips: getTooltips(),
+      legend: getLegends(),
+      hover: getChartHover(),
       scales: {
         xAxes: [{
           display: true,
@@ -93,7 +131,6 @@ function getEvolutionChartConfigFor(args){
         yAxes: [{
           display: true,
           ticks: {
-            stepSize:1000,
             min:0
           },
           scaleLabel: {
@@ -106,6 +143,44 @@ function getEvolutionChartConfigFor(args){
       }
     }
   };
+}
+
+function getHospitalChartConfigFor(chartPlace){
+  return {
+    type: "line",
+    data: hospitalCharData(chartPlace),
+    options: {
+      responsive: true,
+      tooltips: getTooltips(),
+      legend: getLegends(),
+      hover: getChartHover(),
+      scales: {
+        xAxes: [{
+          stacked: true,
+          display: true,
+          scaleLabel: {
+            display: false,
+            labelString: "FECHA",
+            fontStyle: "bold",
+            padding: {top: 20},
+          }
+        }],
+        yAxes: [{
+          stacked: true,
+          display: true,
+          ticks: {
+            min:0
+          },
+          scaleLabel: {
+            display: false,
+            labelString: "PERSONAS INGRESADAS",
+            fontStyle: "bold",
+            padding: {bottom: 20}
+          }
+        }]
+      }
+    }
+  }
 }
 
 function draw(canvasId, config){
@@ -157,8 +232,9 @@ function ddmm(date) {
   var mm = date.getMonth() + 1;
   var dd = date.getDate();
 
-  return [ (mm>9 ? '' : '0') + mm,
-          (dd>9 ? '' : '0') + dd
+  return [ 
+          (dd>9 ? '' : '0') + dd,
+          (mm>9 ? '' : '0') + mm,
         ].join('/');
 };
 
@@ -177,85 +253,6 @@ function toChartPlace(place){
     dates: dates,
     regularBeds: regularBeds,
     uciBeds: uciBeds
-  }
-}
-
-function hospitalCharData(place){
-  return {
-    labels: place.dates,
-    datasets: [
-      {
-        label: " CAMAS EN PLANTA",
-        backgroundColor: color("#acb2b2").alpha(0.8).rgbString(),
-        borderColor: "#acb2b2",
-        pointBackgroundColor: "#acb2b2",
-        data: place.regularBeds
-      },
-      {
-        label: " CAMAS EN UCI",
-        backgroundColor: color("#f7849f").alpha(0.4).rgbString(),
-        borderColor: "#f7849f",
-        pointBackgroundColor: "#f7849f",
-        data: place.uciBeds
-      }
-    ]
-  };
-}
-
-
-function getHospitalChartConfigFor(chartPlace){
-  return {
-    type: "line",
-    data: hospitalCharData(chartPlace),
-    options: {
-      responsive: true,
-      tooltips: {
-        mode: "index",
-        intersect: false,
-        bodySpacing: 15,
-        reverse: true,
-        cornerRadius: 0,
-        titleFontSize: 17,
-        titleAlign: "center",
-        titleMarginBottom: 15
-      },
-      legend: {
-        reverse: true,
-        position: "top",
-        labels: {
-          fontSize: 15,
-          padding: 40,
-          usePointStyle: true,
-          fontColor:"#08a4a4",
-          filter: function(label) {
-            if (!label.hidden){
-              label.text += "   X"
-            }else{
-              label.text += "    "
-            }
-            return label
-          }
-        },
-        onHover: function(e) {
-          e.target.style.cursor = 'pointer';
-        }
-      },
-      hover: {
-        onHover: function(e) {
-          var point = this.getElementAtEvent(e);
-          if (point.length) e.target.style.cursor = 'pointer';
-          else e.target.style.cursor = 'default';
-        }
-      },
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
-        }]
-      }
-    }
   }
 }
 
