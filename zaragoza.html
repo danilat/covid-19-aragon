@@ -27,8 +27,8 @@ title: Zaragoza.
   <h2>Progresión diaria desde el {{ initial_day_zaragoza.fecha }} en Zaragoza</h2>
   {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza place="zaragoza"%}
 
-  <h2>Ocupación hospitalaria en Zaragoza</h2>
-  <canvas id="chartHospitals"></canvas>
+  <h2 class="hide">Ocupación hospitalaria en Zaragoza</h2>
+  <canvas id="chartHospitals" class="hide"></canvas>
 
   {% include suscription.html %}
 
@@ -53,5 +53,5 @@ title: Zaragoza.
       chartPlace = toChartPlace(province)
     }
   }
-  draw("chartHospitals", getHospitalChartConfigFor(chartPlace));
+  //draw("chartHospitals", getHospitalChartConfigFor(chartPlace));
 </script>
