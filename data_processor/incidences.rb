@@ -16,6 +16,7 @@ class Incidences
         "05/05/2020": 'En Huesca se ha corregido el dato del día anterior, el número de fallecimientos acumuladas a día 05/05 pasa de 92 a 91.',
         "19/05/2020": 'Sanidad ha cambiado el criterio de contabilización de confirmados de forma que a partir del 18 solo se contabilizan como contagiados los confirmados a través de PCR y ELISA IgM. Este cambio de criterio provoca cifras no reales en las variaciones de casos activos, casos nuevos y altas.',
         "23/05/2020": 'En Huesca se ha corregido el dato de fallecimientos, el número de fsallecimientos acumulados a día 23/05 pasa de 102 a 99.',
+        "29/05/2020": "En Huesca se ha corregido el dato de fallecimientos, el número de fallecimientos acumulados a día 29/05 pasa de 100 a 99.",
       },
       zaragoza: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
