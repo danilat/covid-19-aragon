@@ -6,7 +6,7 @@ title: Teruel.
   {% assign initial_day_teruel = site.data.coronavirus_cases_teruel | first %}
   {% assign last_day_teruel = site.data.coronavirus_cases_teruel | last %}
 
-  <div id="ultimaActualizacion" class="ancla ultimaActualizacion"></div>
+  <div id="last" class="ancla"></div>
   <h1>Teruel</h1>
   <h2 class="inicio">Última actualización {{ last_day_teruel.fecha }}</h2>
   <div class="fuente">
@@ -15,18 +15,21 @@ title: Teruel.
 
   {% include dashboardTodayProvince.html last_day=last_day_teruel %}
 
-  <div id="teruel" class="ancla teruel"></div>
+  <div id="evolution" class="ancla"></div>
   <h2>Evolución del COVID-19 en Teruel hasta el {{ last_day_teruel.fecha }}</h2>
   <div class="chart-container">
       <canvas id="chartTeruel"></canvas>
   </div>
 
+  <div id="total" class="ancla"></div>
   <h2>Datos acumulados en Teruel</h2>
   {% include dashboard.html last_day=last_day_teruel demonym="turolenses" %}
 
+  <div id="progression" class="ancla"></div>
   <h2>Progresión diaria desde el {{ initial_day_teruel.fecha }} en Teruel</h2>
   {% include table.html coronavirus_cases=site.data.coronavirus_cases_teruel place="teruel"%}
 
+  <div id="hospitals" class="ancla"></div>
   <h2>Ocupación hospitalaria en Teruel</h2>
   <div class="chart-container">
     <canvas id="chartHospitals"></canvas>

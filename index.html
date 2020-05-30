@@ -6,7 +6,7 @@ title: Aragón.
         {% assign last_day_aragon = site.data.coronavirus_cases | last %}
         {% assign initial_day_aragon = site.data.coronavirus_cases | first %}
 
-        <div id="aragon" class="ancla aragon"></div>
+        <div id="last" class="ancla aragon"></div>
         <h1>Aragón</h1>
         <h2 class="inicio">Última actualización {{ last_day_aragon.fecha }}</h2>
         <div class="fuente">
@@ -15,19 +15,22 @@ title: Aragón.
 
         {% include dashboardToday.html %}
 
+        <div id="evolution" class="ancla"></div>
         <h2>Evolución del COVID-19 en Aragón hasta el {{ last_day_aragon.fecha }}</h2>
         <div class="chart-container">
             <canvas id="chartAragon"></canvas>
         </div>
 
+        <div id="total" class="ancla"></div>
         <h2>Datos acumulados en Aragón</h2>
         {% include dashboard.html last_day=last_day_aragon demonym="aragoneses" %}
 
+        <div id="progression" class="ancla"></div>
         <h2>Progresión diaria desde el {{ initial_day_aragon.fecha }} en Aragón</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases place="aragon" %}
 
+        <div id="hospitals" class="ancla"></div>
         <h2>Ocupación hospitalaria en Aragón</h2>
-
         <div class="chart-container">
           <canvas id="chartHospitals"></canvas>
         </div>
