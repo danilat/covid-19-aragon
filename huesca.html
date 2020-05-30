@@ -6,7 +6,7 @@ title: Huesca.
   {% assign initial_day_huesca = site.data.coronavirus_cases_huesca | first %}
   {% assign last_day_huesca = site.data.coronavirus_cases_huesca | last %}
 
-  <div id="ultimaActualizacion" class="ancla ultimaActualizacion"></div>
+  <div id="last" class="ancla"></div>
   <h1>Huesca</h1>
   <h2 class="inicio">Última actualización {{ last_day_huesca.fecha }}</h2>
   <div class="fuente">
@@ -15,18 +15,21 @@ title: Huesca.
 
   {% include dashboardTodayProvince.html last_day=last_day_huesca %}
 
-  <div id="huesca" class="ancla huesca"></div>
+  <div id="evolution" class="ancla"></div>
   <h2>Evolución del COVID-19 en Huesca hasta el {{ last_day_huesca.fecha }}</h2>
   <div class="chart-container">
       <canvas id="chartHuesca"></canvas>
   </div>
 
+  <div id="total" class="ancla"></div>
   <h2>Datos acumulados en Huesca</h2>
   {% include dashboard.html last_day=last_day_huesca demonym="oscenses" %}
 
+  <div id="progression" class="ancla"></div>
   <h2>Progresión diaria desde el {{ initial_day_huesca.fecha }} en Huesca</h2>
   {% include table.html coronavirus_cases=site.data.coronavirus_cases_huesca place="huesca"%}
 
+  <div id="hospitals" class="ancla"></div>
   <h2>Ocupación hospitalaria en Huesca</h2>
   <div class="chart-container">
     <canvas id="chartHospitals"></canvas>

@@ -6,7 +6,7 @@ title: Zaragoza.
   {% assign initial_day_zaragoza = site.data.coronavirus_cases_zaragoza | first %}
   {% assign last_day_zaragoza = site.data.coronavirus_cases_zaragoza | last %}
 
-  <div id="ultimaActualizacion" class="ancla ultimaActualizacion"></div>
+  <div id="last" class="ancla"></div>
   <h1>Zaragoza</h1>
   <h2 class="inicio">Última actualización {{ last_day_zaragoza.fecha }}</h2>
   <div class="fuente">
@@ -15,18 +15,21 @@ title: Zaragoza.
 
   {% include dashboardTodayProvince.html last_day=last_day_zaragoza %}
 
-  <div id="zaragoza" class="ancla zaragoza"></div>
+  <div id="evolution" class="ancla"></div>
   <h2>Evolución del COVID-19 en Zaragoza hasta el {{ last_day_zaragoza.fecha }}</h2>
   <div class="chart-container">
       <canvas id="chartZaragoza"></canvas>
   </div>
 
+  <div id="total" class="ancla"></div>
   <h2>Datos acumulados en Zaragoza</h2>
   {% include dashboard.html last_day=last_day_zaragoza demonym="zaragozanos" %}
 
+  <div id="progression" class="ancla"></div>
   <h2>Progresión diaria desde el {{ initial_day_zaragoza.fecha }} en Zaragoza</h2>
   {% include table.html coronavirus_cases=site.data.coronavirus_cases_zaragoza place="zaragoza"%}
 
+  <div id="hospitals" class="ancla"></div>
   <h2>Ocupación hospitalaria en Zaragoza</h2>
   <div class="chart-container">
     <canvas id="chartHospitals"></canvas>
