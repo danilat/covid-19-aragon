@@ -151,6 +151,8 @@ function getHospitalChartConfigFor(chartPlace){
     data: hospitalCharData(chartPlace),
     options: {
       responsive: true,
+      maintainAspectRatio: false,
+      aspectRatio: 0.5,
       tooltips: getTooltips(),
       legend: getLegends(),
       hover: getChartHover(),
