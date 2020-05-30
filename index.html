@@ -26,8 +26,11 @@ title: Aragón.
         <h2>Progresión diaria desde el {{ initial_day_aragon.fecha }} en Aragón</h2>
         {% include table.html coronavirus_cases=site.data.coronavirus_cases place="aragon" %}
 
-        <h2 class="hide">Ocupación hospitalaria en Aragón</h2>
-        <canvas id="chartHospitals" class="hide"></canvas>
+        <h2>Ocupación hospitalaria en Aragón</h2>
+
+        <div class="chart-container">
+          <canvas id="chartHospitals"></canvas>
+        </div>
 
         {% include suscription.html %}
 
@@ -47,5 +50,5 @@ title: Aragón.
       {% endfor%}
 
       var aragonHospitals = JSON.parse('{{site.data.hospitals | jsonify}}');
-      //draw("chartHospitals", getHospitalChartConfigFor(toChartPlace(aragonHospitals)));
+      draw("chartHospitals", getHospitalChartConfigFor(toChartPlace(aragonHospitals)));
     </script>
