@@ -19,6 +19,7 @@ class Incidences
         "23/05/2020": 'En Huesca se ha corregido el dato de fallecimientos, el número de fsallecimientos acumulados a día 23/05 pasa de 102 a 99.',
         "29/05/2020": "En Huesca se ha corregido el dato de fallecimientos, el número de fallecimientos acumulados a día 29/05 pasa de 100 a 99.",
         "03/06/2020": 'Los datos de altas no se han actualizado. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1020/id.261019" target="_blank">Aragón Hoy</a>.',
+        "04/06/2020": 'En Huesca se ha reajustado el dato de nuevos confirmados.',
       },
       zaragoza: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',

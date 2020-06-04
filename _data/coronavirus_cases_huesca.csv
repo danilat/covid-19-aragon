@@ -64,3 +64,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 01/06/2020,781,283,40,99,87,453,1,220461,0,1,0,0,0,0,-1,0,0,0,0,0,,229,36.24,5.12,12.68,11.14,58.0,0.35
 02/06/2020,782,283,40,99,88,471,1,220461,0,18,0,0,1,-17,0,0,17,0,0,1,,212,36.19,5.12,12.66,11.25,60.23,0.35
 03/06/2020,796,283,40,99,88,471,14,220461,0,0,0,0,0,14,13,0,-18,0,0,-1,"Los datos de altas no se han actualizado. Fuente: <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1020/id.261019"" target=""_blank"">Aragón Hoy</a>.",226,35.55,5.03,12.44,11.06,59.17,0.36
+04/06/2020,795,284,40,99,88,505,-1,220461,0,34,1,0,0,-35,-15,0,34,1,0,0,En Huesca se ha reajustado el dato de nuevos confirmados.,191,35.72,5.03,12.45,11.07,63.52,0.36
