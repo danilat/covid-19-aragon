@@ -8,7 +8,6 @@ def write_changelog(newer_coronavirus_row, newer_hospital_row)
   - <b>#{ newer_coronavirus_row.confirmados_activos}</b> casos activos
   - <b>#{ newer_coronavirus_row.confirmados_dia}</b> casos nuevos
   - <b>#{ newer_coronavirus_row.altas_dia }</b> altas
-  - <b>#{ newer_coronavirus_row.fallecimientos_dia }</b> fallecimientos
   - <b>#{ newer_hospital_row.regular_beds }</b> personas están ingresadas en planta 
   - <b>#{ newer_hospital_row.uci_beds }</b> personas están ingresadas en UCI
   <a href='http://www.curvaenaragon.com/'>Entra en CurvaEnAragón</a> para ver mas detalles."

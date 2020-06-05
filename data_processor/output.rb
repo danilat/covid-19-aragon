@@ -3,19 +3,19 @@ class DailyStatisticsOutput < Dry::Struct
   attribute :casos_confirmados, Types::Coercible::Integer
   attribute :ingresos_hospitalarios, Types::Coercible::Integer.default(0)
   attribute :ingresos_uci, Types::Coercible::Integer.default(0)
-  attribute :fallecimientos, Types::Coercible::Integer.default(0)
+  attribute :fallecimientos, Types::Integer
   attribute :casos_personal_sanitario, Types::Coercible::Integer.default(0)
   attribute :altas, Types::Coercible::Integer.default(0)
   attribute :confirmados_dia, Types::Coercible::Integer
   attribute :total_personas, Types::Coercible::Integer
-  attribute :fallecimientos_dia, Types::Coercible::Integer
+  attribute :fallecimientos_dia, Types::Integer.optional
   attribute :altas_dia, Types::Coercible::Integer
   attribute :ingresos_hospitalarios_dia, Types::Coercible::Integer
   attribute :ingresos_uci_dia, Types::Coercible::Integer
   attribute :casos_personal_sanitario_dia, Types::Coercible::Integer
   attribute :diferencia_confirmados_activos, Types::Coercible::Integer
   attribute :diferencia_confirmados_dia, Types::Coercible::Integer
-  attribute :diferencia_fallecimientos_dia, Types::Coercible::Integer
+  attribute :diferencia_fallecimientos_dia, Types::Integer.optional
   attribute :diferencia_altas_dia, Types::Coercible::Integer
   attribute :diferencia_ingresos_hospitalarios_dia, Types::Coercible::Integer
   attribute :diferencia_ingresos_uci_dia, Types::Coercible::Integer

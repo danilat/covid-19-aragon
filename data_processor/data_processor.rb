@@ -64,6 +64,12 @@ class ProcessToDailyProgression
     args[:fecha] = date.strftime("%d/%m/%Y")
     args[:incidencias] = @incidences.get(from, args[:fecha])
     populate_args_with_daily_and_diffs(args, previous_output)
+    
+    if(previous_output&.fallecimientos&.positive? && args[:fallecimientos] == 0)
+      args[:fallecimientos] = previous_output.fallecimientos
+      args[:fallecimientos_dia] = nil
+      args[:diferencia_fallecimientos_dia] = 0
+    end
     DailyStatisticsOutput.new(args)
   end
 end
