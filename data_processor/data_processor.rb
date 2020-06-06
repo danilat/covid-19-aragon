@@ -31,7 +31,8 @@ class ProcessToDailyProgression
 
   def difference_by_day(args, previous_output, attribute)
     return args[attribute] unless previous_output
-    args[attribute] - previous_output.send(attribute)
+    puts args[attribute] if attribute == :confirmados_activos
+    args[attribute] - previous_output.send(attribute) if previous_output.send(attribute)
   end
   
   def populate_args_with_daily_and_diffs(args, previous_output)
@@ -63,6 +64,8 @@ class ProcessToDailyProgression
     date = Date.parse(args[:fecha])
     args[:fecha] = date.strftime("%d/%m/%Y")
     args[:incidencias] = @incidences.get(from, args[:fecha])
+    args[:confirmados_activos] = input.casos_confirmados - input.fallecimientos - input.altas
+    
     populate_args_with_daily_and_diffs(args, previous_output)
     
     if(previous_output&.fallecimientos&.positive? && args[:fallecimientos] == 0)

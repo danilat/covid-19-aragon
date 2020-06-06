@@ -1,25 +1,25 @@
 class DailyStatisticsOutput < Dry::Struct
   attribute :fecha, Types::Strict::String
-  attribute :casos_confirmados, Types::Coercible::Integer
-  attribute :ingresos_hospitalarios, Types::Coercible::Integer.default(0)
-  attribute :ingresos_uci, Types::Coercible::Integer.default(0)
+  attribute :casos_confirmados, Types::Integer
+  attribute :ingresos_hospitalarios, Types::Integer.default(0)
+  attribute :ingresos_uci, Types::Integer.default(0)
   attribute :fallecimientos, Types::Integer
-  attribute :casos_personal_sanitario, Types::Coercible::Integer.default(0)
-  attribute :altas, Types::Coercible::Integer.default(0)
-  attribute :confirmados_dia, Types::Coercible::Integer
-  attribute :total_personas, Types::Coercible::Integer
+  attribute :casos_personal_sanitario, Types::Integer.default(0)
+  attribute :altas, Types::Integer.default(0)
+  attribute :confirmados_dia, Types::Integer
+  attribute :total_personas, Types::Integer
   attribute :fallecimientos_dia, Types::Integer.optional
-  attribute :altas_dia, Types::Coercible::Integer
-  attribute :ingresos_hospitalarios_dia, Types::Coercible::Integer
-  attribute :ingresos_uci_dia, Types::Coercible::Integer
-  attribute :casos_personal_sanitario_dia, Types::Coercible::Integer
-  attribute :diferencia_confirmados_activos, Types::Coercible::Integer
-  attribute :diferencia_confirmados_dia, Types::Coercible::Integer
+  attribute :altas_dia, Types::Integer
+  attribute :ingresos_hospitalarios_dia, Types::Integer
+  attribute :ingresos_uci_dia, Types::Integer
+  attribute :casos_personal_sanitario_dia, Types::Integer
+  attribute :diferencia_confirmados_activos, Types::Integer
+  attribute :diferencia_confirmados_dia, Types::Integer
   attribute :diferencia_fallecimientos_dia, Types::Integer.optional
-  attribute :diferencia_altas_dia, Types::Coercible::Integer
-  attribute :diferencia_ingresos_hospitalarios_dia, Types::Coercible::Integer
-  attribute :diferencia_ingresos_uci_dia, Types::Coercible::Integer
-  attribute :diferencia_casos_personal_sanitario_dia, Types::Coercible::Integer
+  attribute :diferencia_altas_dia, Types::Integer
+  attribute :diferencia_ingresos_hospitalarios_dia, Types::Integer
+  attribute :diferencia_ingresos_uci_dia, Types::Integer
+  attribute :diferencia_casos_personal_sanitario_dia, Types::Integer
   attribute :incidencias, Types::Strict::String.optional
 
   def confirmados_activos

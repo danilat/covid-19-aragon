@@ -18,17 +18,6 @@ class DailyStatisticsInput < Input
   attribute :fallecimientos, Types::Coercible::Integer.default(0)
   attribute :casos_personal_sanitario, Types::Coercible::Integer.default(0)
   attribute :altas, Types::Coercible::Integer.default(0)
-
-  def confirmados_activos
-    casos_confirmados - fallecimientos - altas
-  end
-  
-
-  def to_h
-    hash = super.to_h
-    hash[:confirmados_activos] = confirmados_activos
-    hash
-  end
 end
 
 class HospitalOccupationInput < Input
