@@ -10,7 +10,9 @@ def write_changelog(newer_coronavirus_row, newer_hospital_row)
   - <b>#{ newer_coronavirus_row.altas_dia }</b> altas
   - <b>#{ newer_hospital_row.regular_beds }</b> personas están ingresadas en planta 
   - <b>#{ newer_hospital_row.uci_beds }</b> personas están ingresadas en UCI
-  <a href='http://www.curvaenaragon.com/'>Entra en CurvaEnAragón</a> para ver mas detalles."
+  <a href='http://www.curvaenaragon.com/'>Entra en CurvaEnAragón</a> para ver mas detalles.
+  
+No se han facilitado los datos sobre fallecimientos, como consecuencia el dato de casos activos no es preciso."
   puts changelog_message
   open("_data/changelog_message", "w") { |file|
     file.puts changelog_message
