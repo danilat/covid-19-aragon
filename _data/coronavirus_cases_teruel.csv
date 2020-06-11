@@ -71,3 +71,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 08/06/2020,621,251,32,98,120,415,0,134137,0,7,0,0,0,-7,0,0,6,0,0,0,,108,40.42,5.15,15.78,19.32,66.83,0.46
 09/06/2020,622,251,32,98,121,424,1,134137,0,9,0,0,1,-8,1,0,2,0,0,1,,100,40.35,5.14,15.76,19.45,68.17,0.46
 10/06/2020,622,251,32,98,121,430,0,134137,0,6,0,0,0,-6,-1,0,-3,0,0,-1,,94,40.35,5.14,15.76,19.45,69.13,0.46
+11/06/2020,623,251,32,102,121,434,1,134137,4,4,0,0,0,-7,1,4,-2,0,0,0,"El dato de fallecimientos es el acumulado desde el último recuento el 04/06. Fuente: <a href=""http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261453"" target=""_blank"">Aragón Hoy</a>.",87,40.29,5.14,16.37,19.42,69.66,0.46
