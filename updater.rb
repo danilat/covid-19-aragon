@@ -8,14 +8,13 @@ def write_changelog(newer_coronavirus_row, newer_hospital_row)
   - <b>#{ newer_coronavirus_row.confirmados_activos}</b> casos activos
   - <b>#{ newer_coronavirus_row.confirmados_dia}</b> casos nuevos
   - <b>#{ newer_coronavirus_row.altas_dia }</b> altas
-  - <b>#{ newer_coronavirus_row.fallecimientos_dia }</b> fallecimientos
   - <b>#{ newer_hospital_row.regular_beds }</b> personas están ingresadas en planta 
   - <b>#{ newer_hospital_row.uci_beds }</b> personas están ingresadas en UCI
   <a href='http://www.curvaenaragon.com/'>Entra en CurvaEnAragón</a> para ver mas detalles.
 
-El dato de fallecimientos es el acumulado desde el último recuento el 04/06.
+No se han facilitado los datos sobre fallecimientos, como consecuencia el dato de casos activos no es preciso.
 "
-#No se han facilitado los datos sobre fallecimientos, como consecuencia el dato de casos activos no es preciso.
+#El dato de fallecimientos es el acumulado desde el último recuento el 04/06.
   puts changelog_message
   open("_data/changelog_message", "w") { |file|
     file.puts changelog_message
