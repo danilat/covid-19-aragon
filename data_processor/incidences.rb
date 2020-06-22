@@ -42,6 +42,7 @@ class Incidences
         "03/06/2020": 'Los datos de altas no se han actualizado. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1020/id.261019" target="_blank">Aragón Hoy</a>.',
         "11/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 04/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261453" target="_blank">Aragón Hoy</a>.',
         "18/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 11/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261743" target="_blank">Aragón Hoy</a>.',
+        "22/06/2020": 'En Teruel se ha corregido el dato de nuevas altas, el número de altas acumuladas a día 22/06 pasa de 466 a 465.',
       },
       otros: {}
     }
