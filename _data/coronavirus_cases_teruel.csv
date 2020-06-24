@@ -84,3 +84,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 21/06/2020,631,253,32,103,123,466,1,134137,0,3,0,0,0,-2,-1,0,0,0,0,-1,,62,40.1,5.07,16.32,19.49,73.85,0.47
 22/06/2020,631,254,32,103,123,465,0,134137,0,-1,1,0,0,1,-1,0,-4,1,0,0,"En Teruel se ha corregido el dato de nuevas altas, el número de altas acumuladas a día 22/06 pasa de 466 a 465.",63,40.25,5.07,16.32,19.49,73.69,0.47
 23/06/2020,630,254,32,103,123,468,-1,134137,0,3,0,0,0,-4,-1,0,4,-1,0,0,"En Teruel se ha corregido el dato de casos confirmados, el número de confirmados acumuladas a día 23/06 pasa de 631 a 630.",59,40.32,5.08,16.35,19.52,74.29,0.47
+24/06/2020,630,254,32,103,123,470,0,134137,0,2,0,0,0,-2,1,0,-1,0,0,0,,57,40.32,5.08,16.35,19.52,74.6,0.47
