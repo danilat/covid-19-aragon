@@ -11,6 +11,7 @@ class Incidences
         "04/06/2020": 'La cifra total de fallecidos en Aragón es, a fecha de hoy, de 893: 2 de ellos fueron notificados en la jornada de ayer y los otros 21 de incremento respecto al día anterior se corresponden con fallecimientos ocurridos durante el mes de abril. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261079" target="_blank">Aragón Hoy</a>.',
         "11/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 04/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261453" target="_blank">Aragón Hoy</a>.',
         "18/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 11/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261743" target="_blank">Aragón Hoy</a>.',
+        "25/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 18/06.',
       },
       huesca: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
@@ -23,6 +24,7 @@ class Incidences
         "29/05/2020": "En Huesca se ha corregido el dato de fallecimientos, el número de fallecimientos acumulados a día 29/05 pasa de 100 a 99.",
         "03/06/2020": 'Los datos de altas no se han actualizado. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1020/id.261019" target="_blank">Aragón Hoy</a>.',
         "04/06/2020": 'En Huesca se ha reajustado el dato de nuevos confirmados.',
+        "25/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 18/06.',
       },
       zaragoza: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
@@ -31,6 +33,7 @@ class Incidences
         "03/06/2020": 'Los datos de altas no se han actualizado. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1020/id.261019" target="_blank">Aragón Hoy</a>.',
         "11/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 04/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261453" target="_blank">Aragón Hoy</a>.',
         "18/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 11/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261743" target="_blank">Aragón Hoy</a>.',
+        "25/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 18/06.',
       },
       teruel: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
@@ -44,6 +47,7 @@ class Incidences
         "18/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 11/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261743" target="_blank">Aragón Hoy</a>.',
         "22/06/2020": 'En Teruel se ha corregido el dato de nuevas altas, el número de altas acumuladas a día 22/06 pasa de 466 a 465.',
         "23/06/2020": 'En Teruel se ha corregido el dato de casos confirmados, el número de confirmados acumuladas a día 23/06 pasa de 631 a 630.',
+        "25/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 18/06.',
       },
       otros: {}
     }
