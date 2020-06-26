@@ -86,3 +86,4 @@ fecha,casos_confirmados,ingresos_hospitalarios,ingresos_uci,fallecimientos,casos
 23/06/2020,630,254,32,103,123,468,-1,134137,0,3,0,0,0,-4,-1,0,4,-1,0,0,"En Teruel se ha corregido el dato de casos confirmados, el número de confirmados acumuladas a día 23/06 pasa de 631 a 630.",59,40.32,5.08,16.35,19.52,74.29,0.47
 24/06/2020,630,254,32,103,123,470,0,134137,0,2,0,0,0,-2,1,0,-1,0,0,0,,57,40.32,5.08,16.35,19.52,74.6,0.47
 25/06/2020,632,254,32,105,123,471,2,134137,2,1,0,0,0,-1,2,2,-1,0,0,0,El dato de fallecimientos es el acumulado desde el último recuento el 18/06.,56,40.19,5.06,16.61,19.46,74.53,0.47
+26/06/2020,633,254,32,105,123,473,1,134137,0,2,0,0,0,-1,-1,-2,1,0,0,0,,55,40.13,5.06,16.59,19.43,74.72,0.47
