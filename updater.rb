@@ -12,7 +12,7 @@ def write_changelog(newer_coronavirus_row, newer_hospital_row)
   - <b>#{ newer_hospital_row.uci_beds }</b> personas están ingresadas en UCI
   <a href='http://www.curvaenaragon.com/'>Entra en CurvaEnAragón</a> para ver mas detalles.
 
-No se han facilitado los datos sobre fallecimientos, como consecuencia el dato de casos activos no es preciso.
+El dato de fallecimientos es el acumulado desde el último recuento del 25/06
 "
 #No se han facilitado los datos sobre fallecimientos, como consecuencia el dato de casos activos no es preciso.
 #El dato de fallecimientos es el acumulado desde el último recuento el 18/06.

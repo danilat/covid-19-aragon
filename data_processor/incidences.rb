@@ -13,6 +13,7 @@ class Incidences
         "18/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 11/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261743" target="_blank">Aragón Hoy</a>.',
         "25/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 18/06.',
         "28/06/2020": 'Los datos de altas no se han actualizado. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/id.262175" target="_blank">Aragón Hoy</a>.',
+        "02/07/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 25/06.',
       },
       huesca: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
@@ -27,6 +28,7 @@ class Incidences
         "04/06/2020": 'En Huesca se ha reajustado el dato de nuevos confirmados.',
         "25/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 18/06.',
         "28/06/2020": 'Los datos de altas no se han actualizado. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/id.262175" target="_blank">Aragón Hoy</a>.',
+        "02/07/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 25/06.',
       },
       zaragoza: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
@@ -37,6 +39,7 @@ class Incidences
         "18/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 11/06. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/relmenu.9/id.261743" target="_blank">Aragón Hoy</a>.',
         "25/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 18/06.',
         "28/06/2020": 'Los datos de altas no se han actualizado. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/id.262175" target="_blank">Aragón Hoy</a>.',
+        "02/07/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 25/06.',
       },
       teruel: {
         "18/04/2020": 'El descuadre a nivel provincial se debe a que este día se han añadido los casos confirmados por test rápidos que se contabilizaron en Aragón el día 16. Fuente:  <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.258841" target="_blank">Aragón Hoy</a>.',
@@ -53,6 +56,7 @@ class Incidences
         "25/06/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 18/06.',
         "28/06/2020": 'Los datos de altas no se han actualizado. Fuente: <a href="http://www.aragonhoy.net/index.php/mod.noticias/mem.detalle/id.262175" target="_blank">Aragón Hoy</a>.',
         "30/06/2020": 'En Teruel se ha corregido el dato de altas, el número de altas acumuladas a día 30/06 pasa de 476 a 475.',
+        "02/07/2020": 'El dato de fallecimientos es el acumulado desde el último recuento el 25/06.',
       },
       otros: {}
     }
