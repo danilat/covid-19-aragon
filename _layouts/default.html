@@ -31,7 +31,8 @@
       <header class="header" id="header">
         <a href="/"><img src="/assets/img/logoCurvaAragon.svg" alt="{{site.title}}" class="logo"></a>
         <nav>
-          <ul>
+          <ul> 
+              <li {% if page.path == "aragon.html" %}class="active"{% endif %}><a href="/aragon">Aragón</a></li>
               <li {% if page.path == "huesca.html" %}class="active"{% endif %}><a href="/huesca">Huesca</a></li>
               <li {% if page.path == "zaragoza.html" %}class="active"{% endif %}><a href="/zaragoza">Zaragoza</a></li>
               <li {% if page.path == "teruel.html" %}class="active"{% endif %}><a href="/teruel">Teruel</a></li>
