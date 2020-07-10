@@ -1,57 +1,29 @@
 ---
 layout: default
-title: Aragón. 
+title: Descontinuamos Curva en Aragón.
 ---
-      <div class="content">
-        {% assign last_day_aragon = site.data.coronavirus_cases | last %}
-        {% assign initial_day_aragon = site.data.coronavirus_cases | first %}
-
-        <div id="last" class="ancla aragon"></div>
-        <h1>Aragón</h1>
-        <h2 class="inicio">Última actualización {{ last_day_aragon.fecha }}</h2>
-        <div class="fuente">
-            Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>.
-        </div>
-
-        {% include dashboardToday.html %}
-
-        <div id="evolution" class="ancla"></div>
-        <h2>Evolución del COVID-19 en Aragón hasta el {{ last_day_aragon.fecha }}</h2>
-        <div class="chart-container">
-            <canvas id="chartAragon"></canvas>
-        </div>
-
-        <div id="total" class="ancla"></div>
-        <h2>Datos acumulados en Aragón</h2>
-        {% include dashboard.html last_day=last_day_aragon demonym="aragoneses" %}
-
-        <div id="progression" class="ancla"></div>
-        <h2>Progresión diaria desde el {{ initial_day_aragon.fecha }} en Aragón</h2>
-        {% include table.html coronavirus_cases=site.data.coronavirus_cases place="aragon" %}
-
-        <div id="hospitals" class="ancla"></div>
-        <h2>Ocupación hospitalaria en Aragón</h2>
-        <div class="chart-container">
-          <canvas id="chartHospitals"></canvas>
-        </div>
-
-        {% include suscription.html %}
-
-        <div class="nota fuente">
-          <span>Datos oficiales obtenidos de <a href="https://opendata.aragon.es/datos/catalogo/dataset/publicaciones-y-anuncios-relacionados-con-el-coronavirus-en-aragon">Aragón Open Data</a>.</span>
-        </div>
-      </div>
-
-    <script>
-      aragon = {name: "Aragón", dates: [], actives: [], deceases: [], recovered: [], news: []}
-      {% for case in site.data.coronavirus_cases %}
-        aragon.dates.push("{{ case.fecha | date: '%d/%m' }}")
-        aragon.actives.push({{ case.confirmados_activos }})
-        aragon.news.push({{ case.confirmados_dia }})
-        aragon.deceases.push({{ case.fallecimientos_dia }})
-        aragon.recovered.push({{ case.altas_dia }})
-      {% endfor%}
-
-      var aragonHospitals = JSON.parse('{{site.data.hospitals | jsonify}}');
-      draw("chartHospitals", getHospitalChartConfigFor(toChartPlace(aragonHospitals)));
-    </script>
+<div class="content">
+  <article>
+    <h2>Descontinuamos Curva en Aragón</h2>
+    <p>
+      Según se comunicó en <a href="http://aragonhoy.net/index.php/mod.noticias/mem.detalle/area.1050/id.262549">Aragón Hoy el día 3 de Julio</a> desde Salud Pública del Gobierno de Aragón <b>dejan de actualizar diariamente los datos de acumulados</b>, tal y como ya ocurrió con los datos de fallecidos: <i>"A partir de ahora, la tabla con los acumulados se actualizará, al igual que sucede con los fallecimientos, semanalmente"</i>.
+    </p>
+    <p>
+      El proyecto Curva en Aragón es un <b>proyecto pro bono</b> que estuvo conceptualizado desde el inicio en tratar de ayudar a los ciudadanos aragoneses a tener una captura diaria de la situación de la crisis sanitaria y entender su evolución, ya que los fríos datos son difíciles de interpretar por sí sólos y sin contexto.
+    </p>
+    <p>
+      <b>Este nuevo cambio de criterio provoca que no tenga sentido continuar con el proyecto.</b>
+    </p>
+    <p>
+      Durante estos meses ha habido diferentes cambios de criterio respecto a los datos, algo que hasta cierto punto en las primeras semanas de crisis podía ser comprensible.
+      Lo que nos resulta inaceptable es que en las últimas semanas se haya tomado la decisión de dejar pasar, primero con los fallecimientos y después con los acumulados, la frecuencia de actualización diaria a semanal.
+    </p>
+    <p>
+      Teníamos la expectativa de que los conjuntos de datos publicados por el Gobierno de Aragón fueran mejorando o ampliándose con el tiempo, ya que había mucho margen de mejora tanto en la cantidad como en la calidad de los datos.
+    </p>
+    <p>
+      Como ciudadanos y profesionales del producto digital, somos firmes creyentes que <b>las administraciones públicas deben ser lo más abiertas y transparentes posibles, donde tanto políticos como trabajadores públicos deberían velar por ello</b>.
+      Es muy decepcionante ver que una vez más, y en una situación como la actual, no haya sido así.
+    </p>
+  </article>
+</div>
